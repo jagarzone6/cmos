@@ -24,6 +24,6 @@ GIT!! Unfortunatelly out of the scope of this class, but please take a look at t
 
 | Session         | Notebook link         | Exercises |
 | :------------- | :------------- | ----| 
-| 1 | [Resistors-resistivity-wafer Simulation](http://nbviewer.jupyter.org/github/albahnsen/ML_SecurityInformatics/blob/master/notebooks/01-IntroMachineLearning.ipynb)|  |
-| 2 | [Transistors-Kp-wafer-Simulation](http://nbviewer.jupyter.org/github/albahnsen/ML_SecurityInformatics/blob/master/notebooks/02-IntroPython.ipynb) | [01 - Python  & Numpy](http://nbviewer.jupyter.org/github/albahnsen/ML_SecurityInformatics/blob/master/exercises/02-Python%26Numpy.ipynb) |
-| 3 | [Transistors-Vt-wafer-Simulation](http://nbviewer.jupyter.org/github/albahnsen/ML_SecurityInformatics/blob/master/notebooks/02-IntroPython.ipynb) | [01 - Python  & Numpy](http://nbviewer.jupyter.org/github/albahnsen/ML_SecurityInformatics/blob/master/exercises/02-Python%26Numpy.ipynb) |
+| 1 | [Resistors-resistivity-wafer Simulation](http://nbviewer.jupyter.org/github/jagarzone6/cmos/blob/master/notebooks/Cmos%20-%20Resistors.ipynb)|  |
+| 2 | [Transistors-Kp-wafer-Simulation](http://nbviewer.jupyter.org/github/jagarzone6/cmos/blob/master/notebooks/Cmos%20-%20Transistors%20%28variant%20KP%20property%29.ipynb) |  |
+| 3 | [Transistors-Vt-wafer-Simulation](http://nbviewer.jupyter.org/github/jagarzone6/cmos/blob/master/notebooks/Cmos%20-%20Transistors%20%28variant%20Vt%20property%29.ipynb) |  |
