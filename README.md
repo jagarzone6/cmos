@@ -4,8 +4,8 @@
 
 *Members: Jorge Garzon & Esteban Iafrancesco*
 
-- emails: <jagarzone@unal.edu.co> , <eiafrancesco@unal.edu.co>
-- github: [albahnsen](http://github.com/jagarzone6)
+- emails: <jagarzone@unal.edu.co> , <eiafrancescoa@unal.edu.co>
+- github: [jagarzone6](http://github.com/jagarzone6)
 
 ## Requiriments 
 * [Python](http://www.python.org) version 3.5;
