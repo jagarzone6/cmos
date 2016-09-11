@@ -1,0 +1,26 @@
+
+* Simulación Circito Número 3 (Carga activa mos)
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+* RD = Resistencia de drenador = 1K
+* RD2 = Resistencia del segundo FET = 2K
+* plot V(SOURCE)
+
+VDD VDD 0 DC 10 AC 0
+VG GATE 0 DC 4.0833 AC 0
+VO GATE2 0 DC 8 AC 0
+RD2 VDD DRAIN2 2000 
+RD VDD DRAIN 1000
+M1 DRAIN GATE SOURCE 0 nmos W=6 L=2
+I1 SOURCE 0 DC 0.002 AC 0
+M2 DRAIN2 VO SOURCE2 0 nmos W=6 L=2
+I2 SOURCE2 0 DC 0.002 AC 0
+.model nmos nmos LEVEL=1 Vto=0.75 KP=120u LAMBDA=0.01 U0=650
+
+.control
+OP
+show all
+DC VG 0 5 0.1
+
+.endc

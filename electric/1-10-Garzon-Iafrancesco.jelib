@@ -1,0 +1,35 @@
+# header information:
+H1-10-Garzon-Iafrancesco|9.06
+
+# Views:
+Vlayout|lay
+
+# Technologies:
+Tbicmos|ScaleFORbicmos()D700.0
+Tmocmos|MoCMOSAlternateActivePolyRules()BT|MoCMOSRuleSet()I0|ScaleFORmocmos()D300.0|mocmosNumberOfMetalLayers()I3|mocmosSecondPolysilicon()BF
+
+# Cell Higher;1{lay}
+CHigher;1{lay}||mocmos|1471572904817|1471573283155|
+IMyCircuit;1{lay}|MyCircui@0||-36|-36|||D5G4;
+IMyCircuit;1{lay}|MyCircui@1||46|-36|||D5G4;
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NMetal-1-Pin|pin@1||-23|33||||
+AMetal-1|net@1||1|S0|MyCircui@1|Connection|59|33|pin@1||-23|33
+AMetal-1|net@2||1|S900|MyCircui@0|Connection|-23|33|pin@1||-23|33
+X
+
+# Cell MyCircuit;1{lay}
+CMyCircuit;1{lay}||mocmos|1471571580131|1471573180983|
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NMetal-1-Polysilicon-1-Con|contact@0||13|69||||
+NMetal-1-N-Active-Con|contact@1||-5|47|1|8||
+NMetal-1-N-Active-Con|contact@2||1|22||||
+NN-Transistor|nmos@0||-6|69||||
+NN-Transistor|nmos@1||1|47|9||R|
+NN-Transistor|nmos@2||6|18|9||R|
+APolysilicon-1|net@0|||FRS0|contact@0||13|69|nmos@0|poly-right|-2.5|69
+AN-Active|net@1|||S1800|contact@1||-5|47|nmos@1|diff-top|-2.75|47
+AN-Active|net@2|||S0|nmos@1|diff-bottom|4.75|47|nmos@1|diff-top|-2.75|47
+AN-Active|net@3|||S1800|contact@2||1|22|nmos@2|diff-top|2.25|22
+EConnection||D5G2;|contact@0||U
+X
