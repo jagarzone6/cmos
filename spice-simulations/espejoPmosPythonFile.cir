@@ -18,8 +18,8 @@ M3 DRAIN2 GATE2 0 0 pmos1 W=60 L=2
 M4 GATE2 GATE2 0 0 pmos2 W=60 L=2
 
 .model pmosideal pmos LEVEL=1 Vto=-0.9 KP=40u LAMBDA=0.0125 U0=250
-.model pmos1 pmos LEVEL=1 Vto=-1.01696 KP=40u LAMBDA=0.0125 U0=250
-.model pmos2 pmos LEVEL=1 Vto=-0.98784 KP=40u LAMBDA=0.0125 U0=250
+.model pmos1 pmos LEVEL=1 Vto=-0.9 KP=4.07155103211e-05 LAMBDA=0.0125 U0=250
+.model pmos2 pmos LEVEL=1 Vto=-0.9 KP=4.07155103211e-05 LAMBDA=0.0125 U0=250
 
 .control
 set color0 =white
