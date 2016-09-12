@@ -18,8 +18,8 @@ M3 DRAIN2 GATE2 0 0 nmos1 W=60 L=2
 M4 GATE2 GATE2 0 0 nmos2 W=60 L=2
 
 .model nmosideal nmos LEVEL=1 Vto=0.8 KP=120u LAMBDA=0.01 U0=650
-.model nmos1 nmos LEVEL=1 Vto=0.91696 KP=120u LAMBDA=0.01 U0=650
-.model nmos2 nmos LEVEL=1 Vto=0.88784 KP=120u LAMBDA=0.01 U0=650
+.model nmos1 nmos LEVEL=1 Vto=0.8 KP=0.000120622001445 LAMBDA=0.01 U0=650
+.model nmos2 nmos LEVEL=1 Vto=0.8 KP=0.000120622001445 LAMBDA=0.01 U0=650
 
 .control
 set color0 =white
