@@ -4,21 +4,21 @@
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 
-VDD VDD 0 DC 10 AC 0
-V2 VR 0 DC 10 AC 0
+VDD VDD 0 DC -10 AC 0
+V2 VR 0 DC -10 AC 0
 RD VR DRAIN 1000
 RP VDD GATE 2000
-M1 DRAIN GATE 0 0 nmos W=60 L=2
-M2 GATE GATE 0 0 nmos2 W=60 L=2
+M1 DRAIN GATE 0 0 pmos W=60 L=2
+M2 GATE GATE 0 0 pmos2 W=60 L=2
 
-.model nmos nmos LEVEL=1 Vto=0.8 KP=120u LAMBDA=0.01 U0=650
-.model nmos2 nmos LEVEL=1 Vto=0.8 KP=120u LAMBDA=0.01 U0=650
+.model pmos pmos LEVEL=1 Vto=-0.9 KP=40u LAMBDA=0.0125 U0=650
+.model pmos2 pmos LEVEL=1 Vto=-0.9 KP=40u LAMBDA=0.0125 U0=650
 
 .control
 set color0 =white
 set color1=black
 op
 show all
-dc vdd 0 10 0.01
-plot -i(v2)
+dc vdd 0 -10 -0.01
+plot i(v2)
 .endc
