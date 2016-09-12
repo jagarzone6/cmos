@@ -19,6 +19,8 @@ I2 SOURCE2 0 DC 0.002 AC 0
 .model nmos nmos LEVEL=1 Vto=0.75 KP=120u LAMBDA=0.01 U0=650
 
 .control
+set color0 =white
+set color1=black
 OP
 show all
 DC VG 0 5 0.1
