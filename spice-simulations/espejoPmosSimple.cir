@@ -11,8 +11,8 @@ RP VDD GATE 2000
 M1 DRAIN GATE 0 0 pmos W=60 L=2
 M2 GATE GATE 0 0 pmos2 W=60 L=2
 
-.model pmos pmos LEVEL=1 Vto=-0.9 KP=40u LAMBDA=0.0125 U0=650
-.model pmos2 pmos LEVEL=1 Vto=-0.9 KP=40u LAMBDA=0.0125 U0=650
+.model pmos pmos LEVEL=1 Vto=-0.9 KP=40u LAMBDA=0.0125 U0=250
+.model pmos2 pmos LEVEL=1 Vto=-0.9 KP=40u LAMBDA=0.0125 U0=250
 
 .control
 set color0 =white
