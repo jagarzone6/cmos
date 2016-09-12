@@ -1,0 +1,31 @@
+
+* Simulación Circuito Espejo de Corriente con Ncmos, valores ideales de Kp_n y Vt
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+
+VDD VDD 0 DC 10 AC 0
+V2 VR 0 DC 10 AC 0
+VRD RDN VR DC 0 AC 0
+RD RDN DRAIN 1000
+RP VDD GATE 2000
+M1 DRAIN GATE 0 0 nmos W=60 L=2
+M2 GATE GATE 0 0 nmos W=60 L=2
+
+VRD2 RDN2 VR DC 0 AC 0
+RD2 RDN2 DRAIN2 1000
+RP2 VDD GATE2 2000
+M3 DRAIN2 GATE2 0 0 nmos2 W=60 L=2
+M4 GATE2 GATE2 0 0 nmos2 W=60 L=2
+
+.model nmos nmos LEVEL=1 Vto=0.8 KP=120u LAMBDA=0.01 U0=650
+.model nmos2 nmos LEVEL=1 Vto=1.5 KP=130u LAMBDA=0.02 U0=600
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+dc vdd 0 10 0.01
+plot -i(vrd) -i(vrd2)
+.endc
