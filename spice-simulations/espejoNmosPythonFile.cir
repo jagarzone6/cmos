@@ -1,5 +1,4 @@
-
-* Simulación Circuito Espejo de Corriente con Ncmos, valores ideales de Kp_n y Vt
+* Simulación Circuito Espejo de Corriente con Ncmos, valores reales de Kp_n y Vt
 * Universidad Nacional de Colombia 2016
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
@@ -27,5 +26,5 @@ set color1=black
 op
 show all
 dc vdd 0 10 0.01
-plot -i(vrd) -i(vrd2)
+plot i(vrd) i(vrd2)
 .endc

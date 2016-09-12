@@ -20,5 +20,5 @@ set color1=black
 op
 show all
 dc vdd 0 10 0.01
-plot -i(v2) -i(vdd)
+plot i(v2) i(vdd)
 .endc
