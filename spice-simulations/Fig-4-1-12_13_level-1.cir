@@ -6,9 +6,9 @@
 VDD VDD 0 DC 5 AC 0
 Vin Vin 0 DC 3 AC 0
 RL RLo 0 0.00000001
-VRL SOURCE RLo DC 0 AC 0
-M1 Vin VDD SOURCE 0 nmoslevel1 W=60 L=2
-M2 Vin 0 SOURCE 0 pmoslevel1 W=60 L=2
+VRL DRAIN RLo DC 0 AC 0
+M1 DRAIN VDD Vin 0 nmoslevel1 W=17 L=16
+M2 DRAIN 0 Vin 0 pmoslevel1 W=17 L=16
 
 
 .model nmoslevel1 nmos LEVEL=1 Vto=0.8 KP=120u LAMBDA=0.01 U0=650
