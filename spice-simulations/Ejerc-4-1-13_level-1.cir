@@ -1,0 +1,28 @@
+* Simulación Circuito Del ejercicio 4,1-13 CMOS Switch Level 3
+* Usando parametros de las tablas 3.1-2 y 3.2-1
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+* PULSE ( V1 V2 TD TR TF PW PER )
+VDD VDD 0 PULSE(0 5 0 2NS 2NS 50NS 100NS )
+VDD_2 VDD_2 0 PULSE(5 0 0 2NS 2NS 50NS 100NS )
+
+*VDD VDD 0 PULSE(0 5 0 0 0 50NS 100NS )
+*VDD_2 VDD_2 0 PULSE(5 0 0 0 0 50NS 100NS )
+Vin Vin 0 DC 2.5 AC 0
+C1 c1o 0 1p
+VC1 swo c1o DC 0 AC 0
+M1 swo VDD Vin 0 nmoslevel1 W=1 L=1
+M2 Vin VDD_2 swo 0 pmoslevel1 W=1 L=1
+
+.model nmoslevel1 nmos LEVEL=1 Vto=0.7 KP=110u LAMBDA=0.04 U0=650 gamma=0.4 phi=0.7 cgso=220p cgdo=220p cgbo=700p cj=770u cjsw=380p mj=0.5 mjsw=0.38
+.model pmoslevel1 pmos LEVEL=1 Vto=-0.7 KP=50u LAMBDA=0.05 U0=250 gamma=0.57 phi=0.8 cgso=220p cgdo=220p cgbo=700p cj=560u cjsw=350p mj=0.5 mjsw=0.35
+
+.tran .1ns 1000ns
+
+.control
+set color0 =white
+set color1=black
+run
+plot vdd vdd_2 v(c1o)
+.endc
