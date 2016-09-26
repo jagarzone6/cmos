@@ -5,14 +5,14 @@
 
 VDD VDD 0 DC 5 AC 0
 Vin Vin 0 DC 3 AC 0
-RL RLo 0 0.00000001
+RL RLo 0 0
 VRL DRAIN RLo DC 0 AC 0
 M1 DRAIN VDD Vin 0 nmoslevel3 W=17 L=16
 M2 DRAIN 0 Vin 0 pmoslevel3 W=17 L=16
 
 
-.model nmoslevel3 nmos LEVEL=3 Vto=0.8 KP=120u LAMBDA=0.01 U0=650
-.model pmoslevel3 pmos LEVEL=3 Vto=-0.9 KP=40u LAMBDA=0.0125 U0=250
+.model nmoslevel3 nmos LEVEL=3 Vto=0.7 KP=110u LAMBDA=0.04 phi=0.7 gamma=0.4 DELTA=2.4 U0=660 ETA=0.1 KAPPA=0.15 THETA=0.1 NSUB=3E16 TOX=140E-10 XJ=0.2u WD=0.2u LD=0.016u NFS=7E11 cgso=220p cgdo=220p cgbo=700p cj=770u cjsw=380p mj=0.5 mjsw=0.38
+.model pmoslevel3 pmos LEVEL=3 Vto=-0.7 KP=50u LAMBDA=0.05 phi=0.8 gamma=0.57 DELTA=1.25 U0=210 ETA=0.1 KAPPA=2.5 THETA=0.1 NSUB=6E16 TOX=140E-10 XJ=0.2u WD=0.2u LD=0.015u NFS=6E11 cgso=220p cgdo=220p cgbo=700p cj=560u cjsw=350p mj=0.5 mjsw=0.35
 
 .control
 set color0 =white
@@ -20,5 +20,5 @@ set color1=black
 op
 show all
 dc vin 0 5 0.01
-plot vin/i(vrl)
+plot v(vin,drain)/i(vrl)
 .endc

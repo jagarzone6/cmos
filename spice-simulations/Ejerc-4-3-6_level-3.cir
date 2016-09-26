@@ -1,0 +1,29 @@
+* Simulación Circuito Del ejercicio 4,3-6 CMOS Current mirror
+* Usando parametros de la tabla 3.4-1
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+
+
+VDD vd 0 DC 5 AC 0
+IAA 0 GATE_M2 DC 5u AC 0
+IBB 0 GATE_M1 DC 5u AC 0
+RL vd DRAIN_M2 100k
+M1 DRAIN_M1 GATE_M1 0 0 nmoslevel3 W=4 L=1
+M2 DRAIN_M2 GATE_M2 DRAIN_M1 0 nmoslevel3 W=4 L=1
+M3 GATE_M1 GATE_M1 0 0 nmoslevel3_2 W=4 L=1
+M4 GATE_M2 GATE_M2 0 0 nmoslevel3_2 W=1 L=1
+
+
+.model nmoslevel3 nmos LEVEL=3 Vto=0.7 KP=110u LAMBDA=0.04 phi=0.7 gamma=0.4 DELTA=2.4 U0=660 ETA=0.1 KAPPA=0.15 THETA=0.1 NSUB=3E16 TOX=140E-10 XJ=0.2u WD=0.2u LD=0.016u NFS=7E11 cgso=220p cgdo=220p cgbo=700p cj=770u cjsw=380p mj=0.5 mjsw=0.38
+.model nmoslevel3_2 nmos LEVEL=3 Vto=0.7 KP=55u LAMBDA=0.04 phi=0.7 gamma=0.4 DELTA=2.4 U0=660 ETA=0.1 KAPPA=0.15 THETA=0.1 NSUB=3E16 TOX=140E-10 XJ=0.2u WD=0.2u LD=0.016u NFS=7E11 cgso=220p cgdo=220p cgbo=700p cj=770u cjsw=380p mj=0.5 mjsw=0.38
+
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+dc vdd 0 5 0.01
+plot -i(vdd)
+.endc
