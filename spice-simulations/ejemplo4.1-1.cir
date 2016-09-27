@@ -1,0 +1,56 @@
+
+* Bogotá 20 de Noviembre de 2015
+* Simulación ejemplo 4.1-1 Allen 
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+
+** A partir de la figura 4.1-9 del Allen, se definene los nodos VS, 0, VCL ** CL, CGD0, CGS0, CCH1=CCH/2, CCH2=CCH/2 VDD y RCH.  
+
+
+VDD VDD 0 DC 5 AC 0
+VS VS 0 DC 1 AC 0
+VCL VCL 0 
+RCH VS VCL 1000
+CL VCL 0 200f
+CGD0 VDD VS 220p
+CGS0 VDD VCL 220p
+CCH1 VDD VS 0.76p
+CCH2 VDD VCL 0.76p
+
+** .model level1 nmos LEVEL=1 Vto=0.7 KP=120u LAMBDA=0.01 U0=660
+
+.MODEL level3 NMOS
++ TOX =200E-10
++ PHI =0.7
++ UO =650
++ KP =120E-6
++ RSH = 0
++ XJ =500E-9
++ CGDO =200E-12
++ CJ =400E-6
++ CJSW =300E-12 LEVEL = 3
++ NSUB =1E17
++ VTO =0.8
++ ETA = 3.0E-6
++ VMAX =1E5
++ NFS =1E12
++ LD = 100E-9
++ CGSO =200E-12
++ PB = 1
++ MJSW =0.5
++ GAMMA = 0.5
++ DELTA = 3.0
++ THETA = 0.1
++ KAPPA = 0.3
++ TPG = 1
++ CGBO =1E-10
++ MJ =0.5
+
+.control
+OP
+show all
+DC VCL 0 5 0.1
+** plot V(SOURCE)
+.endc
+	

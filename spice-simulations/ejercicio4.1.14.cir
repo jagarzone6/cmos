@@ -1,0 +1,28 @@
+* Bogotá 20 de Noviembre de 2016
+* Simulación ejercicio 4.1-14 Allen 
+* Switch de cuatro transistores con RL = 1kOhm
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+
+** 
+
+VIN N1 0 DC 9 AC 0
+M1 N3 N1 N5 0 nmos W=6 L=2
+M2 N4 N6 N5 0 nmos W=6 L=2
+M3 N3 N1 N2 0 nmos W=6 L=2
+M4 N4 N6 N2 0 nmos W=6 L=2
+VOUT N6 0 
+RL N6 0 1000
+ICONTROL N5 N2 DC 0.0002 AC 0 
+
+
+.model nmos nmos LEVEL=1 Vto=0.75 KP=120u LAMBDA=0.01 U0=650
+
+.control
+OP
+show all
+.endc
+	
+
+	
