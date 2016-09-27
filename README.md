@@ -27,3 +27,4 @@ GIT!! Unfortunatelly out of the scope of this class, but please take a look at t
 | 1 | [Resistors-resistivity-wafer Simulation](http://nbviewer.jupyter.org/github/jagarzone6/cmos/blob/master/notebooks/Cmos%20-%20Resistors.ipynb)|  
 | 2 | [Transistors-Kp-wafer-Simulation](http://nbviewer.jupyter.org/github/jagarzone6/cmos/blob/master/notebooks/Cmos%20-%20Transistors%20%28variant%20KP%20property%29.ipynb) |  
 | 3 | [Transistors-Vt-wafer-Simulation](http://nbviewer.jupyter.org/github/jagarzone6/cmos/blob/master/notebooks/Cmos%20-%20Transistors%20%28variant%20Vt%20property%29.ipynb) |  
+| 4 | [Taller 27 de Sept](http://nbviewer.jupyter.org/github/jagarzone6/cmos/blob/master/notebooks/CMOS%20-%20Taller%20Septiembre%2027.ipynb) |  
