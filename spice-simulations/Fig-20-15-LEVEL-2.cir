@@ -3,7 +3,7 @@
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 
-VDD VDD 0 DC 0 AC 0
+VDD VDD 0 DC 6 AC 0
 M1 gateM1 gateM1 Vm1 0 nmoslevel3 W=10 L=2
 M3 gateM1 drainM2 VDD VDD pmoslevel3 W=30 L=2
 M2 drainM2 gateM1 sourceM2 0 nmoslevel3 W=40 L=2
@@ -22,7 +22,7 @@ VM1ref Vm1 0 DC 0 AC 0
 
 
 .tran .1ms 1s
-.ic v(gateM1)=0 v(drainM2)=0
+.ic v(gateM1)=5 v(drainM2)=0
 .control
 set color0 =white
 set color1=black
