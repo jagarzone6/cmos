@@ -1,0 +1,38 @@
+* Simulación Circuito De las figura 20,15 CMOS Current Mirror Level 3
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+
+VDD VDD 0 DC 6   AC 0
+RL RLo 0 6.5k
+VRL sourceM2 RLo DC 0 AC 0
+M1 gateM1 gateM1 0 0 nmoslevel3 W=10 L=2
+M3 VDD drainM2 gateM1 0 pmoslevel3 W=30 L=2
+M2 drainM2 gateM1 sourceM2 0 nmoslevel3 W=40 L=2
+M4 VDD drainM2 drainM2 0 pmoslevel3 W=30 L=2
+MSU1 gateMSU3 gateM1 0 0 nmoslevel3 W=10 L=2
+MSU2 VDD gateMSU3 gateMSU3 0 pmoslevel3 W=10 L=100
+MSU3 drainM2 gateMSU3 gateM1 0 nmoslevel3 W=10 L=1
+
+
+.model nmoslevel3 nmos LEVEL=3
++ Vto=0.7 KP=110u LAMBDA=0.04 phi=0.7 gamma=0.4
++ DELTA=2.4 U0=660 ETA=0.1 KAPPA=0.15 THETA=0.1
++ NSUB=3E16 TOX=140E-10 XJ=0.2u WD=0.2u LD=0.016u NFS=7E11
++ cgso=220p cgdo=220p cgbo=700p cj=770u cjsw=380p mj=0.5 mjsw=0.38
+
+.model pmoslevel3 pmos LEVEL=3
++ Vto=-0.7 KP=50u LAMBDA=0.05 phi=0.8 gamma=0.57
++ DELTA=1.25 U0=210 ETA=0.1 KAPPA=2.5 THETA=0.1
++ NSUB=6E16 TOX=140E-10 XJ=0.2u WD=0.2u LD=0.015u NFS=6E11
++ cgso=220p cgdo=220p cgbo=700p cj=560u cjsw=350p mj=0.5 mjsw=0.35
+
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+dc vdd 0 6 0.01
+plot i(vrl)
+.endc
