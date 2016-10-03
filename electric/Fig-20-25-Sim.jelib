@@ -36,7 +36,7 @@ EVDDin||D5G2;|pin@6||P
 X
 
 # Cell Current_mirror_bias;1{lay}
-CCurrent_mirror_bias;1{lay}||mocmos|1475525453601|1475530513837||DRC_last_good_drc_area_date()G1475530523936|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475530523936
+CCurrent_mirror_bias;1{lay}||mocmos|1475525453601|1475533054461||DRC_last_good_drc_area_date()G1475533059082|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475533059082
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-P-Active-Con|contact@13||49|79|15|||
 NMetal-1-P-Active-Con|contact@14||49|89|15|||
@@ -56,6 +56,8 @@ NMetal-1-Polysilicon-1-Con|contact@28||25|53|5||R|
 NMetal-1-Polysilicon-1-Con|contact@29||19|-11|5|||
 NMetal-1-Polysilicon-1-Con|contact@30||-47|16|7|95||
 NMetal-1-Polysilicon-1-Con|contact@32||-29|84|5|||
+NMetal-1-Polysilicon-2-Con|contact@35||64|-103||||
+NMetal-1-Polysilicon-2-Con|contact@36||91|-157||||
 NN-Transistor|nmos@0||-66|-71|7||||SIM_spice_model(D5G4;)SNMOS
 NN-Transistor|nmos@1||2|-36|7||||SIM_spice_model(D5G4;)SNMOS
 NN-Transistor|nmos@3||-28|52|7||||SIM_spice_model(D5G4;)SNMOS
@@ -76,6 +78,9 @@ NPolysilicon-1-Pin|pin@16||-47|52||||
 NMetal-1-Pin|pin@17||-47|-31||||
 NPolysilicon-1-Pin|pin@18||-17|84||||
 NMetal-1-Pin|pin@19||-30|-156||||
+NMetal-1-Pin|pin@20||64|-68||||
+NPolysilicon-2-Pin|pin@22||64|-131||||
+NPolysilicon-2-Pin|pin@23||91|-131||||
 NP-Transistor|pmos@0||-66|35|7|98|||SIM_spice_model(D5G4;)SPMOS
 NP-Transistor|pmos@1||0|84|27||||SIM_spice_model(D5G4;)SPMOS
 NP-Transistor|pmos@2||49|84|27||||SIM_spice_model(D5G4;)SPMOS
@@ -150,6 +155,12 @@ APolysilicon-1|net@112|||S900|pmos@1|poly-left|-17|84|pin@18||-17|84
 APolysilicon-1|net@114|||S1800|contact@32||-31|84|pin@18||-17|84
 AMetal-1|net@115||6|IS900|contact@32||-30|84|substr@0||-30|67
 AMetal-1|net@116||6|S0|substr@3||-1|-156|pin@19||-30|-156
+AMetal-1|net@117||36|S1800|substr@6||55|-68|pin@20||64|-68
+AMetal-1|net@118||1|S2700|contact@35||64|-103|pin@20||64|-68
+APolysilicon-2|net@120||3|S900|contact@35||64|-103|pin@22||64|-131
+APolysilicon-2|net@121||3|S1800|pin@22||64|-131|pin@23||91|-131
+APolysilicon-2|net@123||3|S900|pin@23||91|-131|contact@36||91|-157
+AMetal-1|net@124||1|S0|contact@36||91|-157|substr@3||-1|-157
 EGND||D5G10;|substr@3||G
 EVDD||D5G10;Y3;|well@3||P
 X
@@ -257,12 +268,12 @@ EVDD||D5G2;|pin@0||P
 X
 
 # Cell Current_mirror_bias_SIM;1{lay}
-CCurrent_mirror_bias_SIM;1{lay}|Current_mirror_bias|mocmos|1475530744638|1475531452327||DRC_last_good_drc_area_date()G1475531374934|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475531374934
+CCurrent_mirror_bias_SIM;1{lay}|Current_mirror_bias|mocmos|1475530744638|1475533157077||DRC_last_good_drc_area_date()G1475533163986|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475533163986
 ICurrent_mirror_bias;1{lay}|Current_@0||-2|8|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-Pin|pin@1||-1|-217||||
 NMetal-1-Pin|pin@2||-13|217||||
-Ngeneric:Invisible-Pin|pin@4||-85|111|||||SIM_spice_card(D5G10;)S[Vdd VDD gnd 5,.dc Vdd 0 6 1m]
+Ngeneric:Invisible-Pin|pin@4||-85|111|||||SIM_spice_card(D5G10;)S[Vdd VDD gnd 5,.dc Vdd 0 6 1m,.include long_channel_3_models.txt]
 AMetal-1|net@1||6|S900|Current_@0|GND|-1|-148|pin@1||-1|-217
 AMetal-1|net@2||16|S2700|Current_@0|VDD|-13|171|pin@2||-13|217
 EGND||D5G10;|pin@1||G
