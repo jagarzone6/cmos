@@ -166,11 +166,10 @@ EVDD||D5G10;Y3;|well@3||P
 X
 
 # Cell Current_mirror_bias;1{sch}
-CCurrent_mirror_bias;1{sch}||schematic|1475517154994|1475530814182|
+CCurrent_mirror_bias;1{sch}||schematic|1475517154994|1475533550086|
 NOff-Page|Iref1|D5G1;|-3|-3|1|3||
 NOff-Page|Iref2|D5G1;|15|0|1|3||
 NOff-Page|VDD|D5G1;|0|34|1|3||
-NPower|VSS|D5G1;|-12|35||||
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NGround|gnd@0||4|-10||||
 NTransistor|nmos@0||-10|4|||RRR||ATTR_length(D5G0.5;X-0.5;Y-1;)S2|ATTR_width(D5G1;X0.5;Y-1;)S10|SIM_spice_model(D5G2;Y-7;)SNMOS
