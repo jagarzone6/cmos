@@ -130,7 +130,7 @@ EVDD||D5G2;|pin@0||P
 X
 
 # Cell Current_mirror_bias_SIM;1{lay}
-CCurrent_mirror_bias_SIM;1{lay}||mocmos|1475525453601|1475529039697||DRC_last_good_drc_area_date()G1475529042478|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475529042478
+CCurrent_mirror_bias_SIM;1{lay}||mocmos|1475525453601|1475529803747||DRC_last_good_drc_area_date()G1475529854535|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475529854535
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-P-Active-Con|contact@13||49|79|15|||
 NMetal-1-P-Active-Con|contact@14||49|89|15|||
@@ -169,13 +169,14 @@ NPolysilicon-1-Pin|pin@15||25|84||||
 NPolysilicon-1-Pin|pin@16||-47|52||||
 NMetal-1-Pin|pin@17||-47|-31||||
 NPolysilicon-1-Pin|pin@18||-17|84||||
+NMetal-1-Pin|pin@19||-30|-156||||
 NP-Transistor|pmos@0||-66|35|7|98||
 NP-Transistor|pmos@1||0|84|27|||
 NP-Transistor|pmos@2||49|84|27|||
 NMetal-1-P-Well-Con|substr@0||-28|67|5|||
 NMetal-1-P-Well-Con|substr@1||-28|26|5|||
 NMetal-1-P-Well-Con|substr@2||-66|-50|5|||
-NMetal-1-P-Well-Con|substr@3||0|-149|145|7||
+NMetal-1-P-Well-Con|substr@3||-1|-156|145|7||
 NMetal-1-P-Well-Con|substr@5||2|-11|5|||
 NMetal-1-P-Well-Con|substr@6||58|-65|35|7||
 NMetal-1-P-Well-Con|substr@7||55|5|35|7||
@@ -211,7 +212,7 @@ AMetal-1|net@69||6|IS2700|contact@25||-28|57|pin@3||-28|67
 AMetal-1|net@70||6|JS2700|substr@1||-28|26|contact@24||-28|47
 AMetal-1|net@71||1|S1800|substr@2||-67|-50|pin@4||-66|-50
 AMetal-1|net@72||6|IS2700|contact@20||-66|-66|pin@4||-66|-50
-AMetal-1|net@73||6|S2700|substr@3||-65|-149|pin@5||-65|-76
+AMetal-1|net@73||6|S2700|substr@3||-65|-156|pin@5||-65|-76
 AMetal-1|net@74||1|S1800|contact@21||-66|-76|pin@5||-65|-76
 AMetal-1|net@77||1|S1800|substr@5||1|-11|pin@7||2|-11
 AMetal-1|net@78||6|IS2700|contact@27||2|-31|pin@7||2|-11
@@ -219,7 +220,7 @@ AMetal-1|net@79||36|JS900|substr@7||55|5|contact@22||55|-31
 AMetal-1|net@80||36|IS900|contact@23||55|-41|substr@6||55|-68
 AMetal-1|net@81||36|S0|substr@7||55|5|pin@9||49|5
 AMetal-1|net@82||16|S900|well@6||49|52|pin@9||49|5
-AMetal-1|net@83||6|IS900|contact@26||2|-41|substr@3||2|-149
+AMetal-1|net@83||6|IS900|contact@26||2|-41|substr@3||2|-156
 AMetal-1|net@84||6|S900|well@4||-66|-31|pin@4||-66|-50
 AMetal-1|net@85||6|S2700|substr@5||2|-11|well@5||2|52
 AMetal-1|net@86||6|S900|substr@1||-28|26|pin@10||-28|-11
@@ -242,6 +243,9 @@ AMetal-1|net@111||1|S1800|well@4||-66|-31|pin@17||-47|-31
 APolysilicon-1|net@112|||S900|pmos@1|poly-left|-17|84|pin@18||-17|84
 APolysilicon-1|net@114|||S1800|contact@32||-31|84|pin@18||-17|84
 AMetal-1|net@115||6|IS900|contact@32||-30|84|substr@0||-30|67
+AMetal-1|net@116||6|S0|substr@3||-1|-156|pin@19||-30|-156
+EGND||D5G10;|substr@3||G
+EVDD||D5G10;Y3;|well@3||P
 X
 
 # Cell Current_mirror_bias_SIM;1{sch}
