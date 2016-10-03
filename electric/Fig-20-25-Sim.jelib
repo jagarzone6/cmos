@@ -280,10 +280,10 @@ EVDD||D5G10;|pin@2||P
 X
 
 # Cell Current_mirror_bias_SIM;1{sch}
-CCurrent_mirror_bias_SIM;1{sch}|Current_mirror_bias|schematic|1475517154994|1475530920806|
+CCurrent_mirror_bias_SIM;1{sch}|Current_mirror_bias|schematic|1475517154994|1475533749026|
 ICurrent_mirror_bias;1{sch}|Current_@3||-16|66|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
-Ngeneric:Invisible-Pin|pin@19||-17|114|||||SIM_spice_declaration(D5G1;)S[Vdd VDDin gnd 5,.dc Vdd 0 6 1m,.include long_channel_3_models.txt]
+Ngeneric:Invisible-Pin|pin@19||-17|114|||||SIM_spice_declaration(D5G1;)S[Vdd VDDin gnd 5,.dc Vdd 0 6 1m,*.include long_channel_3_models.txt]
 NWire_Pin|pin@36||-13.5|107||||
 NWire_Pin|pin@37||8|66||||
 Awire|net@37|||2700|Current_@3|VDD|-13.5|100|pin@36||-13.5|107
