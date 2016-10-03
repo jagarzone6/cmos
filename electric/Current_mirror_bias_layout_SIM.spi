@@ -1,0 +1,26 @@
+*** SPICE deck for cell Current_mirror_bias_SIM{lay} from library Fig-20-25-Sim
+*** Created on Mon Oct 03, 2016 16:39:04
+*** Last revised on Mon Oct 03, 2016 16:49:27
+*** Written on Mon Oct 03, 2016 16:50:24 by Electric VLSI Design System, version 9.06
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Fig-20-25-Sim__Current_mirror_bias FROM CELL Current_mirror_bias{lay}
+.SUBCKT Fig-20-25-Sim__Current_mirror_bias gnd vdd
+Mnmos@0 gnd net@42 net@46 gnd NMOS L=2U W=10U AS=115P AD=965P PS=63U PD=195U
+Mnmos@1 gnd net@42 net@42 gnd NMOS L=2U W=10U AS=210P AD=965P PS=87.667U PD=195U
+Mnmos@3 net@42 net@46 net@40 gnd NMOS L=2U W=10U AS=418.333P AD=210P PS=132.333U PD=87.667U
+Mnmos@4 net@50 net@42 net@40 gnd NMOS L=2U W=40U AS=418.333P AD=740P PS=132.333U PD=197U
+Mpmos@0 net@46 net@46 vdd vdd PMOS L=100U W=10U AS=728.333P AD=115P PS=167.667U PD=63U
+Mpmos@1 net@42 net@40 vdd vdd PMOS L=2U W=30U AS=728.333P AD=210P PS=167.667U PD=87.667U
+Mpmos@2 net@40 net@40 vdd vdd PMOS L=2U W=30U AS=728.333P AD=418.333P PS=167.667U PD=132.333U
+.ENDS Fig-20-25-Sim__Current_mirror_bias
+
+*** TOP LEVEL CELL: Current_mirror_bias_SIM{lay}
+XCurrent_@0 gnd vdd Fig-20-25-Sim__Current_mirror_bias
+
+* Spice Code nodes in cell cell 'Current_mirror_bias_SIM{lay}'
+Vdd VDD gnd 5
+.dc Vdd 0 6 1m
+.include long_channel_3_models.txt
+.END
