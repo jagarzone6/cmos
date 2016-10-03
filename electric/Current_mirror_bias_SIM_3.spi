@@ -1,0 +1,24 @@
+*** SPICE deck for cell Current_mirror_bias_SIM{sch} from library Fig-20-25-Sim
+*** Created on Mon Oct 03, 2016 12:52:34
+*** Last revised on Mon Oct 03, 2016 14:42:55
+*** Written on Mon Oct 03, 2016 14:46:41 by Electric VLSI Design System, version 9.06
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: Current_mirror_bias_SIM{sch}
+
+* Spice Declaration nodes in cell cell 'Current_mirror_bias_SIM{sch}'
+Vdd VDDin gnd 5
+.dc VDDin 0 6 1m
+.include c5_models.txt
+Mnmos@0 gnd net@0 net@2 gnd NMOS L=2U W=10U
+Mnmos@1 gnd net@0 net@0 gnd NMOS L=2U W=10U
+Mnmos@2 net@9 net@2 net@0 gnd NMOS L=1U W=10U
+Mnmos@3 net@9 net@0 net@20 gnd NMOS L=2U W=40U
+Mpmos@0 net@2 net@2 net@8 vdd PMOS L=100U W=10U
+Mpmos@1 net@0 net@9 net@8 vdd PMOS L=2U W=30U
+Mpmos@2 net@8 net@9 net@9 vdd PMOS L=2U W=30U
+Rres@0 net@20 gnd 6.5k
+.END
