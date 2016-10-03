@@ -12,7 +12,7 @@
 * Spice Declaration nodes in cell cell 'Current_mirror_bias_SIM{sch}'
 Vdd VDDin gnd 5
 .dc VDDin 0 6 1m
-.include c5_models.txt
+.include long_channel_3_models.txt
 Mnmos@0 gnd net@0 net@2 gnd NMOS L=2U W=10U
 Mnmos@1 gnd net@0 net@0 gnd NMOS L=2U W=10U
 Mnmos@2 net@9 net@2 net@0 gnd NMOS L=1U W=10U
