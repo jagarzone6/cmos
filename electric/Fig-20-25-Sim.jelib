@@ -40,7 +40,7 @@ EVDDin||D5G2;|pin@6||P
 X
 
 # Cell Current_mirror_bias;1{lay}
-CCurrent_mirror_bias;1{lay}||mocmos|1475525453601|1475623240245||DRC_last_good_drc_area_date()G1475622983283|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475623256947
+CCurrent_mirror_bias;1{lay}||mocmos|1475525453601|1475624204901||DRC_last_good_drc_area_date()G1475623775980|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475624243573
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-P-Active-Con|contact@13||49|79|15|||
 NMetal-1-P-Active-Con|contact@14||49|89|15|||
@@ -84,7 +84,8 @@ NPolysilicon-1-Pin|pin@18||-17|84||||
 NMetal-1-Pin|pin@19||-30|-156||||
 NMetal-1-Pin|pin@20||64|-68||||
 NPolysilicon-2-Pin|pin@22||64|-131||||
-NPolysilicon-2-Pin|pin@23||91|-131|||||SIM_spice_model(D5G5;)S[.model RMODEL r RSH=1.2k,RMODEL]
+NPolysilicon-2-Pin|pin@23||91|-131||||
+Ngeneric:Invisible-Pin|pin@24||-127|15|||||SIM_spice_card(D5G5;)S[.model RMODEL r RSH=1.2k,Rload VRL gnd RMODEL L=56u W=10u]
 NP-Transistor|pmos@0||-66|35|7|98|||SIM_spice_model(D5G4;)SPMOS
 NP-Transistor|pmos@1||0|84|27||||SIM_spice_model(D5G4;)SPMOS
 NP-Transistor|pmos@2||49|84|27||||SIM_spice_model(D5G4;)SPMOS
@@ -162,12 +163,11 @@ AMetal-1|net@116||6|S0|substr@3||-1|-156|pin@19||-30|-156
 AMetal-1|net@117||36|S1800|substr@6||55|-68|pin@20||64|-68
 AMetal-1|net@118||1|S2700|contact@35||64|-103|pin@20||64|-68
 APolysilicon-2|net@120||3|S900|contact@35||64|-103|pin@22||64|-131
-APolysilicon-2|net@121||3|S1800|pin@22||64|-131|pin@23||91|-131
 APolysilicon-2|net@123||3|S900|pin@23||91|-131|contact@36||91|-157
 AMetal-1|net@124||1|S0|contact@36||91|-157|substr@3||-1|-157
 EGND||D5G10;|substr@3||G
 EVDD||D5G10;Y3;|well@3||P
-EVRl|VRL|D5G10;|contact@35||O
+EVRl|VRL|D5G10;X-14;Y1;|contact@35||O
 X
 
 # Cell Current_mirror_bias;1{sch}
@@ -272,7 +272,7 @@ EVDD||D5G2;|pin@0||P
 X
 
 # Cell Current_mirror_bias_SIM;1{lay}
-CCurrent_mirror_bias_SIM;1{lay}|Current_mirror_bias|mocmos|1475530744638|1475621486608||DRC_last_good_drc_area_date()G1475623256947|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475621502705
+CCurrent_mirror_bias_SIM;1{lay}|Current_mirror_bias|mocmos|1475530744638|1475621486608||DRC_last_good_drc_area_date()G1475624243573|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475621502705
 ICurrent_mirror_bias;1{lay}|Current_@0||-2|8|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-Pin|pin@1||-1|-217||||
