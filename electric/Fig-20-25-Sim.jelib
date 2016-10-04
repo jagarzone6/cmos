@@ -10,7 +10,7 @@ Vschematic|sch
 Tmocmos|ScaleFORmocmos()D1000.0
 
 # Cell Current_mirror_bias;1{ic}
-CCurrent_mirror_bias;1{ic}||artwork|1475519048687|1475530920806|E
+CCurrent_mirror_bias;1{ic}||artwork|1475519048687|1475621303239|E
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NOpened-Thicker-Polygon|art@1||0|0|6|10|||SCHEM_function(D5G2;)SCurrent_mirror_bias|trace()V[-3/-5,-3/5,3/5,3/-5,-3/-5]
 Nschematic:Bus_Pin|pin@0||0|2||||
@@ -23,20 +23,24 @@ Nschematic:Bus_Pin|pin@6||0|4||||
 Nschematic:Wire_Pin|pin@7||0|2||||
 Nschematic:Bus_Pin|pin@8||3|-3||||
 Nschematic:Wire_Pin|pin@9||1|-3||||
+Nschematic:Bus_Pin|pin@10||-3|-3||||
+Nschematic:Wire_Pin|pin@11||-1|-3||||
 Aschematic:wire|net@0|||0|pin@1||2|2|pin@0||0|2
 Aschematic:wire|net@1|||0|pin@3||0|-4|pin@2||-2|-4
 Aschematic:wire|net@2|||1800|pin@5||-1|-3|pin@4||1|-3
 Aschematic:wire|net@3|||2700|pin@7||0|2|pin@6||0|4
 Aschematic:wire|net@4|||1800|pin@9||1|-3|pin@8||3|-3
+Aschematic:wire|net@5|||0|pin@11||-1|-3|pin@10||-3|-3
 EIref1||D5G2;|pin@2||O
 EIref2||D5G2;|pin@4||O
 EIreference2||D5G2;|pin@8||O
+EIreference3||D5G2;|pin@10||O
 EVDD||D5G2;|pin@0||P
 EVDDin||D5G2;|pin@6||P
 X
 
 # Cell Current_mirror_bias;1{lay}
-CCurrent_mirror_bias;1{lay}||mocmos|1475525453601|1475533054461||DRC_last_good_drc_area_date()G1475533059082|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475533059082
+CCurrent_mirror_bias;1{lay}||mocmos|1475525453601|1475621699879||DRC_last_good_drc_area_date()G1475533059082|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475621502705
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-P-Active-Con|contact@13||49|79|15|||
 NMetal-1-P-Active-Con|contact@14||49|89|15|||
@@ -163,6 +167,7 @@ APolysilicon-2|net@123||3|S900|pin@23||91|-131|contact@36||91|-157
 AMetal-1|net@124||1|S0|contact@36||91|-157|substr@3||-1|-157
 EGND||D5G10;|substr@3||G
 EVDD||D5G10;Y3;|well@3||P
+EVRl|VRL|D5G10;|contact@35||O
 X
 
 # Cell Current_mirror_bias;1{sch}
@@ -267,27 +272,33 @@ EVDD||D5G2;|pin@0||P
 X
 
 # Cell Current_mirror_bias_SIM;1{lay}
-CCurrent_mirror_bias_SIM;1{lay}|Current_mirror_bias|mocmos|1475530744638|1475533157077||DRC_last_good_drc_area_date()G1475533163986|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475533163986
+CCurrent_mirror_bias_SIM;1{lay}|Current_mirror_bias|mocmos|1475530744638|1475621486608||DRC_last_good_drc_area_date()G1475621502705|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475621502705
 ICurrent_mirror_bias;1{lay}|Current_@0||-2|8|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-Pin|pin@1||-1|-217||||
 NMetal-1-Pin|pin@2||-13|217||||
 Ngeneric:Invisible-Pin|pin@4||-85|111|||||SIM_spice_card(D5G10;)S[Vdd VDD gnd 5,.dc Vdd 0 6 1m,.include long_channel_3_models.txt]
+NMetal-1-Pin|pin@5||123|-95||||
 AMetal-1|net@1||6|S900|Current_@0|GND|-1|-148|pin@1||-1|-217
 AMetal-1|net@2||16|S2700|Current_@0|VDD|-13|171|pin@2||-13|217
+AMetal-1|net@3||1|S1800|Current_@0|VRl|62|-95|pin@5||123|-95
 EGND||D5G10;|pin@1||G
 EVDD||D5G10;|pin@2||P
+EVRL||D5G10;|pin@5||O
 X
 
 # Cell Current_mirror_bias_SIM;1{sch}
-CCurrent_mirror_bias_SIM;1{sch}|Current_mirror_bias|schematic|1475517154994|1475533749026|
+CCurrent_mirror_bias_SIM;1{sch}|Current_mirror_bias|schematic|1475517154994|1475621333677|
 ICurrent_mirror_bias;1{sch}|Current_@3||-16|66|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
 Ngeneric:Invisible-Pin|pin@19||-17|114|||||SIM_spice_declaration(D5G1;)S[Vdd VDDin gnd 5,.dc Vdd 0 6 1m,*.include long_channel_3_models.txt]
 NWire_Pin|pin@36||-13.5|107||||
 NWire_Pin|pin@37||8|66||||
+NWire_Pin|pin@38||-30|63||||
 Awire|net@37|||2700|Current_@3|VDD|-13.5|100|pin@36||-13.5|107
 Awire|net@38|||1800|Current_@3|Iref2|-3.5|66|pin@37||8|66
-EIreference2||D5G2;|pin@37||O
-EVDDin||D5G2;|pin@36||P
+Awire|net@39|||0|Current_@3|Iref1|-21.5|63|pin@38||-30|63
+EIreference2||D5G2;X5;Y3;|pin@37||O
+EIreference3||D5G2;X-5;Y2;|pin@38||O
+EVDDin||D5G2;Y1;|pin@36||P
 X
