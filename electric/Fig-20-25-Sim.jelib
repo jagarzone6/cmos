@@ -40,7 +40,7 @@ EVDDin||D5G2;|pin@6||P
 X
 
 # Cell Current_mirror_bias;1{lay}
-CCurrent_mirror_bias;1{lay}||mocmos|1475525453601|1475621699879||DRC_last_good_drc_area_date()G1475533059082|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475621502705
+CCurrent_mirror_bias;1{lay}||mocmos|1475525453601|1475623240245||DRC_last_good_drc_area_date()G1475622983283|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475623256947
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-P-Active-Con|contact@13||49|79|15|||
 NMetal-1-P-Active-Con|contact@14||49|89|15|||
@@ -84,7 +84,7 @@ NPolysilicon-1-Pin|pin@18||-17|84||||
 NMetal-1-Pin|pin@19||-30|-156||||
 NMetal-1-Pin|pin@20||64|-68||||
 NPolysilicon-2-Pin|pin@22||64|-131||||
-NPolysilicon-2-Pin|pin@23||91|-131||||
+NPolysilicon-2-Pin|pin@23||91|-131|||||SIM_spice_model(D5G5;)S[.model RMODEL r RSH=1.2k,RMODEL]
 NP-Transistor|pmos@0||-66|35|7|98|||SIM_spice_model(D5G4;)SPMOS
 NP-Transistor|pmos@1||0|84|27||||SIM_spice_model(D5G4;)SPMOS
 NP-Transistor|pmos@2||49|84|27||||SIM_spice_model(D5G4;)SPMOS
@@ -272,7 +272,7 @@ EVDD||D5G2;|pin@0||P
 X
 
 # Cell Current_mirror_bias_SIM;1{lay}
-CCurrent_mirror_bias_SIM;1{lay}|Current_mirror_bias|mocmos|1475530744638|1475621486608||DRC_last_good_drc_area_date()G1475621502705|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475621502705
+CCurrent_mirror_bias_SIM;1{lay}|Current_mirror_bias|mocmos|1475530744638|1475621486608||DRC_last_good_drc_area_date()G1475623256947|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475621502705
 ICurrent_mirror_bias;1{lay}|Current_@0||-2|8|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-Pin|pin@1||-1|-217||||
