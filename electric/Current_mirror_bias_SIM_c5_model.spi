@@ -1,7 +1,7 @@
 *** SPICE deck for cell Current_mirror_bias_SIM{sch} from library Fig-20-25-Sim
 *** Created on Mon Oct 03, 2016 12:52:34
-*** Last revised on Mon Oct 03, 2016 17:29:09
-*** Written on Mon Oct 03, 2016 17:29:25 by Electric VLSI Design System, version 9.06
+*** Last revised on Mon Oct 03, 2016 16:42:00
+*** Written on Mon Oct 03, 2016 17:26:28 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 
@@ -25,6 +25,6 @@ Rres@0 Iref2 gnd 6.5k
 * Spice Declaration nodes in cell cell 'Current_mirror_bias_SIM{sch}'
 Vdd VDDin gnd 5
 .dc Vdd 0 6 1m
-*.include long_channel_3_models.txt
+.include C5_models.txt
 XCurrent_@3 gnd Ireference2 VDDin Fig-20-25-Sim__Current_mirror_bias
 .END
