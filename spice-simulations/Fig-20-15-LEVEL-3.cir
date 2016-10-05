@@ -32,7 +32,7 @@ VM1ref Vm1 0 DC 0 AC 0
 + RSH=0 VMAX=5E4 TPG=1 PB=1
 
 .tran .001ns 1n UIC
-.ic v(gateM1)=5 v(drainM2)=0
+.ic v(gateM1)=0 v(drainM2)=0
 .control
 set color0 =white
 set color1=black
