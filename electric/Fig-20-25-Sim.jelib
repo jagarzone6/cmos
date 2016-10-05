@@ -272,7 +272,7 @@ EVDD||D5G2;|pin@0||P
 X
 
 # Cell Current_mirror_bias_SIM;1{lay}
-CCurrent_mirror_bias_SIM;1{lay}|Current_mirror_bias|mocmos|1475530744638|1475695806484||DRC_last_good_drc_area_date()G1475624243573|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475621502705
+CCurrent_mirror_bias_SIM;1{lay}|Current_mirror_bias|mocmos|1475530744638|1475696924769||DRC_last_good_drc_area_date()G1475624243573|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1475621502705
 ICurrent_mirror_bias;1{lay}|Current_@0||-2|8|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-Pin|pin@1||-1|-217||||
@@ -288,7 +288,7 @@ EVRL||D5G10;|pin@5||O
 X
 
 # Cell Current_mirror_bias_SIM;1{sch}
-CCurrent_mirror_bias_SIM;1{sch}|Current_mirror_bias|schematic|1475517154994|1475695790523|
+CCurrent_mirror_bias_SIM;1{sch}|Current_mirror_bias|schematic|1475517154994|1475696917513|
 ICurrent_mirror_bias;1{sch}|Current_@3||-16|66|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
 Ngeneric:Invisible-Pin|pin@19||-17|114|||||SIM_spice_declaration(D5G1;)S[Vdd VDDin gnd 5,.dc Vdd 0 6 1m,.include long_channel_3_models.txt]
