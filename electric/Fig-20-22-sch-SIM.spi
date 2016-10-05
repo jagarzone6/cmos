@@ -1,0 +1,35 @@
+*** SPICE deck for cell Fig-20-22-sch-SIM{sch} from library Fig-20-22-Sim
+*** Created on Wed Oct 05, 2016 16:19:25
+*** Last revised on Wed Oct 05, 2016 16:23:11
+*** Written on Wed Oct 05, 2016 16:25:58 by Electric VLSI Design System, version 9.06
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Fig-20-22-Sim__Fig-20-22-sch FROM CELL Fig-20-22-sch{sch}
+.SUBCKT Fig-20-22-Sim__Fig-20-22-sch vdd Vref2
+** GLOBAL gnd
+** GLOBAL vdd
+Mnmos@0 gnd net@9 net@6 gnd NMOS L=0.1U W=2.5U
+Mnmos@1 net@34 net@6 net@9 gnd NMOS L=0.05U W=0.5U
+Mnmos@2 gnd net@9 net@9 gnd NMOS L=0.1U W=2.5U
+Mnmos@3 gnd net@54 net@22 gnd NMOS L=0.1U W=2.5U
+Mnmos@4 net@34 net@9 gnd gnd NMOS L=0.1U W=2.5U
+Mnmos@5 net@54 net@54 Vref2 gnd NMOS L=0.1U W=10U
+Mpmos@0 net@6 net@6 vdd vdd PMOS L=1U W=0.5U
+Mpmos@1 net@9 net@34 vdd vdd PMOS L=0.1U W=5U
+Mpmos@2 net@22 net@22 vdd vdd PMOS L=0.1U W=5U
+Mpmos@3 vdd net@22 net@34 vdd PMOS L=0.1U W=5U
+Mpmos@4 vdd net@34 net@54 vdd PMOS L=0.1U W=5U
+Rres@0 Vref2 gnd 5.5k
+.ENDS Fig-20-22-Sim__Fig-20-22-sch
+
+.global gnd vdd
+
+*** TOP LEVEL CELL: Fig-20-22-sch-SIM{sch}
+XFig-20-2@0 vdd Vref2 Fig-20-22-Sim__Fig-20-22-sch
+
+* Spice Code nodes in cell cell 'Fig-20-22-sch-SIM{sch}'
+Vdd VDDin gnd 3
+.dc Vdd 0 3 1m
+.include short_channel_5_models.txt
+.END
