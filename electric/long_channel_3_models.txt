@@ -1,13 +1,8 @@
 * BSIM3 models for AMI Semiconductor's 1u process
-*
-* Don't forget the .options scale=1000nm if using drawn lengths
 * and the MOSIS SUBM design rules
-*
-* 1<Ldrawn<?   ?<Wdrawn<? Vdd=5V
-* Note minimum L is X um while minimum W is Y um
-* Change to level=49 when using HSPICE
-
-
+* 1 urn Level 3 models
+* Don't forget the .options scale=1 u if using an Lmin of 1
+* 1<L<200 and 10<W<10000 Vdd=5V
 
 
 .MODEL NMOS NMOS (                                 LEVEL   = 3
