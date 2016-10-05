@@ -1,7 +1,7 @@
 *** SPICE deck for cell Current_mirror_bias_SIM{lay} from library Fig-20-25-Sim
 *** Created on Mon Oct 03, 2016 16:39:04
-*** Last revised on Tue Oct 04, 2016 17:51:26
-*** Written on Tue Oct 04, 2016 18:37:27 by Electric VLSI Design System, version 9.06
+*** Last revised on Wed Oct 05, 2016 14:30:06
+*** Written on Wed Oct 05, 2016 14:43:13 by Electric VLSI Design System, version 9.06
 *** Layout tech: mocmos, foundry MOSIS
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 
