@@ -31,8 +31,8 @@ VM1ref Vm1 0 DC 0 AC 0
 + cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
 + RSH=0 VMAX=5E4 TPG=1 PB=1
 
-.tran .001ns 1n UIC
-.ic v(gateM1)=0 v(drainM2)=0
+.tran .001ns 1n uic
+.ic v(gatem1)=0 v(drainm2)=0
 .control
 set color0 =white
 set color1=black

@@ -225,7 +225,7 @@ R S12 0 5500
 +rbsb = 15
 +rbpd = 15
 +ngcon =1
-*
+
 .MODEL PMOS PMOS LEVEL   = 54
 +binunit = 1
 +capmod = 2
@@ -437,7 +437,9 @@ R S12 0 5500
 .control
 op
 show all
-dc VDD 0 3 0.01
+set color0 =white
+set color1=black
+dc vdd 0 3 0.01
 plot i(vrl) i(vm5)
 .endc
 	

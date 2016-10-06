@@ -45,8 +45,8 @@ set color0 =white
 set color1=black
 op
 show all
-dc VDD 0 6 0.2
-plot v(G4) v(G2) 
+dc vdd 0 6 0.2
+plot v(g4) v(g2)
 .endc
 
 ** PARA LAMBDA=0.1*********************************************************
@@ -80,8 +80,8 @@ set color0 =white
 set color1=black
 op
 show all
-dc VDD 0 6 0.2
-plot v(G4) v(G2) 
+dc vdd 0 6 0.2
+plot v(g4) v(g2)
 .endc
 
 ** PARA LAMBDA=0.5*********************************************************
@@ -115,8 +115,8 @@ set color0 =white
 set color1=black
 op
 show all
-dc VDD 0 6 0.2
-plot v(G4) v(G2) 
+dc vdd 0 6 0.2
+plot v(g4) v(g2)
 .endc
 	
 
