@@ -170,7 +170,7 @@
 +pditsl =2.3e+006
 +rdw =150
 +prwg = 0
-+alphal =0.005
++alpha1 =0.005
 +cgidl =0.0002
 +cigbinv = 0.004
 +bigc = 0.0028
@@ -194,10 +194,10 @@
 +dwj = 0.0e-008
 +rshg = 0.4
 +rbps = 15
-+xgw = Oe-007
++xgw = 0e-007
 +gbmin = 1e-010
 +rbdb = 15
-+xgl = Oe-008
++xgl = 0e-008
 +rbpb = 5
 +rbsb = 15
 +rbpd = 15
@@ -345,7 +345,7 @@
 +pditsl =2.3e+006
 +rdw = 160
 +prwg = 3.22e-008
-+alphal =0.005
++alpha1 =0.005
 +cgidl =0.0002
 +cigbinv = 0.004
 +bigc =0.0012
