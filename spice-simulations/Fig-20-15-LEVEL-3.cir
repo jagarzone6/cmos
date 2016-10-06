@@ -39,7 +39,7 @@ set color1=black
 op
 show all
 dc vdd 0 10 0.01
-plot i(VRLref) i(VM1ref)
+plot i(vrlref) i(vm1ref)
 run
-plot i(VRLref)
+plot i(vrlref)
 .endc
