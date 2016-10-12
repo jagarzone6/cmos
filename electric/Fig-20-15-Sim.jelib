@@ -314,10 +314,17 @@ EVDDin||D5G2;Y1;|pin@36||P
 X
 
 # Cell Figure-20-43;1{lay}
-CFigure-20-43;1{lay}||mocmos|1476291008841|1476302803734||DRC_last_good_drc_area_date()G1476302808681|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476302808681
+CFigure-20-43;1{lay}||mocmos|1476291008841|1476303032446||DRC_last_good_drc_area_date()G1476303037482|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476303037482
 ICurrent_mirror_bias;1{lay}|Current_@0||-155|160|||D5G4;
-IFigure-20-43-Sub-A;1{lay}|Figure-2@0||163|139|||D5G4;
+IFigure-20-43-Sub-A;1{lay}|Figure-2@0||133|186|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
+NMetal-1-Pin|pin@0||1|124||||
+NMetal-1-Pin|pin@1||7|124||||
+NMetal-1-Pin|pin@2||1|124||||
+AMetal-1|net@0||1|S1800|Current_@0|Vbiasn|-20|124|pin@0||1|124
+AMetal-1|net@1||1|S0|Figure-2@0|IN_n|20|124|pin@1||7|124
+AMetal-1|net@2||1|S900|pin@0||1|124|pin@2||1|124
+AMetal-1|net@3||1|S0|pin@1||7|124|pin@2||1|124
 X
 
 # Cell Figure-20-43;1{sch}
@@ -326,7 +333,7 @@ Ngeneric:Facet-Center|art@0||0|0||||AV
 X
 
 # Cell Figure-20-43-Sub-A;1{lay}
-CFigure-20-43-Sub-A;1{lay}||mocmos|1476291267512|1476302754552||DRC_last_good_drc_area_date()G1476302760947|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476302760947
+CFigure-20-43-Sub-A;1{lay}||mocmos|1476291267512|1476302976990||DRC_last_good_drc_area_date()G1476302983636|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476302983636
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-N-Active-Con|contact@22||-83|-67|5|||
 NMetal-1-N-Active-Con|contact@23||-83|-57|5|||
@@ -483,7 +490,9 @@ APolysilicon-1|net@163||3|S900|contact@48||70|49|pin@32||70|49
 APolysilicon-1|net@164|||S0|contact@49||67|122|pmos@3|poly-right|55|122
 AMetal-1|net@165||7|IS1800|contact@50||-45|85|well@5||-16|85
 AMetal-2|net@166||7|IS0|contact@50||-45|85|pin@33||-133|85
+EGND||D5G10;|substr@3||G
 EIN_n||D5G10;X-3;Y-10;|contact@42||I
+EVDD||D5G10;|well@0||P
 EVbias1|Vbias1_out|D5G10;X12;Y9;|contact@49||O
 EVbias2|Vbias2_out|D5G10;X2;Y-9;|contact@48||O
 EVbias3|Vbias3_in|D5G10;X-3;Y-11;|contact@47||I
