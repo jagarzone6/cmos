@@ -314,11 +314,13 @@ EVDDin||D5G2;Y1;|pin@36||P
 X
 
 # Cell Figure-20-43;1{lay}
-CFigure-20-43;1{lay}||mocmos|1476291008841|1476305108809||DRC_last_good_drc_area_date()G1476305113130|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476305113130
+CFigure-20-43;1{lay}||mocmos|1476291008841|1476305778929||DRC_last_good_drc_area_date()G1476305756897|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476305756897
 ICurrent_mirror_bias;1{lay}|Current_@0||-155|160|||D5G4;
 IFigure-20-43-Sub-A;1{lay}|Figure-2@0||133|186|||D5G4;
 IFigure-20-43-Sub-B;1{lay}|Figure-2@1||357|205|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
+NMetal-1-Metal-2-Con|contact@0||172|-82|16|16||
+NMetal-1-Metal-2-Con|contact@1||244|3|16|16||
 NMetal-1-Pin|pin@0||1|124||||
 NMetal-1-Pin|pin@1||7|124||||
 NMetal-1-Pin|pin@2||1|124||||
@@ -327,6 +329,12 @@ NMetal-1-Pin|pin@7||470|84||||
 NMetal-1-Pin|pin@8||470|-19||||
 NMetal-1-Pin|pin@9||220|-19||||
 NMetal-1-Pin|pin@10||220|117||||
+NMetal-1-Pin|pin@18||-171|375||||
+NMetal-1-Pin|pin@19||347|373||||
+NMetal-1-Pin|pin@20||113|451||||
+NMetal-1-Pin|pin@21||-156|30||||
+NMetal-2-Pin|pin@22||245|-82||||
+NMetal-2-Pin|pin@23||244|-82||||
 AMetal-1|net@0||1|S1800|Current_@0|Vbiasn|-20|124|pin@0||1|124
 AMetal-1|net@1||1|S0|Figure-2@0|IN_n|20|124|pin@1||7|124
 AMetal-1|net@2||1|S900|pin@0||1|124|pin@2||1|124
@@ -339,6 +347,20 @@ AMetal-1|net@12||1|S900|pin@7||470|84|pin@8||470|-19
 AMetal-1|net@13||1|S0|pin@8||470|-19|pin@9||220|-19
 AMetal-1|net@14||1|S2700|pin@9||220|-19|pin@10||220|117
 AMetal-1|net@15||1|S1800|Figure-2@0|Vbias3|205|117|pin@10||220|117
+AMetal-1|net@34||16|S2700|Current_@0|VDD|-171|322|pin@18||-171|375
+AMetal-1|net@35||1|S0|Figure-2@0|VDD|113|375|pin@18||-171|375
+AMetal-1|net@36||16|S2700|Figure-2@1|VDD|347|372|pin@19||347|373
+AMetal-1|net@37||1|S1800|Figure-2@0|VDD|113|373|pin@19||347|373
+AMetal-1|net@38||1|S2700|Figure-2@0|VDD|113|373|pin@20||113|451
+AMetal-1|net@39||6|S2700|Current_@0|GND|-156|4|pin@21||-156|30
+AMetal-1|net@40||6|S0|Figure-2@0|GND|110|30|pin@21||-156|30
+AMetal-1|net@41||6|S900|Figure-2@0|GND|172|30|contact@0||172|-82
+AMetal-2|net@42||17|S1800|contact@0||172|-82|pin@22||245|-82
+AMetal-2|net@43||17|S0|pin@22||245|-82|pin@23||244|-82
+AMetal-2|net@44||17|S900|contact@1||244|3|pin@23||244|-82
+AMetal-1|net@45||8|S1800|contact@1||244|3|Figure-2@1|GND|345|3
+EGND||D5G10;|contact@0||G
+EVDD||D5G10;|pin@20||P
 X
 
 # Cell Figure-20-43;1{sch}
