@@ -20,7 +20,7 @@ M11 G7 G7 S11 0 nmos W=200 L=2
 Vrl S11 S12 DC 0 AC 0
 Rl S12 0 5500
 
-Roo vo Dcasc 1000
+Roo vo Dcasc 100
 MCasc Dcasc D4 Scasc 0 nmos W=50 L=2
 VCasc Scasc 0 DC 0 AC 0
 *MCasc vo D4 Scasc 0 nmos W=50 L=2
