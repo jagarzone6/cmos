@@ -5,7 +5,7 @@
 * Grupo Jorge Garzón, Esteban Iafrancesco
 
 VDD VDD 0 DC 1 AC 0
-
+VO vo 0 sin(0 0.1 5k) dc=0 ac=0.02
 MSU2 VDD D1 D1 VDD pmos W=10 L=20
 M2 D1 D4 0 0 nmos W=50 L=2
 MSU3 G4 D1 D4 0 nmos W=10 L=1
@@ -19,6 +19,12 @@ M10 VDD G4 G7 VDD pmos W=100 L=2
 M11 G7 G7 S11 0 nmos W=200 L=2
 Vrl S11 S12 DC 0 AC 0
 Rl S12 0 5500
+
+Roo vo Dcasc 1000
+MCasc Dcasc D4 Scasc 0 nmos W=50 L=2
+VCasc Scasc 0 DC 0 AC 0
+*MCasc vo D4 Scasc 0 nmos W=50 L=2
+*VCasc Scasc 0 DC 0 AC 0
 
 
 .MODEL NMOS NMOS   LEVEL   = 54
@@ -428,16 +434,16 @@ Rl S12 0 5500
 +dmcgt =6e-007
 +rbpd = 15
 +ngcon =1
-.tran .001ns 1n
+.tran 1ms 1000m
 .control
 set color0 =white
 set color1=black
 op
 show all
-dc vdd 0 1.2 0.01
-plot i(vrl)
+ac dec 10 1 10ghz
+plot v(Dcasc)/i(vcasc)
 run
-plot i(vrl)
+plot v(Dcasc)/i(vcasc)
 .endc
 
 
