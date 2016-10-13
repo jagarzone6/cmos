@@ -1,7 +1,7 @@
 * Bogotá 5 de octubre de 2016
 * Universidad Nacional de Colombia
 * CMOS Analógico
-* Simulación circuito figura 20.22 Baker (pg 629)
+* Simulación circuito figura 20.28 Baker. Espejo de corriente
 * Grupo Jorge Garzón, Esteban Iafrancesco
 
 VDD VDD 0 DC 1 AC 0
@@ -20,6 +20,7 @@ M11 G7 G7 S11 0 nmos W=200 L=2
 Vrl S11 S12 DC 0 AC 0
 Rl S12 0 5500
 
+*Cacodo con una resistencia de 100 ohmios en serie
 Roo vo Dcasc 100
 MCasc Dcasc D4 Scasc 0 nmos W=50 L=2
 VCasc Scasc 0 DC 0 AC 0
@@ -440,12 +441,13 @@ set color0 =white
 set color1=black
 op
 show all
-ac dec 10 1 10ghz
-plot v(dcasc)/i(vcasc)
+*Barrido de frecuencia
+ac dec 10 1 1ghz
+*Impedancia del espejo
 plot -v(dcasc)/i(vo)
-tran 1ms 1000m
-run
-plot v(dcasc)/i(vcasc)
+*Impedancia total que ve la fuente AC con el espejo y la resistencia de 100 en serie
+plot -v(vo)/i(vo)
+
 .endc
 
 
