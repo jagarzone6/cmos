@@ -1,0 +1,67 @@
+*** SPICE deck for cell Figure-20-43_SIM{lay} from library Fig-20-43-Sim
+*** Created on Thu Oct 13, 2016 06:46:00
+*** Last revised on Thu Oct 13, 2016 06:51:06
+*** Written on Thu Oct 13, 2016 07:13:05 by Electric VLSI Design System, version 9.06
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Fig-20-43-Sim__Current_mirror_bias FROM CELL Current_mirror_bias{lay}
+.SUBCKT Fig-20-43-Sim__Current_mirror_bias gnd Vbiasn Vbiasp vdd VRL
+Mnmos@0 gnd Vbiasn net@46 gnd NMOS L=2U W=10U AS=115P AD=965P PS=63U PD=195U
+Mnmos@1 gnd Vbiasn Vbiasn gnd NMOS L=2U W=10U AS=210P AD=965P PS=87.667U PD=195U
+Mnmos@3 Vbiasn net@46 Vbiasp gnd NMOS L=2U W=10U AS=418.333P AD=210P PS=132.333U PD=87.667U
+Mnmos@4 VRL Vbiasn Vbiasp gnd NMOS L=2U W=40U AS=418.333P AD=740P PS=132.333U PD=197U
+Mpmos@0 net@46 net@46 vdd vdd PMOS L=100U W=10U AS=728.333P AD=115P PS=167.667U PD=63U
+Mpmos@1 Vbiasn Vbiasp vdd vdd PMOS L=2U W=30U AS=728.333P AD=210P PS=167.667U PD=87.667U
+Mpmos@2 Vbiasp Vbiasp vdd vdd PMOS L=2U W=30U AS=728.333P AD=418.333P PS=167.667U PD=132.333U
+
+* Spice Code nodes in cell cell 'Current_mirror_bias{lay}'
+.model RMODEL r RSH=1.2k
+Rload VRL gnd RMODEL L=54.1u W=10u
+.ENDS Fig-20-43-Sim__Current_mirror_bias
+
+*** SUBCIRCUIT Fig-20-43-Sim__Figure-20-43-Sub-A FROM CELL Figure-20-43-Sub-A{lay}
+.SUBCKT Fig-20-43-Sim__Figure-20-43-Sub-A gnd IN_n Vbias1_out Vbias2_out Vbias3_in vdd Vhigh_out Vncas_out
+Mnmos@4 gnd IN_n Vbias2_out gnd NMOS L=2U W=10U AS=335P AD=715P PS=110U PD=171U
+Mnmos@5 net@74 Vncas_out Vncas_out gnd NMOS L=2U W=10U AS=335P AD=115P PS=110U PD=63U
+Mnmos@6 net@78 Vbias3_in net@74 gnd NMOS L=2U W=10U AS=115P AD=115P PS=63U PD=63U
+Mnmos@7 gnd net@74 net@78 gnd NMOS L=2U W=10U AS=115P AD=715P PS=63U PD=171U
+Mnmos@8 gnd IN_n Vbias1_out gnd NMOS L=2U W=10U AS=335P AD=715P PS=110U PD=171U
+Mpmos@0 Vbias2_out Vbias2_out vdd vdd PMOS L=10U W=30U AS=1155P AD=335P PS=265U PD=110U
+Mpmos@1 Vhigh_out Vbias1_out vdd vdd PMOS L=2U W=30U AS=1155P AD=375P PS=265U PD=115U
+Mpmos@2 Vbias1_out Vbias2_out Vhigh_out vdd PMOS L=2U W=30U AS=375P AD=335P PS=115U PD=110U
+Mpmos@3 net@107 Vbias1_out vdd vdd PMOS L=2U W=30U AS=1155P AD=375P PS=265U PD=115U
+Mpmos@4 Vncas_out Vbias2_out net@107 vdd PMOS L=2U W=30U AS=375P AD=335P PS=115U PD=110U
+.ENDS Fig-20-43-Sim__Figure-20-43-Sub-A
+
+*** SUBCIRCUIT Fig-20-43-Sim__Figure-20-43-Sub-B FROM CELL Figure-20-43-Sub-B{lay}
+.SUBCKT Fig-20-43-Sim__Figure-20-43-Sub-B gnd Vbias1_in Vbias2_in Vbias3_out Vbias4_out vdd Vlow_out Vpcas
+Mnmos@4 Vlow_out Vbias3_out Vbias4_out gnd NMOS L=2U W=10U AS=335P AD=115P PS=110U PD=63U
+Mnmos@5 gnd Vbias3_out Vbias3_out gnd NMOS L=10U W=10U AS=335P AD=715P PS=110U PD=171U
+Mnmos@7 gnd Vbias4_out Vlow_out gnd NMOS L=2U W=10U AS=115P AD=715P PS=63U PD=171U
+Mnmos@8 net@145 Vbias3_out Vpcas gnd NMOS L=2U W=10U AS=335P AD=115P PS=110U PD=63U
+Mnmos@9 gnd Vbias4_out net@145 gnd NMOS L=2U W=10U AS=115P AD=715P PS=63U PD=171U
+Mpmos@3 net@21 net@84 vdd vdd PMOS L=2U W=30U AS=1155P AD=375P PS=265U PD=115U
+Mpmos@5 net@84 Vbias2_in net@21 vdd PMOS L=2U W=30U AS=375P AD=375P PS=115U PD=115U
+Mpmos@6 net@90 Vbias1_in vdd vdd PMOS L=2U W=30U AS=1155P AD=375P PS=265U PD=115U
+Mpmos@7 Vbias4_out Vbias2_in net@90 vdd PMOS L=2U W=30U AS=375P AD=335P PS=115U PD=110U
+Mpmos@8 net@98 Vbias1_in vdd vdd PMOS L=2U W=30U AS=1155P AD=375P PS=265U PD=115U
+Mpmos@9 Vbias3_out Vbias2_in net@98 vdd PMOS L=2U W=30U AS=375P AD=335P PS=115U PD=110U
+Mpmos@10 Vpcas Vpcas net@84 vdd PMOS L=2U W=30U AS=375P AD=335P PS=115U PD=110U
+.ENDS Fig-20-43-Sim__Figure-20-43-Sub-B
+
+*** SUBCIRCUIT Fig-20-43-Sim__Figure-20-43 FROM CELL Figure-20-43{lay}
+.SUBCKT Fig-20-43-Sim__Figure-20-43 gnd vdd
+XCurrent_@0 gnd net@0 Current_@0_Vbiasp vdd Current_@0_VRL Fig-20-43-Sim__Current_mirror_bias
+XFigure-2@0 gnd net@0 net@8 net@10 net@11 vdd Figure-2@0_Vhigh_out Figure-2@0_Vncas_out Fig-20-43-Sim__Figure-20-43-Sub-A
+XFigure-2@1 gnd net@8 net@10 net@11 Figure-2@1_Vbias4_out vdd Figure-2@1_Vlow_out Figure-2@1_Vpcas Fig-20-43-Sim__Figure-20-43-Sub-B
+.ENDS Fig-20-43-Sim__Figure-20-43
+
+*** TOP LEVEL CELL: Figure-20-43_SIM{lay}
+XFigure-2@0 gnd vdd Fig-20-43-Sim__Figure-20-43
+
+* Spice Code nodes in cell cell 'Figure-20-43_SIM{lay}'
+Vdd VDD GND 1
+.dc Vdd 0 1.5 1m
+.include long_channel_3_models.txt
+.END

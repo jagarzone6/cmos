@@ -4,7 +4,7 @@
 * Simulación circuito figura 20.22 Baker (pg 629)
 * Grupo Jorge Garzón, Esteban Iafrancesco
 
-VDD VDD 0 DC 2 AC 0
+VDD VDD 0 DC 1 AC 0
 *Vbiasp G4 0 
 *Vbiasn D4 0
 *Vreg Vreg 0

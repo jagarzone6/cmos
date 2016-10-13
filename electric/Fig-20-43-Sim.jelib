@@ -1,5 +1,5 @@
 # header information:
-HFig-20-15-Sim|9.06
+HFig-20-43-Sim|9.06
 
 # Views:
 Vicon|ic
@@ -314,7 +314,7 @@ EVDDin||D5G2;Y1;|pin@36||P
 X
 
 # Cell Figure-20-43;1{lay}
-CFigure-20-43;1{lay}||mocmos|1476291008841|1476305778929||DRC_last_good_drc_area_date()G1476305756897|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476305756897
+CFigure-20-43;1{lay}||mocmos|1476291008841|1476305778929||DRC_last_good_drc_area_date()G1476358957603|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476358957603
 ICurrent_mirror_bias;1{lay}|Current_@0||-155|160|||D5G4;
 IFigure-20-43-Sub-A;1{lay}|Figure-2@0||133|186|||D5G4;
 IFigure-20-43-Sub-B;1{lay}|Figure-2@1||357|205|||D5G4;
@@ -369,7 +369,7 @@ Ngeneric:Facet-Center|art@0||0|0||||AV
 X
 
 # Cell Figure-20-43-Sub-A;1{lay}
-CFigure-20-43-Sub-A;1{lay}||mocmos|1476291267512|1476302976990||DRC_last_good_drc_area_date()G1476302983636|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476302983636
+CFigure-20-43-Sub-A;1{lay}||mocmos|1476291267512|1476360052632||DRC_last_good_drc_area_date()G1476360057148|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476360057148
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-N-Active-Con|contact@22||-83|-67|5|||
 NMetal-1-N-Active-Con|contact@23||-83|-57|5|||
@@ -400,11 +400,11 @@ NMetal-1-Polysilicon-1-Con|contact@47||72|-69||||
 NMetal-1-Polysilicon-1-Con|contact@48||70|49||||
 NMetal-1-Polysilicon-1-Con|contact@49||67|122||||
 NMetal-1-Metal-2-Con|contact@50||-45|85||6||
-NN-Transistor|nmos@4||-83|-62|7|||
-NN-Transistor|nmos@5||39|-22|7|||
-NN-Transistor|nmos@6||39|-69|7|||
-NN-Transistor|nmos@7||40|-118|7|||
-NN-Transistor|nmos@8||-20|-62|7|||
+NN-Transistor|nmos@4||-83|-62|7||||SIM_spice_model(D5G10;)SNMOS
+NN-Transistor|nmos@5||39|-22|7||||SIM_spice_model(D5G10;)SNMOS
+NN-Transistor|nmos@6||39|-69|7||||SIM_spice_model(D5G10;)SNMOS
+NN-Transistor|nmos@7||40|-118|7||||SIM_spice_model(D5G10;)SNMOS
+NN-Transistor|nmos@8||-20|-62|7||||SIM_spice_model(D5G10;)SNMOS
 NMetal-1-Pin|pin@0||29|183||||
 NMetal-1-Pin|pin@15||-51|-160||||
 NPolysilicon-1-Pin|pin@16||-102|-62||||
@@ -419,11 +419,11 @@ NPolysilicon-1-Pin|pin@28||72|-69||||
 NMetal-1-Pin|pin@31||11|20||||
 NPolysilicon-1-Pin|pin@32||70|49||||
 NMetal-2-Pin|pin@33||-133|85||||
-NP-Transistor|pmos@0||-80|50|27|8||
-NP-Transistor|pmos@1||-16|122|27|||
-NP-Transistor|pmos@2||-15|49|27|||
-NP-Transistor|pmos@3||38|122|27|||
-NP-Transistor|pmos@4||39|49|27|||
+NP-Transistor|pmos@0||-80|50|27|8|||SIM_spice_model(D5G10;)SPMOS
+NP-Transistor|pmos@1||-16|122|27||||SIM_spice_model(D5G10;)SPMOS
+NP-Transistor|pmos@2||-15|49|27||||SIM_spice_model(D5G10;)SPMOS
+NP-Transistor|pmos@3||38|122|27||||SIM_spice_model(D5G10;)SPMOS
+NP-Transistor|pmos@4||39|49|27||||SIM_spice_model(D5G10;)SPMOS
 NMetal-1-P-Well-Con|substr@3||-23|-156|145|7||
 NMetal-1-P-Well-Con|substr@17||-83|-76|5|||
 NMetal-1-P-Well-Con|substr@18||-83|-47|5|||
@@ -542,7 +542,7 @@ Ngeneric:Facet-Center|art@0||0|0||||AV
 X
 
 # Cell Figure-20-43-Sub-B;1{lay}
-CFigure-20-43-Sub-B;1{lay}||mocmos|1476291328754|1476304748647||DRC_last_good_drc_area_date()G1476304754876|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476304754876
+CFigure-20-43-Sub-B;1{lay}||mocmos|1476291328754|1476360406817||DRC_last_good_drc_area_date()G1476360423307|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476360423307
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-N-Active-Con|contact@8||-6|-61|5|||
 NMetal-1-N-Active-Con|contact@9||-6|-51|5|||
@@ -577,11 +577,11 @@ NMetal-1-Polysilicon-1-Con|contact@56||-24|-102||||
 NMetal-1-Polysilicon-1-Con|contact@58||80|-121||||
 NMetal-1-Polysilicon-1-Con|contact@59||80|-167||||
 NMetal-1-Metal-2-Con|contact@60||13|-70||||
-NN-Transistor|nmos@4||-6|-56|7|||
-NN-Transistor|nmos@5||-61|-70|7|8||
-NN-Transistor|nmos@7||-5|-102|7|||
-NN-Transistor|nmos@8||49|-121|7|||
-NN-Transistor|nmos@9||50|-167|7|||
+NN-Transistor|nmos@4||-6|-56|7||||SIM_spice_model(D5G10;)SNMOS
+NN-Transistor|nmos@5||-61|-70|7|8|||SIM_spice_model(D5G10;)SNMOS
+NN-Transistor|nmos@7||-5|-102|7||||SIM_spice_model(D5G10;)SNMOS
+NN-Transistor|nmos@8||49|-121|7||||SIM_spice_model(D5G10;)SNMOS
+NN-Transistor|nmos@9||50|-167|7||||SIM_spice_model(D5G10;)SNMOS
 NMetal-1-Pin|pin@0||39|163||||
 NMetal-1-Pin|pin@1||79|-6||||
 NPolysilicon-1-Pin|pin@2||78|-45||||
@@ -602,13 +602,13 @@ NMetal-1-Pin|pin@28||-24|-42||||
 NMetal-1-Pin|pin@29||-24|-41||||
 NPolysilicon-1-Pin|pin@30||80|-167||||
 NMetal-2-Pin|pin@31||95|-70||||
-NP-Transistor|pmos@3||48|102|27|||
-NP-Transistor|pmos@5||48|30|27|||
-NP-Transistor|pmos@6||-2|102|27|||
-NP-Transistor|pmos@7||-2|30|27|||
-NP-Transistor|pmos@8||-57|102|27|||
-NP-Transistor|pmos@9||-57|30|27|||
-NP-Transistor|pmos@10||50|-45|27|||
+NP-Transistor|pmos@3||48|102|27||||SIM_spice_model(D5G10;)SPMOS
+NP-Transistor|pmos@5||48|30|27||||SIM_spice_model(D5G10;)SPMOS
+NP-Transistor|pmos@6||-2|102|27||||SIM_spice_model(D5G10;)SPMOS
+NP-Transistor|pmos@7||-2|30|27||||SIM_spice_model(D5G10;)SPMOS
+NP-Transistor|pmos@8||-57|102|27||||SIM_spice_model(D5G10;)SPMOS
+NP-Transistor|pmos@9||-57|30|27||||SIM_spice_model(D5G10;)SPMOS
+NP-Transistor|pmos@10||50|-45|27||||SIM_spice_model(D5G10;)SPMOS
 NMetal-1-P-Well-Con|substr@0||-12|-202|145|7||
 NMetal-1-P-Well-Con|substr@9||-6|-70|5|||
 NMetal-1-P-Well-Con|substr@10||-6|-41|5|||
@@ -742,4 +742,13 @@ X
 # Cell Figure-20-43-Sub-B;1{sch}
 CFigure-20-43-Sub-B;1{sch}||schematic|1476291428291|1476291428292|
 Ngeneric:Facet-Center|art@0||0|0||||AV
+X
+
+# Cell Figure-20-43_SIM;1{lay}
+CFigure-20-43_SIM;1{lay}||mocmos|1476359160809|1476359466674||DRC_last_good_drc_area_date()G1476359470219|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476359470219
+IFigure-20-43;1{lay}|Figure-2@0||-90|-180|||D5G4;
+Ngeneric:Facet-Center|art@0||0|0||||AV
+Ngeneric:Invisible-Pin|pin@0||-695|320|||||SIM_spice_card(D5G25;)S[Vdd VDD GND 1,.dc Vdd 0 1.5 1m,.include long_channel_3_models.txt]
+EGND||D5G20;|Figure-2@0|GND|G
+EVDD||D5G20;|Figure-2@0|VDD|P
 X
