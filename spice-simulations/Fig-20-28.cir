@@ -5,7 +5,7 @@
 * Grupo Jorge Garzón, Esteban Iafrancesco
 
 VDD VDD 0 DC 1 AC 0
-VO vo 0 sin(0 0.1 5k) dc=0 ac=0.02
+VO vo 0 sin(0 0.02 5k) dc=0 ac=0.02
 MSU2 VDD D1 D1 VDD pmos W=10 L=20
 M2 D1 D4 0 0 nmos W=50 L=2
 MSU3 G4 D1 D4 0 nmos W=10 L=1
@@ -434,16 +434,18 @@ VCasc Scasc 0 DC 0 AC 0
 +dmcgt =6e-007
 +rbpd = 15
 +ngcon =1
-.tran 1ms 1000m
+
 .control
 set color0 =white
 set color1=black
 op
 show all
 ac dec 10 1 10ghz
-plot v(Dcasc)/i(vcasc)
+plot v(dcasc)/i(vcasc)
+plot -v(dcasc)/i(vo)
+tran 1ms 1000m
 run
-plot v(Dcasc)/i(vcasc)
+plot v(dcasc)/i(vcasc)
 .endc
 
 
