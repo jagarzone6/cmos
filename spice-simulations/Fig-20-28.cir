@@ -443,7 +443,7 @@ op
 show all
 *Barrido de frecuencia
 ac dec 10 1 1ghz
-*Impedancia del espejo
+*Impedancia del espejo de corriente ro AC
 plot -v(dcasc)/i(vo)
 *Impedancia total que ve la fuente AC con el espejo y la resistencia de 100 en serie
 plot -v(vo)/i(vo)
