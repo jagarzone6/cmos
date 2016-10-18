@@ -1,0 +1,33 @@
+* Simulación Circuito De las figura 5.2-6 Allen CMOS diffrential amplifier using a current-mirror load
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+
+VDD VDD 0 DC 5 AC 0
+M1 gateM1 gateM1 Vm1 0 nmoslevel3 W=10 L=2
+M3 gateM1 drainM2 VDD VDD pmoslevel3 W=30 L=2
+M2 drainM2 gateM1 sourceM2 0 nmoslevel3 W=40 L=2
+M4 drainM2 drainM2 VDD VDD pmoslevel3 W=30 L=2
+MSU1 gateMSU3 gateM1 0 0 nmoslevel3 W=10 L=2
+MSU2 gateMSU3 gateMSU3 VDD VDD pmoslevel3 W=10 L=100
+MSU3 drainM2 gateMSU3 gateM1 0 nmoslevel3 W=10 L=1
+RL RLo 0 6500
+VRLref sourceM2 RLo DC 0 AC 0
+VM1ref Vm1 0 DC 0 AC 0
+
+
+.model nmoslevel3 nmos LEVEL=3
++ Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
++ DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=1E5 TPG=1 PB=1
+
+.model pmoslevel3 pmos LEVEL=3
++ Vto=-0.9 KP=40E-6 gamma=0.6 phi=0.7
++ DELTA=0.1 U0=250 ETA=0 KAPPA=1 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=5E4 TPG=1 PB=1
