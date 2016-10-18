@@ -4,50 +4,37 @@
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 
-*Fuente de corriente del baker fig 20-15
-.SUBCKT current-source gateM1 sourceM2 RLo
-VDD VDD 0 DC 2.5 AC 0
-VSS VSS 0 DC -2.5 AC 0
-M1 gateM1 gateM1 Vm1 VSS nmoslevel3 W=10u L=2u
-M3 gateM1 drainM2 VDD VDD pmoslevel3 W=30u L=2u
-M2 drainM2 gateM1 sourceM2 VSS nmoslevel3 W=40u L=2u
-M4 drainM2 drainM2 VDD VDD pmoslevel3 W=30u L=2u
-MSU1 gateMSU3 gateM1 VSS VSS nmoslevel3 W=10u L=2u
-MSU2 gateMSU3 gateMSU3 VDD VDD pmoslevel3 W=10u L=100u
-MSU3 drainM2 gateMSU3 gateM1 VSS nmoslevel3 W=10u L=1u
-RL RLo VSS 6500
-*VRLref sourceM2 RLo DC 0 AC 0
-VM1ref Vm1 VSS DC 0 AC 0
-.ENDS
-
+*Definicion del circuito Amplificador diferencial en modo diferencial
 VDD VDD 0 DC 2.5 AC 0
 VSS VSS 0 DC -2.5 AC 0
 M3 gateM3 gateM3 VDD VDD pmoslevel3 W=8u L=1u
 M4 drainM4 gateM3 VDD VDD pmoslevel3 W=8u L=1u
 M1 gateM3 VGcommon1 sM1 VSS nmoslevel3 W=40u L=1u
-M2 drainM4 VGcommon1 sM2 VSS nmoslevel3 W=40u L=1u
+M2 drainM4 VGcommon2 sM2 VSS nmoslevel3 W=40u L=1u
 M5 drainM5 gateM5 iss VSS nmoslevel3 W=82u L=1u
-*Iref para la fuente de corriente
+
+*Iref para la fuente de corriente de 100u Amps
 Ro vdd gateM5 43k
 M7 gateM5 gateM5 isc VSS nmoslevel3 W=82u L=1u
+
+*Fuentes de voltage de 0v para medir corriente en los tranisitores M7 (Espejo) M1 y M2
 VIcs isc VSS DC 0 AC 0
 Vrefm2 sM2 drainM5 DC 0 AC 0
 Vrefm1 sM1 drainM5 DC 0 AC 0
+
 * Fuente dc 0 volts para medir la corriente Iss en el transistor M5
 VIss iss VSS DC 0 AC 0
+
 * Voltaje DC de gateM2 y gateM1
 VGcm1 VGcommon11 0 DC 1 AC 0
-VGcm2 VGcommon22 0 DC 1 AC 0
-* Voltaje de activacion del espejo del circuito
-VRLref sourceM2 RLo DC 0 AC 0
-Xmirror gateM6 sourceM2 RLo current-source
+VGcm2 VGcommon2 0 DC 1 AC 0
 
-*Fuente AC en los gates
-*C1 VGcommon1 cp1 5p
+*Fuente AC en los gates despues de la fuente DC de polarizacion
 VO VGcommon1 VGcommon11 sin(0 0.002 100k) dc=0 ac=0.002
-*Capacitor de salida con resistencia de carga
-C2 drainM4 out 5p
-Rl out VSS 5M
+
+*Capacitor de salida
+C2 drainM4 0 5p
+
 .model nmoslevel3 nmos LEVEL=3
 + Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
 + DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
@@ -69,13 +56,20 @@ set color0 =white
 set color1=black
 op
 show all
-ac dec 10 1 0.01ghz
+
 *Ganacia en AC barrido en frecuencia vout/vin AC
-plot v(out)/v(VGcommon11,VGcommon1)
+ac dec 10 1 0.1ghz
+plot db(mag(v(drainm4))/mag(v(vgcommon11,vgcommon1)))
+
+*Transitorio
 tran .0000001s .0001s
+
 *Corrientes de polarizacion Iss y Idm2 Idm1
-plot i(viss) i(Vrefm1) i(Vrefm2)
+plot i(viss) i(vrefm1) i(vrefm2)
+
 *Voltaje de entrada
-plot v(VGcommon11,VGcommon1)
-plot v(out)
+plot v(vgcommon11,vgcommon1)
+
+*voltaje de salida
+plot v(drainm4)
 .endc
