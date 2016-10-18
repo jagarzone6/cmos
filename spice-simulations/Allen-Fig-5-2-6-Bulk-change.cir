@@ -24,13 +24,15 @@ VDD VDD 0 DC 2.5 AC 0
 VSS VSS 0 DC -2.5 AC 0
 M3 gateM3 gateM3 VDD VDD pmoslevel3 W=8u L=1u
 M4 drainM4 gateM3 VDD VDD pmoslevel3 W=8u L=1u
-M1 gateM3 VGcommon1 drainM5 drainM5 nmoslevel3 W=40u L=1u
-M2 drainM4 VGcommon1 drainM5 drainM5 nmoslevel3 W=40u L=1u
+M1 gateM3 VGcommon1 sM1 sM1 nmoslevel3 W=40u L=1u
+M2 drainM4 VGcommon1 sM2 sM2 nmoslevel3 W=40u L=1u
 M5 drainM5 gateM5 iss VSS nmoslevel3 W=82u L=1u
 
 Ro vdd gateM5 43k
 M7 gateM5 gateM5 isc VSS nmoslevel3 W=82u L=1u
 VIcs isc VSS DC 0 AC 0
+Vrefm2 sM2 drainM5 DC 0 AC 0
+Vrefm1 sM1 drainM5 DC 0 AC 0
 * Fuente dc 0 volts para medir la corriente Iss en el transistor M5
 VIss iss VSS DC 0 AC 0
 * Voltaje de gateM2 y gateM1
@@ -69,7 +71,7 @@ show all
 *ac dec 10 1 0.001ghz
 *plot v(out)/v(cp1)
 tran .0000001s .00001s
-plot i(viss)
+plot i(viss) i(Vrefm1) i(Vrefm2)
 plot v(cp1,VGcommon2)
 plot v(out)
 .endc
