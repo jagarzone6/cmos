@@ -23,10 +23,10 @@ VM1ref Vm1 VSS DC 0 AC 0
 VDD VDD 0 DC 2.5 AC 0
 VSS VSS 0 DC -2.5 AC 0
 M3 gateM3 gateM3 VDD VDD pmoslevel3 W=8u L=1u
-M4 drainM4 gateM3 VDD VDD pmoslevel3 W=8u L=1u
-M1 gateM3 VGcommon1 drainM5 drainM5 nmoslevel3 W=40u L=1u
-M2 drainM4 VGcommon1 drainM5 drainM5 nmoslevel3 W=40u L=1u
-M5 drainM5 gateM5 iss VSS nmoslevel3 W=82u L=1u
+M4 drainM4 gateM3 VDD VDD pmoslevel3 W=7.6u L=1u
+M1 gateM3 VGcommon1 drainM5 VSS nmoslevel3 W=42u L=1u
+M2 drainM4 VGcommon1 drainM5 VSS nmoslevel3 W=40u L=1u
+M5 drainM5 gateM5 iss VSS nmoslevel3 W=82u L=0.9u
 
 Ro vdd gateM5 43k
 M7 gateM5 gateM5 isc VSS nmoslevel3 W=82u L=1u
