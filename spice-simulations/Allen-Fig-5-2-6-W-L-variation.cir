@@ -14,7 +14,6 @@ M1 gateM3 VGcommon1 sM1 VSS nmoslevel3 W=42u L=1u
 M2 drainM4 VGcommon1 sM2 VSS nmoslevel3 W=40u L=1u
 M5 drainM5 gateM5 iss VSS nmoslevel3 W=82u L=0.9u
 
-
 *Iref para la fuente de corriente de 100u Amps
 Ro vdd gateM5 43k
 M7 gateM5 gateM5 isc VSS nmoslevel3 W=82u L=1u
@@ -36,6 +35,10 @@ VO VGcommon1 VGcommon11 sin(0 0.002 100k) dc=0 ac=0.002
 
 *Capacitor de salida
 C2 drainM4 0 5p
+
+*Capacitor para filtrar DC de la salida
+C2 drainM4 out 5p
+Rlo out 0 9000k
 
 .model nmoslevel3 nmos LEVEL=3
 + Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
@@ -60,8 +63,9 @@ op
 show all
 
 *Ganacia en AC barrido en frecuencia vout/vin AC
-ac dec 10 1 0.1ghz
-plot db(mag(v(drainm4))/mag(v(vgcommon11,vgcommon1)))
+ac dec 10 1 10ghz
+plot db(mag(v(out))/mag(v(vgcommon11,vgcommon1)))
+plot mag(v(out))/mag(v(vgcommon11,vgcommon1))
 
 *Transitorio
 tran .0000001s .0001s
@@ -73,5 +77,5 @@ plot i(viss) i(vrefm1) i(vrefm2)
 plot v(vgcommon11,vgcommon1)
 
 *voltaje de salida
-plot v(drainm4)
+plot v(out)
 .endc
