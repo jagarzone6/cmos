@@ -9,7 +9,7 @@ Vschematic|sch
 Tmocmos|ScaleFORmocmos()D500.0
 
 # Cell Differential_amplifier;1{lay}
-CDifferential_amplifier;1{lay}||mocmos|1476792574969|1476803561278||DRC_last_good_drc_area_date()G1476802038883|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476802038883
+CDifferential_amplifier;1{lay}||mocmos|1476792574969|1476827274148||DRC_last_good_drc_area_date()G1476827276640|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476827276640
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-N-Active-Con|contact@0||-35|20||15|RR|
 NMetal-1-N-Active-Con|contact@2||-45|20||15|RR|
@@ -55,22 +55,24 @@ NMetal-1-Metal-2-Con|contact@73||20|-165|||X|
 NMetal-1-Metal-2-Con|contact@74||-25|-95||||
 NMetal-1-Metal-2-Con|contact@75||30|-95||||
 NMetal-1-Polysilicon-1-Con|contact@76||-60|-85||||
-NN-Transistor|nmos@0||-40|20|17||R|
-NN-Transistor|nmos@3||-30|20|17||R|
-NN-Transistor|nmos@6||-40|-25|17||R|
-NN-Transistor|nmos@7||-30|-25|17||R|
-NN-Transistor|nmos@8||40|20|17||XR|
-NN-Transistor|nmos@9||30|20|17||XR|
-NN-Transistor|nmos@10||40|-25|17||XR|
-NN-Transistor|nmos@11||30|-25|17||XR|
-NN-Transistor|nmos@12||-40|-130|38||R|
-NN-Transistor|nmos@13||-30|-130|38||R|
-NN-Transistor|nmos@22||-40|-190|38||R|
-NN-Transistor|nmos@23||-30|-190|38||R|
-NN-Transistor|nmos@26||45|-130|38||XR|
-NN-Transistor|nmos@27||35|-130|38||XR|
-NN-Transistor|nmos@28||45|-190|38||XR|
-NN-Transistor|nmos@29||35|-190|38||XR|
+NMetal-1-Polysilicon-1-Con|contact@78||54|64||||
+NMetal-1-Polysilicon-1-Con|contact@79||55|82||||
+NN-Transistor|nmos@0||-40|20|17||R||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@3||-30|20|17||R||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@6||-40|-25|17||R||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@7||-30|-25|17||R||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@8||40|20|17||XR||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@9||30|20|17||XR||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@10||40|-25|17||XR||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@11||30|-25|17||XR||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@12||-40|-130|38||R||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@13||-30|-130|38||R||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@22||-40|-190|38||R||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@23||-30|-190|38||R||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@26||45|-130|38||XR||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@27||35|-130|38||XR||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@28||45|-190|38||XR||SIM_spice_model(D5G5;R)SNMOS
+NN-Transistor|nmos@29||35|-190|38||XR||SIM_spice_model(D5G5;R)SNMOS
 NPolysilicon-1-Pin|pin@15||-40|40||||
 NPolysilicon-1-Pin|pin@16||-55|40||||
 NPolysilicon-1-Pin|pin@17||-55|-45||||
@@ -102,7 +104,6 @@ NPolysilicon-1-Pin|pin@44||30|-45|||X|
 NPolysilicon-1-Pin|pin@45||40|-5|||X|
 NPolysilicon-1-Pin|pin@46||15|-5|||X|
 NPolysilicon-1-Pin|pin@47||15|40|||X|
-NPolysilicon-1-Pin|pin@48||15|45|||X|
 NPolysilicon-1-Pin|pin@49||30|35|||X|
 NPolysilicon-1-Pin|pin@50||30|40|||X|
 NPolysilicon-1-Pin|pin@51||55|45|||X|
@@ -201,10 +202,15 @@ NMetal-1-Pin|pin@228||-70|-85||||
 NMetal-1-Pin|pin@229||30|-75||||
 NMetal-1-Pin|pin@230||70|-75||||
 NMetal-1-Pin|pin@231||-60|-75||||
-NP-Transistor|pmos@0||-15|90|5||RRR|
-NP-Transistor|pmos@1||-25|90|5||RRR|
-NP-Transistor|pmos@4||20|90|5||XRRR|
-NP-Transistor|pmos@5||30|90|5||XRRR|
+NPolysilicon-1-Pin|pin@232||55|64||||
+NPolysilicon-1-Pin|pin@233||30|60||||
+NPolysilicon-1-Pin|pin@234||45|60||||
+NPolysilicon-1-Pin|pin@238||45|81||||
+NPolysilicon-1-Pin|pin@239||55|81||||
+NP-Transistor|pmos@0||-15|90|5||RRR||SIM_spice_model(D5G5;R)SPMOS
+NP-Transistor|pmos@1||-25|90|5||RRR||SIM_spice_model(D5G5;R)SPMOS
+NP-Transistor|pmos@4||20|90|5||XRRR||SIM_spice_model(D5G5;R)SPMOS
+NP-Transistor|pmos@5||30|90|5||XRRR||SIM_spice_model(D5G5;R)SPMOS
 AN-Active|net@1|||S0|contact@0||-35|20|nmos@0|diff-bottom|-36.25|20
 AN-Active|net@5|||S1800|contact@0||-35|20|nmos@3|diff-top|-33.75|20
 AN-Active|net@6|||S0|contact@3||-25|20|nmos@3|diff-bottom|-26.25|20
@@ -255,7 +261,6 @@ APolysilicon-1|net@80|||S2700|pin@44||30|-45|nmos@11|poly-left|30|-37
 APolysilicon-1|net@81|||S2700|nmos@10|poly-right|40|-13|pin@45||40|-5
 APolysilicon-1|net@82|||S0|pin@45||40|-5|pin@46||15|-5
 APolysilicon-1|net@83|||S2700|pin@46||15|-5|pin@47||15|40
-APolysilicon-1|net@84|||S2700|pin@47||15|40|pin@48||15|45
 APolysilicon-1|net@85|||S2700|nmos@9|poly-right|30|32|pin@49||30|35
 APolysilicon-1|net@86|||S2700|pin@49||30|35|pin@50||30|40
 AN-Active|net@87|||S0|contact@12||35|20|nmos@9|diff-top|33.75|20
@@ -431,10 +436,19 @@ AMetal-1|net@413||1|S1800|pin@228||-70|-85|contact@76||-60|-85
 AMetal-1|net@414||1|S2700|contact@75||30|-95|pin@229||30|-75
 AMetal-1|net@415||1|S1800|pin@229||30|-75|pin@230||70|-75
 AMetal-1|net@416||1|S2700|contact@76||-60|-85|pin@231||-60|-75
-EIn_Iref||D5G10;|pin@231||I
+APolysilicon-1|net@417||3|S1800|contact@78||54|64|pin@232||55|64
+APolysilicon-1|net@418|||S2700|pin@51||55|45|pin@232||55|64
+APolysilicon-1|net@419|||S2700|pin@50||30|40|pin@233||30|60
+APolysilicon-1|net@420|||S1800|pin@233||30|60|pin@234||45|60
+APolysilicon-1|net@424|||S2700|pin@234||45|60|pin@238||45|81
+APolysilicon-1|net@425||3|S900|contact@79||55|82|pin@239||55|81
+APolysilicon-1|net@426|||S1800|pin@238||45|81|pin@239||55|81
+EGate_M1||D5G10;X17;Y8;|contact@79||I
+EGate_M2||D5G10;X35;Y-2;|contact@78||I
+EIn_Iref||D5G10;X3;Y9;|pin@231||I
 EVDD||D5G10;|pin@90||P
 EVSS||D5G10;X5;Y10;|pin@230||P
-EVout_D4_D2||D5G10;X-15;|pin@56||O
+EVout_D4_D2||D5G10;X-35;Y-6;|pin@56||O
 X
 
 # Cell Differential_amplifier;1{sch}

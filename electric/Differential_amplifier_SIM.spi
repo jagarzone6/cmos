@@ -1,0 +1,40 @@
+*** SPICE deck for cell Differential_amplifier_SIM{lay} from library Differential_amplifier
+*** Created on Tue Oct 18, 2016 09:48:40
+*** Last revised on Tue Oct 18, 2016 16:49:25
+*** Written on Tue Oct 18, 2016 16:50:00 by Electric VLSI Design System, version 9.06
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+*** WARNING: no ground connection for N-transistor wells in cell 'Differential_amplifier{lay}'
+
+*** SUBCIRCUIT Differential_amplifier__Differential_amplifier FROM CELL Differential_amplifier{lay}
+.SUBCKT Differential_amplifier__Differential_amplifier Gate_M1 Gate_M2 In_Iref VDD Vout_D4_D2 VSS
+Mnmos@0 net@1 Gate_M2 Vout_D4_D2 gnd NMOS L=1U W=10U AS=41.25P AD=20P PS=31.2U PD=14U
+Mnmos@3 net@6 Gate_M1 net@1 gnd NMOS L=1U W=10U AS=20P AD=24.333P PS=14U PD=20.333U
+Mnmos@6 net@1 Gate_M1 net@6 gnd NMOS L=1U W=10U AS=24.333P AD=20P PS=20.333U PD=14U
+Mnmos@7 Vout_D4_D2 Gate_M2 net@1 gnd NMOS L=1U W=10U AS=20P AD=41.25P PS=14U PD=31.2U
+Mnmos@8 net@1 Gate_M2 Vout_D4_D2 gnd NMOS L=1U W=10U AS=41.25P AD=20P PS=31.2U PD=14U
+Mnmos@9 net@6 Gate_M1 net@1 gnd NMOS L=1U W=10U AS=20P AD=24.333P PS=14U PD=20.333U
+Mnmos@10 net@1 Gate_M1 net@6 gnd NMOS L=1U W=10U AS=24.333P AD=20P PS=20.333U PD=14U
+Mnmos@11 Vout_D4_D2 Gate_M2 net@1 gnd NMOS L=1U W=10U AS=20P AD=41.25P PS=14U PD=31.2U
+Mnmos@12 VSS In_Iref In_Iref gnd NMOS L=1U W=20.5U AS=66.625P AD=41P PS=47.5U PD=24.5U
+Mnmos@13 Vout_D4_D2 In_Iref VSS gnd NMOS L=1U W=20.5U AS=41P AD=41.25P PS=24.5U PD=31.2U
+Mnmos@22 VSS In_Iref Vout_D4_D2 gnd NMOS L=1U W=20.5U AS=41.25P AD=41P PS=31.2U PD=24.5U
+Mnmos@23 In_Iref In_Iref VSS gnd NMOS L=1U W=20.5U AS=41P AD=66.625P PS=24.5U PD=47.5U
+Mnmos@26 VSS In_Iref In_Iref gnd NMOS L=1U W=20.5U AS=66.625P AD=41P PS=47.5U PD=24.5U
+Mnmos@27 Vout_D4_D2 In_Iref VSS gnd NMOS L=1U W=20.5U AS=41P AD=41.25P PS=24.5U PD=31.2U
+Mnmos@28 VSS In_Iref Vout_D4_D2 gnd NMOS L=1U W=20.5U AS=41.25P AD=41P PS=31.2U PD=24.5U
+Mnmos@29 In_Iref In_Iref VSS gnd NMOS L=1U W=20.5U AS=41P AD=66.625P PS=24.5U PD=47.5U
+Mpmos@0 Vout_D4_D2 Vout_D4_D2 VDD VSS PMOS L=1U W=4U AS=13P AD=41.25P PS=14.5U PD=31.2U
+Mpmos@1 VDD Vout_D4_D2 Vout_D4_D2 VSS PMOS L=1U W=4U AS=41.25P AD=13P PS=31.2U PD=14.5U
+Mpmos@4 net@6 Vout_D4_D2 VDD VSS PMOS L=1U W=4U AS=13P AD=24.333P PS=14.5U PD=20.333U
+Mpmos@5 VDD Vout_D4_D2 net@6 VSS PMOS L=1U W=4U AS=24.333P AD=13P PS=20.333U PD=14.5U
+.ENDS Differential_amplifier__Differential_amplifier
+
+*** TOP LEVEL CELL: Differential_amplifier_SIM{lay}
+XDifferen@0 Differen@0_Gate_M1 Differen@0_Gate_M2 Differen@0_In_Iref Differen@0_VDD Differen@0_Vout_D4_D2 Differen@0_VSS Differential_amplifier__Differential_amplifier
+
+* Spice Code nodes in cell cell 'Differential_amplifier_SIM{lay}'
+Vdd VDD gnd 2.5
+Vss VSS gnd -2.5
+.include long_channel_3_models.txt
+.END
