@@ -457,7 +457,8 @@ Ngeneric:Facet-Center|art@0||0|0||||AV
 X
 
 # Cell Differential_amplifier_SIM;1{lay}
-CDifferential_amplifier_SIM;1{lay}||mocmos|1476802120712|1476802123835|
+CDifferential_amplifier_SIM;1{lay}||mocmos|1476802120712|1476827365029||DRC_last_good_drc_area_date()G1476827392175|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476827392175
 IDifferential_amplifier;1{lay}|Differen@0||-25|70|||D5G4;
 Ngeneric:Facet-Center|art@0||0|0||||AV
+Ngeneric:Invisible-Pin|pin@0||-240|94|||||SIM_spice_card(D5G10;)S[Vdd VDD gnd 2.5,Vss VSS gnd -2.5,.include long_channel_3_models.txt]
 X
