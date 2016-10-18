@@ -1,0 +1,75 @@
+* Simulación Circuito De las figura 5.2-6 Allen CMOS differential amplifier using a current-mirror load
+* Usando valores del ejemplo 5.2-2
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+
+*Fuente de corriente del baker fig 20-15
+.SUBCKT current-source gateM1 sourceM2 RLo
+VDD VDD 0 DC 2.5 AC 0
+VSS VSS 0 DC -2.5 AC 0
+M1 gateM1 gateM1 Vm1 VSS nmoslevel3 W=10u L=2u
+M3 gateM1 drainM2 VDD VDD pmoslevel3 W=30u L=2u
+M2 drainM2 gateM1 sourceM2 VSS nmoslevel3 W=40u L=2u
+M4 drainM2 drainM2 VDD VDD pmoslevel3 W=30u L=2u
+MSU1 gateMSU3 gateM1 VSS VSS nmoslevel3 W=10u L=2u
+MSU2 gateMSU3 gateMSU3 VDD VDD pmoslevel3 W=10u L=100u
+MSU3 drainM2 gateMSU3 gateM1 VSS nmoslevel3 W=10u L=1u
+RL RLo VSS 6500
+*VRLref sourceM2 RLo DC 0 AC 0
+VM1ref Vm1 VSS DC 0 AC 0
+.ENDS
+
+VDD VDD 0 DC 2.5 AC 0
+VSS VSS 0 DC -2.5 AC 0
+M3 gateM3 gateM3 VDD VDD pmoslevel3 W=8u L=1u
+M4 drainM4 gateM3 VDD VDD pmoslevel3 W=8u L=1u
+M1 gateM3 VGcommon1 drainM5 drainM5 nmoslevel3 W=40u L=1u
+M2 drainM4 VGcommon1 drainM5 drainM5 nmoslevel3 W=40u L=1u
+M5 drainM5 gateM5 iss VSS nmoslevel3 W=82u L=1u
+
+Ro vdd gateM5 43k
+M7 gateM5 gateM5 isc VSS nmoslevel3 W=82u L=1u
+VIcs isc VSS DC 0 AC 0
+* Fuente dc 0 volts para medir la corriente Iss en el transistor M5
+VIss iss VSS DC 0 AC 0
+* Voltaje de gateM2 y gateM1
+VGcm1 VGcommon1 0 DC 1 AC 0
+VGcm2 VGcommon2 0 DC 1 AC 0
+* Voltaje de activacion del espejo del circuito
+VRLref sourceM2 RLo DC 0 AC 0
+Xmirror gateM6 sourceM2 RLo current-source
+
+C1 VGcommon1 cp1 150n
+VO cp1 0 sin(0 0.002 100k) dc=0 ac=0.002
+
+C2 drainM4 out 150n
+Rl out 0 5M
+.model nmoslevel3 nmos LEVEL=3
++ Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
++ DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=1E5 TPG=1 PB=1
+
+.model pmoslevel3 pmos LEVEL=3
++ Vto=-0.9 KP=40E-6 gamma=0.6 phi=0.7
++ DELTA=0.1 U0=250 ETA=0 KAPPA=1 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=5E4 TPG=1 PB=1
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+*ac dec 10 1 0.001ghz
+*plot v(out)/v(cp1)
+tran .01s .00001s
+plot i(viss)
+plot v(cp1,VGcommon2)
+plot v(out)
+.endc
