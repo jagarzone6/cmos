@@ -24,8 +24,8 @@ VDD VDD 0 DC 2.5 AC 0
 VSS VSS 0 DC -2.5 AC 0
 M3 gateM3 gateM3 VDD VDD pmoslevel3 W=8u L=1u
 M4 drainM4 gateM3 VDD VDD pmoslevel3 W=8u L=1u
-M1 gateM3 VGcommon drainM5 VSS nmoslevel3 W=40u L=1u
-M2 drainM4 VGcommon drainM5 VSS nmoslevel3 W=40u L=1u
+M1 gateM3 VGcommon1 drainM5 VSS nmoslevel3 W=40u L=1u
+M2 drainM4 VGcommon1 drainM5 VSS nmoslevel3 W=40u L=1u
 M5 drainM5 gateM5 iss VSS nmoslevel3 W=82u L=1u
 
 Ro vdd gateM5 43k
@@ -34,11 +34,17 @@ VIcs isc VSS DC 0 AC 0
 * Fuente dc 0 volts para medir la corriente Iss en el transistor M5
 VIss iss VSS DC 0 AC 0
 * Voltaje de gateM2 y gateM1
-VGcm VGcommon 0 DC 1.2 AC 0
+VGcm1 VGcommon1 0 DC 1 AC 0
+VGcm2 VGcommon2 0 DC 1 AC 0
 * Voltaje de activacion del espejo del circuito
 VRLref sourceM2 RLo DC 0 AC 0
 Xmirror gateM6 sourceM2 RLo current-source
 
+C1 VGcommon1 cp1 150n
+VO cp1 0 sin(0 0.002 100k) dc=0 ac=0.002
+
+C2 drainM4 out 150n
+Rl out 0 5M
 .model nmoslevel3 nmos LEVEL=3
 + Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
 + DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
@@ -60,7 +66,10 @@ set color0 =white
 set color1=black
 op
 show all
-tran .1ns 100n
+*ac dec 10 1 0.001ghz
+*plot v(out)/v(cp1)
+tran .01s .00001s
 plot i(viss)
-plot i(VIcs)
+plot v(cp1,VGcommon2)
+plot v(out)
 .endc
