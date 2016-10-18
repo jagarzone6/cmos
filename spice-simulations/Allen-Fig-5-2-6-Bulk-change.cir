@@ -36,14 +36,14 @@ Vrefm1 sM1 drainM5 DC 0 AC 0
 * Fuente dc 0 volts para medir la corriente Iss en el transistor M5
 VIss iss VSS DC 0 AC 0
 * Voltaje de gateM2 y gateM1
-VGcm1 VGcommon1 0 DC 1 AC 0
-VGcm2 VGcommon2 0 DC 1 AC 0
+VGcm1 VGcommon11 0 DC 1 AC 0
+VGcm2 VGcommon22 0 DC 1 AC 0
 * Voltaje de activacion del espejo del circuito
 VRLref sourceM2 RLo DC 0 AC 0
 Xmirror gateM6 sourceM2 RLo current-source
 
-C1 VGcommon1 cp1 5p
-VO cp1 0 sin(0 0.002 100k) dc=0 ac=0.002
+*C1 VGcommon1 cp1 5p
+VO VGcommon1 VGcommon11 sin(0 0.002 100k) dc=0 ac=0.002
 
 C2 drainM4 out .5p
 Rl out 0 5M
@@ -68,10 +68,13 @@ set color0 =white
 set color1=black
 op
 show all
-*ac dec 10 1 0.001ghz
-*plot v(out)/v(cp1)
-tran .0000001s .00001s
+ac dec 10 1 0.01ghz
+*Ganacia en AC barrido en frecuencia vout/vin AC
+plot v(out)/v(VGcommon11,VGcommon1)
+tran .0000001s .0001s
+*Corrientes de polarizacion Iss y Idm2 Idm1
 plot i(viss) i(Vrefm1) i(Vrefm2)
-plot v(cp1,VGcommon2)
+*Voltaje de entrada
+plot v(VGcommon11,VGcommon1)
 plot v(out)
 .endc

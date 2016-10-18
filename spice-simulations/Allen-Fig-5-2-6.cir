@@ -27,7 +27,7 @@ M4 drainM4 gateM3 VDD VDD pmoslevel3 W=8u L=1u
 M1 gateM3 VGcommon1 sM1 VSS nmoslevel3 W=40u L=1u
 M2 drainM4 VGcommon1 sM2 VSS nmoslevel3 W=40u L=1u
 M5 drainM5 gateM5 iss VSS nmoslevel3 W=82u L=1u
-
+*Iref para la fuente de corriente
 Ro vdd gateM5 43k
 M7 gateM5 gateM5 isc VSS nmoslevel3 W=82u L=1u
 VIcs isc VSS DC 0 AC 0
@@ -35,19 +35,19 @@ Vrefm2 sM2 drainM5 DC 0 AC 0
 Vrefm1 sM1 drainM5 DC 0 AC 0
 * Fuente dc 0 volts para medir la corriente Iss en el transistor M5
 VIss iss VSS DC 0 AC 0
-* Voltaje de gateM2 y gateM1
-VGcm1 VGcommon1 0 DC 1 AC 0
-VGcm2 VGcommon2 0 DC 1 AC 0
+* Voltaje DC de gateM2 y gateM1
+VGcm1 VGcommon11 0 DC 1 AC 0
+VGcm2 VGcommon22 0 DC 1 AC 0
 * Voltaje de activacion del espejo del circuito
 VRLref sourceM2 RLo DC 0 AC 0
 Xmirror gateM6 sourceM2 RLo current-source
 
-
-C1 VGcommon1 cp1 5p
-VO cp1 0 sin(0 0.002 100k) dc=0 ac=0.002
-
-C2 drainM4 out .5p
-Rl out 0 5M
+*Fuente AC en los gates
+*C1 VGcommon1 cp1 5p
+VO VGcommon1 VGcommon11 sin(0 0.002 100k) dc=0 ac=0.002
+*Capacitor de salida con resistencia de carga
+C2 drainM4 out 5p
+Rl out VSS 5M
 .model nmoslevel3 nmos LEVEL=3
 + Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
 + DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
@@ -69,10 +69,13 @@ set color0 =white
 set color1=black
 op
 show all
-*ac dec 10 1 0.001ghz
-*plot v(out)/v(cp1)
-tran .0000001s .00001s
+ac dec 10 1 0.01ghz
+*Ganacia en AC barrido en frecuencia vout/vin AC
+plot v(out)/v(VGcommon11,VGcommon1)
+tran .0000001s .0001s
+*Corrientes de polarizacion Iss y Idm2 Idm1
 plot i(viss) i(Vrefm1) i(Vrefm2)
-plot v(cp1,VGcommon2)
+*Voltaje de entrada
+plot v(VGcommon11,VGcommon1)
 plot v(out)
 .endc

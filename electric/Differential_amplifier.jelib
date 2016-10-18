@@ -9,7 +9,7 @@ Vschematic|sch
 Tmocmos|ScaleFORmocmos()D500.0
 
 # Cell Differential_amplifier;1{lay}
-CDifferential_amplifier;1{lay}||mocmos|1476792574969|1476802030890||DRC_last_good_drc_area_date()G1476802038883|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476802038883
+CDifferential_amplifier;1{lay}||mocmos|1476792574969|1476803561278||DRC_last_good_drc_area_date()G1476802038883|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476802038883
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-N-Active-Con|contact@0||-35|20||15|RR|
 NMetal-1-N-Active-Con|contact@2||-45|20||15|RR|
@@ -433,7 +433,7 @@ AMetal-1|net@415||1|S1800|pin@229||30|-75|pin@230||70|-75
 AMetal-1|net@416||1|S2700|contact@76||-60|-85|pin@231||-60|-75
 EIn_Iref||D5G10;|pin@231||I
 EVDD||D5G10;|pin@90||P
-EVSS||D5G10;|pin@230||P
+EVSS||D5G10;X5;Y10;|pin@230||P
 EVout_D4_D2||D5G10;X-15;|pin@56||O
 X
 
