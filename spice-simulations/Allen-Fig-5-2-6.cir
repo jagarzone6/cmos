@@ -1,20 +1,39 @@
-* Simulación Circuito De las figura 5.2-6 Allen CMOS diffrential amplifier using a current-mirror load
+* Simulación Circuito De las figura 5.2-6 Allen CMOS differential amplifier using a current-mirror load
+* Usando valores del ejemplo 5.2-2
 * Universidad Nacional de Colombia 2016
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 
-VDD VDD 0 DC 5 AC 0
-M1 gateM1 gateM1 Vm1 0 nmoslevel3 W=10 L=2
-M3 gateM1 drainM2 VDD VDD pmoslevel3 W=30 L=2
-M2 drainM2 gateM1 sourceM2 0 nmoslevel3 W=40 L=2
-M4 drainM2 drainM2 VDD VDD pmoslevel3 W=30 L=2
-MSU1 gateMSU3 gateM1 0 0 nmoslevel3 W=10 L=2
-MSU2 gateMSU3 gateMSU3 VDD VDD pmoslevel3 W=10 L=100
-MSU3 drainM2 gateMSU3 gateM1 0 nmoslevel3 W=10 L=1
-RL RLo 0 6500
-VRLref sourceM2 RLo DC 0 AC 0
-VM1ref Vm1 0 DC 0 AC 0
+*Fuente de corriente del baker fig 20-15
+.SUBCKT current-source gateM1 sourceM2 RLo
+VDD VDD 0 DC 2.5 AC 0
+VSS VSS 0 DC -2.5 AC 0
+M1 gateM1 gateM1 Vm1 VSS nmoslevel3 W=10u L=2u
+M3 gateM1 drainM2 VDD VDD pmoslevel3 W=30u L=2u
+M2 drainM2 gateM1 sourceM2 VSS nmoslevel3 W=40u L=2u
+M4 drainM2 drainM2 VDD VDD pmoslevel3 W=30u L=2u
+MSU1 gateMSU3 gateM1 VSS VSS nmoslevel3 W=10u L=2u
+MSU2 gateMSU3 gateMSU3 VDD VDD pmoslevel3 W=10u L=100u
+MSU3 drainM2 gateMSU3 gateM1 VSS nmoslevel3 W=10u L=1u
+RL RLo VSS 6500
+*VRLref sourceM2 RLo DC 0 AC 0
+VM1ref Vm1 VSS DC 0 AC 0
+.ENDS
 
+VDD VDD 0 DC 2.5 AC 0
+VSS VSS 0 DC -2.5 AC 0
+M3 gateM3 gateM3 VDD VDD pmoslevel3 W=8u L=1u
+M4 drainM4 gateM3 VDD VDD pmoslevel3 W=8u L=1u
+M1 gateM3 VGcommon drainM5 VSS nmoslevel3 W=40u L=1u
+M2 drainM4 VGcommon drainM5 VSS nmoslevel3 W=40u L=1u
+M5 drainM5 gateM5 iss VSS nmoslevel3 W=82u L=1u
+* Fuente dc 0 volts para medir la corriente Iss en el transistor M5
+VIss iss VSS DC 0 AC 0
+* Voltaje de gateM2 y gateM1
+VGcm VGcommon 0 DC 1.2 AC 0
+* Voltaje de activacion de gateM5
+VRLref sourceM2 RLo DC 0 AC 0
+Xmirror gateM5 sourceM2 RLo current-source
 
 .model nmoslevel3 nmos LEVEL=3
 + Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
@@ -31,3 +50,13 @@ VM1ref Vm1 0 DC 0 AC 0
 + cgso=200E-12 cgdo=200E-12 cgbo=1E-10
 + cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
 + RSH=0 VMAX=5E4 TPG=1 PB=1
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+tran .1ns 100n
+plot i(viss)
+plot i(VRLref)
+.endc

@@ -4,13 +4,13 @@
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 
 VDD VDD 0 DC 5 AC 0
-M1 gateM1 gateM1 Vm1 0 nmoslevel3 W=10 L=2
-M3 gateM1 drainM2 VDD VDD pmoslevel3 W=30 L=2
-M2 drainM2 gateM1 sourceM2 0 nmoslevel3 W=40 L=2
-M4 drainM2 drainM2 VDD VDD pmoslevel3 W=30 L=2
-MSU1 gateMSU3 gateM1 0 0 nmoslevel3 W=10 L=2
-MSU2 gateMSU3 gateMSU3 VDD VDD pmoslevel3 W=10 L=100
-MSU3 drainM2 gateMSU3 gateM1 0 nmoslevel3 W=10 L=1
+M1 gateM1 gateM1 Vm1 0 nmoslevel3 W=10u L=2u
+M3 gateM1 drainM2 VDD VDD pmoslevel3 W=30u L=2u
+M2 drainM2 gateM1 sourceM2 0 nmoslevel3 W=40u L=2u
+M4 drainM2 drainM2 VDD VDD pmoslevel3 W=30u L=2u
+MSU1 gateMSU3 gateM1 0 0 nmoslevel3 W=10u L=2u
+MSU2 gateMSU3 gateMSU3 VDD VDD pmoslevel3 W=10u L=100u
+MSU3 drainM2 gateMSU3 gateM1 0 nmoslevel3 W=10u L=1u
 RL RLo 0 6500
 VRLref sourceM2 RLo DC 0 AC 0
 VM1ref Vm1 0 DC 0 AC 0
