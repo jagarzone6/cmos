@@ -9,7 +9,7 @@ Vschematic|sch
 Tmocmos|ScaleFORmocmos()D500.0
 
 # Cell Differential_amplifier;1{lay}
-CDifferential_amplifier;1{lay}||mocmos|1476792574969|1476796461184||DRC_last_good_drc_area_date()G1476796297508|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476796297508
+CDifferential_amplifier;1{lay}||mocmos|1476792574969|1476796669638||DRC_last_good_drc_area_date()G1476796672817|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476796672817
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-N-Active-Con|contact@0||-35|20||15|RR|
 NMetal-1-N-Active-Con|contact@2||-45|20||15|RR|
@@ -117,6 +117,8 @@ NMetal-1-Pin|pin@111||-20|65||||
 NMetal-1-Pin|pin@112||-60|65||||
 NMetal-1-Pin|pin@113||25|55||||
 NMetal-1-Pin|pin@114||0|55||||
+NPolysilicon-1-Pin|pin@115||-30|-55||||
+NPolysilicon-1-Pin|pin@116||30|-55||||
 NP-Transistor|pmos@0||-15|90|5||RRR|
 NP-Transistor|pmos@1||-25|90|5||RRR|
 NP-Transistor|pmos@4||20|90|5||XRRR|
@@ -247,6 +249,10 @@ AMetal-1|net@201||1|S900|pin@112||-60|65|pin@32||-60|45
 AMetal-1|net@202||1|S900|pin@108||25|70|pin@113||25|55
 AMetal-1|net@203||1|S0|pin@113||25|55|pin@114||0|55
 AMetal-1|net@204||1|S900|pin@114||0|55|pin@66||0|50
+APolysilicon-1|net@205|||S1800|pin@27||-15|-45|pin@52||15|-45
+APolysilicon-1|net@206|||S900|pin@18||-30|-45|pin@115||-30|-55
+APolysilicon-1|net@207|||S1800|pin@115||-30|-55|pin@116||30|-55
+APolysilicon-1|net@208|||S2700|pin@116||30|-55|pin@44||30|-45
 X
 
 # Cell Differential_amplifier;1{sch}
