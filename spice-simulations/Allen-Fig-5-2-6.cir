@@ -40,10 +40,10 @@ VGcm2 VGcommon2 0 DC 1 AC 0
 VRLref sourceM2 RLo DC 0 AC 0
 Xmirror gateM6 sourceM2 RLo current-source
 
-C1 VGcommon1 cp1 150n
+C1 VGcommon1 cp1 5p
 VO cp1 0 sin(0 0.002 100k) dc=0 ac=0.002
 
-C2 drainM4 out 150n
+C2 drainM4 out .5p
 Rl out 0 5M
 .model nmoslevel3 nmos LEVEL=3
 + Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
@@ -68,7 +68,7 @@ op
 show all
 *ac dec 10 1 0.001ghz
 *plot v(out)/v(cp1)
-tran .01s .00001s
+tran .0000001s .00001s
 plot i(viss)
 plot v(cp1,VGcommon2)
 plot v(out)
