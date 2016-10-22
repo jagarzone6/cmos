@@ -3,8 +3,10 @@
 * Universidad Nacional de Colombia 2016
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
+////////////------////////////////////
 
-*Definicion del circuito Amplificador diferencial en modo diferencial
+*Circuito A sin la fuente de corriente
+* Se obtiene menor ganacia pero mayor ancho de banda
 
 VDD VDD 0 DC 5 AC 0
 VG3 gateM3 0 DC 2.3 AC 0
@@ -17,15 +19,39 @@ M2 outa gateM2 sourceM2 0 nmoslevel3 W=2u L=1u
 M1 sourceM2 vin 0 0 nmoslevel3 W=2u L=1u
 
 * Voltaje DC de gateM2 y gateM1
-VGin VGcommon11 0 DC 1.9 AC 0
+VGin VGcommon11 0 DC 1.7 AC 0
 *Fuente AC en los gates despues de la fuente DC de polarizacion
 VO vin VGcommon11 sin(0 0.002 100k) dc=0 ac=0.002
 
-
-
 *Capacitor para filtrar DC de la salida
 C2 outa out 5n
-Rlo out 0 120k
+Rlo out 0 9200k
+
+
+////////////------////////////////////
+*Circuito B con la fuente de corriente adiccional conectada de VDD2 al sourceM22(drainM12)
+* Se obtiene mayor ganacia pero menor ancho de banda
+VDD2 VDD2 0 DC 5 AC 0
+VG32 gateM32 0 DC 2.3 AC 0
+VG22 gateM22 0 DC 3.4 AC 0
+
+M32 drainM22 gateM32 VDD2 VDD2 pmoslevel3 W=2u L=1u
+* Fuente dc 0 volts para medir la corriente ID en el transistor M2
+Vid22 drainM22 outa2 DC 0 AC 0
+M22 outa2 gateM22 sourceM22 0 nmoslevel3 W=2u L=1u
+M12 sourceM22 vin2 0 0 nmoslevel3 W=2u L=1u
+
+* Voltaje DC de gateM2 y gateM1
+VGin2 VGcommon112 0 DC 1.7 AC 0
+*Fuente AC en los gates despues de la fuente DC de polarizacion
+VO2 vin2 VGcommon112 sin(0 0.002 100k) dc=0 ac=0.002
+
+*Capacitor para filtrar DC de la salida
+C22 outa2 out2 5n
+Rlo2 out2 0 9200k
+
+*Fuente de corriente adicional
+Iad sourceM22 vdd2 DC 25.5u AC 0
 
 .model nmoslevel3 nmos LEVEL=3
 + Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
@@ -51,18 +77,21 @@ show all
 
 *Ganacia en AC barrido en frecuencia vout/vin AC
 ac dec 10 1 10ghz
-plot db(mag(v(out))/mag(v(vgcommon11,vin)))
-plot mag(v(out))/mag(v(vgcommon11,vin))
+plot db(mag(v(out))/mag(v(vgcommon11,vin))) db(mag(v(out2))/mag(v(vgcommon112,vin2)))
+plot mag(v(out))/mag(v(vgcommon11,vin)) mag(v(out2))/mag(v(vgcommon112,vin2))
+*plot db(mag(v(outa))/mag(v(vgcommon11,vin))) db(mag(v(outa2))/mag(v(vgcommon112,vin2)))
+*plot mag(v(outa))/mag(v(vgcommon11,vin)) mag(v(outa2))/mag(v(vgcommon112,vin2))
+
 
 *Transitorio
 tran .0000001s .0001s
 
 *Corrientes de polarizacion Iss y Idm2 Idm1
-plot i(vid2)
+plot i(vid2) i(vid22)
 
 *Voltaje de entrada
-plot v(vgcommon11,vin)
+plot v(vgcommon11,vin) v(vgcommon112,vin2)
 
 *voltaje de salida
-plot v(out)
+plot v(out) v(out2)
 .endc
