@@ -1,0 +1,68 @@
+* Simulación Circuito De las figura 5.3-1 Allen CMOS cascode
+* Usando modelo de canal largo
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+
+*Definicion del circuito Amplificador diferencial en modo diferencial
+
+VDD VDD 0 DC 5 AC 0
+VG3 gateM3 0 DC 2.3 AC 0
+VG2 gateM2 0 DC 3.4 AC 0
+
+M3 drainM2 gateM3 VDD VDD pmoslevel3 W=2u L=1u
+* Fuente dc 0 volts para medir la corriente ID en el transistor M2
+Vid2 drainM2 outa DC 0 AC 0
+M2 outa gateM2 sourceM2 0 nmoslevel3 W=2u L=1u
+M1 sourceM2 vin 0 0 nmoslevel3 W=2u L=1u
+
+* Voltaje DC de gateM2 y gateM1
+VGin VGcommon11 0 DC 1.9 AC 0
+*Fuente AC en los gates despues de la fuente DC de polarizacion
+VO vin VGcommon11 sin(0 0.002 100k) dc=0 ac=0.002
+
+
+
+*Capacitor para filtrar DC de la salida
+C2 outa out 5n
+Rlo out 0 120k
+
+.model nmoslevel3 nmos LEVEL=3
++ Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
++ DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=1E5 TPG=1 PB=1
+
+.model pmoslevel3 pmos LEVEL=3
++ Vto=-0.9 KP=40E-6 gamma=0.6 phi=0.7
++ DELTA=0.1 U0=250 ETA=0 KAPPA=1 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=5E4 TPG=1 PB=1
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+
+*Ganacia en AC barrido en frecuencia vout/vin AC
+ac dec 10 1 10ghz
+plot db(mag(v(out))/mag(v(vgcommon11,vin)))
+plot mag(v(out))/mag(v(vgcommon11,vin))
+
+*Transitorio
+tran .0000001s .0001s
+
+*Corrientes de polarizacion Iss y Idm2 Idm1
+plot i(vid2)
+
+*Voltaje de entrada
+plot v(vgcommon11,vin)
+
+*voltaje de salida
+plot v(out)
+.endc
