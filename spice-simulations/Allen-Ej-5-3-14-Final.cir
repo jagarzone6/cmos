@@ -13,30 +13,30 @@ VDD VDD 0 DC 5 AC 0
 *Iref Espejo N de 45u Amps
 *Rref vdd gateM2 22k
 Iref vdd gateM2 DC 45u AC 0
-M5 gateM2 gateM2 isc 0 nmoslevel3 W=1u L=3u
+M5 gateM2 gateM2 isc 0 nmoslevel3 W=4u L=12u
 
 *Iref Espejo P de 45u Amps
 *Rref2 gateM3 isc2 22.5k
 Iref2 gateM3 isc2 DC 45u AC 0
-M4 gateM3 gateM3 VDD VDD pmoslevel3 W=3u L=3u
+M4 gateM3 gateM3 VDD VDD pmoslevel3 W=5u L=5u
 
 *Fuentes de voltage de 0v para medir corriente en los tranisitores M5, M4 (Espejos)
 Vim5 isc 0 DC 0 AC 0
 Vim4 isc2 0 DC 0 AC 0
 
-M3 drainM2 gateM3 VDD VDD pmoslevel3 W=3u L=3u
+M3 drainM2 gateM3 VDD VDD pmoslevel3 W=5u L=5u
 * Fuente dc 0 volts para medir la corriente ID en el transistor M2
 Vid2 drainM2 outa DC 0 AC 0
-M2 outa gateM2 sourceM2 0 nmoslevel3 W=2.25u L=3u
+M2 outa gateM2 sourceM2 0 nmoslevel3 W=9u L=12u
 M1 sourceM2 vin 0 0 nmoslevel3 W=9u L=3u
 
 * Voltaje DC para gateM1
-VGin VGcommon11 0 DC 1.3704 AC 0
+VGin VGcommon11 0 DC 1.37085 AC 0
 *Fuente AC en el gateM1 despues de la fuente DC de polarizacion
 VO vin VGcommon11 sin(0 0.002 1k) dc=0 ac=0.002
 
 *Capacitor para filtrar DC de la salida
-C2 outa out 50n
+C2 outa out 5p
 Rlo out 0 92000000k
 Cl outa 0 5p
 
