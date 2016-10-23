@@ -31,7 +31,7 @@ M2 outa gateM2 sourceM2 0 nmoslevel3 W=9u L=12u
 M1 sourceM2 vin 0 0 nmoslevel3 W=9u L=3u
 
 * Voltaje DC para gateM1
-VGin VGcommon11 0 DC 1.37085 AC 0
+VGin VGcommon11 0 DC 1.37125 AC 0
 *Fuente AC en el gateM1 despues de la fuente DC de polarizacion
 VO vin VGcommon11 sin(0 0.002 1k) dc=0 ac=0.002
 
