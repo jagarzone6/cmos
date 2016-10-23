@@ -78,7 +78,7 @@ show all
 *Ganacia en AC barrido en frecuencia vout/vin AC
 *Comparacion del circuito con la fuente de corriente y sin la fuente de corriente
 *Con una corriente de 25.5u A en la fuente de corriente se obtiene 110 veces la ganancia del circuito original
-ac dec 10 1 10ghz
+ac dec 10 1 50ghz
 plot db(mag(v(out))/mag(v(vgcommon11,vin))) db(mag(v(out2))/mag(v(vgcommon112,vin2)))
 plot mag(v(out))/mag(v(vgcommon11,vin)) mag(v(out2))/mag(v(vgcommon112,vin2))
 
