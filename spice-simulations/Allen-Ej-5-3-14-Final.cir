@@ -1,44 +1,43 @@
-* Simulación Circuito De las figura 5.3-1 Allen CMOS cascode
-* Usando modelo de canal largo
+* Simulación Circuito Del ejercicio figura 5.3-14 Allen CMOS cascode
+* Usando modelo de canal largo del baker
 * Universidad Nacional de Colombia 2016
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 ////////////------////////////////////
 
-*Circuito A sin la fuente de corriente
-* Se obtiene menor ganacia pero mayor ancho de banda
+*Fuente de alimentacion del circuito
 
 VDD VDD 0 DC 5 AC 0
 
-*Fuentes de corriente para polarizar el circuito con I=90 uA
-*Iref Espejo N de 90u Amps
+*Fuentes de corriente para polarizar el circuito con I=45 uA
+*Iref Espejo N de 45u Amps
 *Rref vdd gateM2 22k
-Iref vdd gateM2 DC 90u AC 0
-M5 gateM2 gateM2 isc 0 nmoslevel3 W=2u L=3u
+Iref vdd gateM2 DC 45u AC 0
+M5 gateM2 gateM2 isc 0 nmoslevel3 W=1u L=3u
 
-*Iref Espejo P de 90u Amps
+*Iref Espejo P de 45u Amps
 *Rref2 gateM3 isc2 22.5k
-Iref2 gateM3 isc2 DC 90u AC 0
-M4 gateM3 gateM3 VDD VDD pmoslevel3 W=6u L=3u
+Iref2 gateM3 isc2 DC 45u AC 0
+M4 gateM3 gateM3 VDD VDD pmoslevel3 W=3u L=3u
 
-*Fuentes de voltage de 0v para medir corriente en los tranisitores M5, M6 (Espejos)
+*Fuentes de voltage de 0v para medir corriente en los tranisitores M5, M4 (Espejos)
 Vim5 isc 0 DC 0 AC 0
 Vim4 isc2 0 DC 0 AC 0
 
-M3 drainM2 gateM3 VDD VDD pmoslevel3 W=6u L=3u
+M3 drainM2 gateM3 VDD VDD pmoslevel3 W=3u L=3u
 * Fuente dc 0 volts para medir la corriente ID en el transistor M2
 Vid2 drainM2 outa DC 0 AC 0
-M2 outa gateM2 sourceM2 0 nmoslevel3 W=18u L=3u
-M1 sourceM2 vin 0 0 nmoslevel3 W=4.5u L=3u
+M2 outa gateM2 sourceM2 0 nmoslevel3 W=2.25u L=3u
+M1 sourceM2 vin 0 0 nmoslevel3 W=9u L=3u
 
-* Voltaje DC de gateM1
-VGin VGcommon11 0 DC 2.0600 AC 0
-*Fuente AC en los gates despues de la fuente DC de polarizacion
+* Voltaje DC para gateM1
+VGin VGcommon11 0 DC 1.3704 AC 0
+*Fuente AC en el gateM1 despues de la fuente DC de polarizacion
 VO vin VGcommon11 sin(0 0.002 1k) dc=0 ac=0.002
 
 *Capacitor para filtrar DC de la salida
 C2 outa out 50n
-Rlo out 0 920000k
+Rlo out 0 92000000k
 Cl outa 0 5p
 
 
@@ -66,9 +65,12 @@ show all
 
 *Ganacia en AC barrido en frecuencia vout/vin AC
 ac dec 10 1 100ghz
+*Ganancia en decibeles
 plot db(mag(v(out))/mag(v(vgcommon11,vin)))
 *plot ph(v(out)/v(vgcommon11,vin))*360/(2*pi)
+*Fase de la señal de salida en grados
 plot ph(v(out))*360/(2*pi)
+*Ganancia en magnitud V/V
 plot mag(v(out))/mag(v(vgcommon11,vin))
 *plot db(mag(v(outa))/mag(v(vgcommon11,vin)))
 *plot mag(v(outa))/mag(v(vgcommon11,vin))
@@ -77,7 +79,7 @@ plot mag(v(out))/mag(v(vgcommon11,vin))
 *Transitorio
 tran .00001s .01s
 
-*Corrientes de polarizacion en el drain de M2
+*Corrientes de polarizacion y en el drain de M2
 plot i(vid2) i(Vim5) i(Vim4)
 
 *Voltajes de entrada vs voltaje de salida
