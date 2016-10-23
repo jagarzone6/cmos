@@ -84,6 +84,10 @@ plot i(vid2) i(Vim5) i(Vim4)
 plot v(vgcommon11,vin) v(out)
 *plot v(vgcommon11,vin) v(outa)
 
-*Analizis de polos y ceros de la funcion de transferencia
+*Analisis de polos y ceros de la funcion de transferencia
 pz vin 0 out 0 vol pz
+
+*Analisis DC variando Vin DC
+dc VGin 0 5 0.01
+plot v(outa)
 .endc
