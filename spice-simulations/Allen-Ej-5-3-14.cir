@@ -67,6 +67,9 @@ show all
 *Ganacia en AC barrido en frecuencia vout/vin AC
 ac dec 10 1 10ghz
 plot db(mag(v(out))/mag(v(vgcommon11,vin)))
+*plot ph(v(out)/v(vgcommon11,vin))*360/(2*pi)
+plot ph(v(out))*360/(2*pi)
+plot db(v(out))
 plot mag(v(out))/mag(v(vgcommon11,vin))
 *plot db(mag(v(outa))/mag(v(vgcommon11,vin)))
 *plot mag(v(outa))/mag(v(vgcommon11,vin))
