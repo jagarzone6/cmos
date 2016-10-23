@@ -76,22 +76,24 @@ op
 show all
 
 *Ganacia en AC barrido en frecuencia vout/vin AC
+*Comparacion del circuito con la fuente de corriente y sin la fuente de corriente
+*Con una corriente de 25.5u A en la fuente de corriente se obtiene 110 veces la ganancia del circuito original
 ac dec 10 1 10ghz
 plot db(mag(v(out))/mag(v(vgcommon11,vin))) db(mag(v(out2))/mag(v(vgcommon112,vin2)))
 plot mag(v(out))/mag(v(vgcommon11,vin)) mag(v(out2))/mag(v(vgcommon112,vin2))
-*plot db(mag(v(outa))/mag(v(vgcommon11,vin))) db(mag(v(outa2))/mag(v(vgcommon112,vin2)))
-*plot mag(v(outa))/mag(v(vgcommon11,vin)) mag(v(outa2))/mag(v(vgcommon112,vin2))
+
 
 
 *Transitorio
 tran .0000001s .0001s
 
-*Corrientes de polarizacion Iss y Idm2 Idm1
+*Corrientes de polarizacion en el drain de M2 y M22, comparacion
 plot i(vid2) i(vid22)
 
-*Voltaje de entrada
+*Voltajes de entrada de ambos circuitos
 plot v(vgcommon11,vin) v(vgcommon112,vin2)
 
-*voltaje de salida
+*voltaje de salida para ambos circuitos
+*Con una corriente de 25.5u A en la fuente de corriente se obtiene 110 veces la ganancia del circuito original
 plot v(out) v(out2)
 .endc

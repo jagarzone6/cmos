@@ -1,0 +1,87 @@
+* Simulación Circuito De las figura 5.3-1 Allen CMOS cascode
+* Usando modelo de canal largo
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+////////////------////////////////////
+
+*Circuito A sin la fuente de corriente
+* Se obtiene menor ganacia pero mayor ancho de banda
+
+VDD VDD 0 DC 5 AC 0
+
+*Fuentes de corriente para polarizar el circuito con I=90 uA
+*Iref Espejo N de 90u Amps
+*Rref vdd gateM2 22k
+Iref vdd gateM2 DC 90u AC 0
+M5 gateM2 gateM2 isc 0 nmoslevel3 W=2u L=3u
+
+*Iref Espejo P de 90u Amps
+*Rref2 gateM3 isc2 22.5k
+Iref2 gateM3 isc2 DC 90u AC 0
+M4 gateM3 gateM3 VDD VDD pmoslevel3 W=6u L=3u
+
+*Fuentes de voltage de 0v para medir corriente en los tranisitores M5, M6 (Espejos)
+Vim5 isc 0 DC 0 AC 0
+Vim4 isc2 0 DC 0 AC 0
+
+M3 drainM2 gateM3 VDD VDD pmoslevel3 W=6u L=3u
+* Fuente dc 0 volts para medir la corriente ID en el transistor M2
+Vid2 drainM2 outa DC 0 AC 0
+M2 outa gateM2 sourceM2 0 nmoslevel3 W=18u L=3u
+M1 sourceM2 vin 0 0 nmoslevel3 W=4.5u L=3u
+
+* Voltaje DC de gateM1
+VGin VGcommon11 0 DC 2.0600 AC 0
+*Fuente AC en los gates despues de la fuente DC de polarizacion
+VO vin VGcommon11 sin(0 0.002 1k) dc=0 ac=0.002
+
+*Capacitor para filtrar DC de la salida
+C2 outa out 50n
+Rlo out 0 920000k
+Cl outa 0 5p
+
+
+.model nmoslevel3 nmos LEVEL=3
++ Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
++ DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=1E5 TPG=1 PB=1
+
+.model pmoslevel3 pmos LEVEL=3
++ Vto=-0.9 KP=40E-6 gamma=0.6 phi=0.7
++ DELTA=0.1 U0=250 ETA=0 KAPPA=1 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=5E4 TPG=1 PB=1
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+
+*Ganacia en AC barrido en frecuencia vout/vin AC
+ac dec 10 1 10ghz
+plot db(mag(v(out))/mag(v(vgcommon11,vin)))
+plot mag(v(out))/mag(v(vgcommon11,vin))
+*plot db(mag(v(outa))/mag(v(vgcommon11,vin)))
+*plot mag(v(outa))/mag(v(vgcommon11,vin))
+
+
+*Transitorio
+tran .00001s .01s
+
+*Corrientes de polarizacion en el drain de M2
+plot i(vid2) i(Vim5) i(Vim4)
+
+*Voltajes de entrada
+plot v(vgcommon11,vin)
+
+*voltaje de salida
+plot v(out)
+*plot v(outa)
+.endc
