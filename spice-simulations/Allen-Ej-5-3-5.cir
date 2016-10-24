@@ -51,7 +51,7 @@ C22 outa2 out2 5n
 Rlo2 out2 0 9200k
 
 *Fuente de corriente adicional
-Iad sourceM22 vdd2 DC 25.5u AC 0
+Iad sourceM22 vdd2 DC 26.9u AC 0
 
 .model nmoslevel3 nmos LEVEL=3
 + Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
@@ -77,11 +77,10 @@ show all
 
 *Ganacia en AC barrido en frecuencia vout/vin AC
 *Comparacion del circuito con la fuente de corriente y sin la fuente de corriente
-*Con una corriente de 25.5u A en la fuente de corriente se obtiene 110 veces la ganancia del circuito original
-ac dec 10 1 50ghz
+*Con una corriente de 26.9u A en la fuente de corriente se obtiene 10 veces la ganancia del circuito original
+ac dec 10 1 100ghz
 plot db(mag(v(out))/mag(v(vgcommon11,vin))) db(mag(v(out2))/mag(v(vgcommon112,vin2)))
 plot mag(v(out))/mag(v(vgcommon11,vin)) mag(v(out2))/mag(v(vgcommon112,vin2))
-
 
 
 *Transitorio
@@ -90,10 +89,8 @@ tran .0000001s .0001s
 *Corrientes de polarizacion en el drain de M2 y M22, comparacion
 plot i(vid2) i(vid22)
 
-*Voltajes de entrada de ambos circuitos
-plot v(vgcommon11,vin) v(vgcommon112,vin2)
-
-*voltaje de salida para ambos circuitos
-*Con una corriente de 25.5u A en la fuente de corriente se obtiene 110 veces la ganancia del circuito original
-plot v(out) v(out2)
+*Voltajes de entrada de ambos circuitos v(vgcommon11,vin) v(vgcommon112,vin2)
+*voltaje de salida para ambos circuitos v(out) v(out2)
+*Con una corriente de 26.9u A en la fuente de corriente se obtiene 10 veces la ganancia del circuito original
+plot v(out) v(out2) v(vgcommon11,vin) v(vgcommon112,vin2)
 .endc

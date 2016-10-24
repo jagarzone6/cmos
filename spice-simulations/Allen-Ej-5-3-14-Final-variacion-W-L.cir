@@ -65,7 +65,6 @@ show all
 ac dec 10 1 100ghz
 *Ganancia en decibeles
 plot db(mag(v(out))/mag(v(vgcommon11,vin)))
-*plot ph(v(out)/v(vgcommon11,vin))*360/(2*pi)
 *Fase de la señal de salida en grados
 plot ph(v(out))*360/(2*pi)
 *Ganancia en magnitud V/V
@@ -78,16 +77,16 @@ plot mag(v(out))/mag(v(vgcommon11,vin))
 tran .00001s .01s
 
 *Corrientes de polarizacion y en el drain de M2
-plot i(vid2) i(Vim5) i(Vim4)
+plot i(vid2) i(vim5) i(vim4)
 
 *Voltajes de entrada vs voltaje de salida
 plot v(vgcommon11,vin) v(out)
 *plot v(vgcommon11,vin) v(outa)
 
 *Analisis de polos y ceros de la funcion de transferencia
-pz vin 0 out 0 vol pz
+pz vin vgcommon11 out 0 vol pz
 
 *Analisis DC variando Vin DC
-dc VGin 0 5 0.01
+dc vgin 0 5 0.01
 plot v(outa)
 .endc

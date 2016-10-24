@@ -1,4 +1,4 @@
-* Simulación Circuito Del ejercicio figura 5.3-14 Allen CMOS cascode
+* Simulación Circuito Del ejercicio figura 5.3-14 Allen CMOS cascode design
 * Usando modelo de canal largo del baker
 * Universidad Nacional de Colombia 2016
 * CMOS Analógico
@@ -80,7 +80,7 @@ plot mag(v(out))/mag(v(vgcommon11,vin))
 tran .00001s .01s
 
 *Corrientes de polarizacion y en el drain de M2
-plot i(vid2) i(Vim5) i(Vim4)
+plot i(vid2) i(vim5) i(vim4)
 
 *Voltajes de entrada vs voltaje de salida
 plot v(vgcommon11,vin) v(out)
@@ -90,6 +90,6 @@ plot v(vgcommon11,vin) v(out)
 pz vin 0 out 0 vol pz
 
 *Analisis DC variando Vin DC
-dc VGin 0 5 0.01
+dc vgin 0 5 0.01
 plot v(outa)
 .endc

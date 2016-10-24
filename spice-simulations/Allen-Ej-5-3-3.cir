@@ -1,12 +1,11 @@
-* Simulación Circuito De las figura 5.3-1 Allen CMOS cascode
+* Simulación Circuito De las figura 5.3-1 Allen CMOS cascode sin y con tener en encuenta lambda, voltaje vout minimo comparacion
 * Usando modelo de canal largo
 * Universidad Nacional de Colombia 2016
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 ////////////------////////////////////
 
-*Circuito A sin la fuente de corriente
-* Se obtiene menor ganacia pero mayor ancho de banda
+*Circuito A modelo que incluye lamba, nivel 3 baker canal largo
 
 VDD VDD 0 DC 5 AC 0
 VG3 gateM3 0 DC 2.3 AC 0
@@ -16,39 +15,34 @@ M3 drainM2 gateM3 VDD VDD pmoslevel3 W=2u L=1u
 * Fuente dc 0 volts para medir la corriente ID en el transistor M2
 Vid2 drainM2 outa DC 0 AC 0
 M2 outa gateM2 sourceM2 0 nmoslevel3 W=2u L=1u
-M1 sourceM2 vin 0 0 nmoslevel3 W=2u L=1u
-
-* Voltaje DC de gateM2 y gateM1
-VGin VGcommon11 0 DC 1.7 AC 0
-*Fuente AC en los gates despues de la fuente DC de polarizacion
-VO vin VGcommon11 sin(0 0.002 100k) dc=0 ac=0.002
+M1 sourceM2 vin2 0 0 nmoslevel3 W=2u L=1u
 
 *Capacitor para filtrar DC de la salida
-C2 outa out 5n
-Rlo out 0 9200k
+C2 outa out 5p
+Rlo out 0 920000k
 
 
 ////////////------////////////////////
-*Circuito B con la modelo simple nivel 3
+*Circuito B con la modelo simple nivel 3 sin parametros para que el modelo no incluya lambda
 * Se obtiene mayor ganacia pero menor ancho de banda
 VDD2 VDD2 0 DC 5 AC 0
 VG32 gateM32 0 DC 2.3 AC 0
 VG22 gateM22 0 DC 3.4 AC 0
 
-M32 drainM22 gateM32 VDD2 VDD2 pmoslevel2simple W=2u L=1u
+M32 drainM22 gateM32 VDD2 VDD2 pmoslevel3simple W=2u L=1u
 * Fuente dc 0 volts para medir la corriente ID en el transistor M2
 Vid22 drainM22 outa2 DC 0 AC 0
-M22 outa2 gateM22 sourceM22 0 nmoslevel2simple W=2u L=1u
-M12 sourceM22 vin2 0 0 nmoslevel2simple W=2u L=1u
+M22 outa2 gateM22 sourceM22 0 nmoslevel3simple W=2u L=1u
+M12 sourceM22 vin2 0 0 nmoslevel3simple W=2u L=1u
 
-* Voltaje DC de gateM2 y gateM1
+* Voltaje DC de polarizacion de M1 y M12 y AC de vin
 VGin2 VGcommon112 0 DC 1.7 AC 0
 *Fuente AC en los gates despues de la fuente DC de polarizacion
 VO2 vin2 VGcommon112 sin(0 0.002 100k) dc=0 ac=0.002
 
 *Capacitor para filtrar DC de la salida
-C22 outa2 out2 5n
-Rlo2 out2 0 9200k
+C22 outa2 out2 5p
+Rlo2 out2 0 920000k
 
 
 
@@ -68,10 +62,10 @@ Rlo2 out2 0 9200k
 + cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
 + RSH=0 VMAX=5E4 TPG=1 PB=1
 
-.model nmoslevel2simple nmos LEVEL=2
+.model nmoslevel3simple nmos LEVEL=3
 + Vto=0.8 KP=120E-6
 
-.model pmoslevel2simple pmos LEVEL=2
+.model pmoslevel3simple pmos LEVEL=3
 + Vto=-0.9 KP=40E-6
 
 .control
@@ -80,25 +74,20 @@ set color1=black
 op
 show all
 
-*Ganacia en AC barrido en frecuencia vout/vin AC
-*Comparacion del circuito con la fuente de corriente y sin la fuente de corriente
-*Con una corriente de 25.5u A en la fuente de corriente se obtiene 110 veces la ganancia del circuito original
-ac dec 10 1 50ghz
-plot db(mag(v(out))/mag(v(vgcommon11,vin))) db(mag(v(out2))/mag(v(vgcommon112,vin2)))
-plot mag(v(out))/mag(v(vgcommon11,vin)) mag(v(out2))/mag(v(vgcommon112,vin2))
-
-
 
 *Transitorio
 tran .0000001s .0001s
 
-*Corrientes de polarizacion en el drain de M2 y M22, comparacion
+*Corrientes de polarizacion DC en el drain de M2 y M22, comparacion
 plot i(vid2) i(vid22)
 
-*Voltajes de entrada de ambos circuitos
-plot v(vgcommon11,vin) v(vgcommon112,vin2)
+*Voltaje de entrada AC de ambos circuitos v(vgcommon112,vin2)
+*voltaje de salida AC para ambos circuitos v(out) v(out2)
+plot v(out) v(out2) v(vgcommon112,vin2)
 
-*voltaje de salida para ambos circuitos
-*Con una corriente de 25.5u A en la fuente de corriente se obtiene 110 veces la ganancia del circuito original
-plot v(out) v(out2)
+*Curva de voltage vin vs vout
+* Vin vs Vout DC, sin tener en cuenta lamba "outa2", modelo nivel 2 basico y teniendo en cuenta lambda "outa", modelo nivel 3 baker canal largo
+dc vgin2 0 5 0.01
+plot v(outa2) v(outa)
+
 .endc
