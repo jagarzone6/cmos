@@ -69,7 +69,7 @@ ac dec 10 1 100ghz
 plot db(mag(v(out))/mag(v(vgcommon11,vin)))
 *plot ph(v(out)/v(vgcommon11,vin))*360/(2*pi)
 *Fase de la señal de salida en grados
-plot ph(v(out))*360/(2*pi)
+plot ph(v(out)/v(vin,vgcommon11))*360/(2*pi)
 *Ganancia en magnitud V/V
 plot mag(v(out))/mag(v(vgcommon11,vin))
 *plot db(mag(v(outa))/mag(v(vgcommon11,vin)))
