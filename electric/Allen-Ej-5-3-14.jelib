@@ -8,7 +8,7 @@ Vlayout|lay
 Tmocmos|ScaleFORmocmos()D500.0
 
 # Cell Allen-Ej-5-3-14;1{lay}
-CAllen-Ej-5-3-14;1{lay}||mocmos|1477348324305|1477352562150||DRC_last_good_drc_area_date()G1477352578641|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1477352578641
+CAllen-Ej-5-3-14;1{lay}||mocmos|1477348324305|1477368415552||DRC_last_good_drc_area_date()G1477368424640|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1477368424640
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-N-Active-Con|contact@0||-17|-29|5||RR|
 NMetal-1-N-Active-Con|contact@1||-17|-13|5||RR|
@@ -62,6 +62,7 @@ NMetal-1-Pin|pin@30||-51|81||||
 NMetal-1-Pin|pin@39||-17|-72||||
 NMetal-1-Pin|pin@40||13|-72||||
 NMetal-1-Pin|pin@41||19|-72||||
+NPolysilicon-1-Pin|pin@42||2|-21||||
 NP-Transistor|pmos@0||-27|63|2|8|R||SIM_spice_model(D5G4;)SPMOS
 NP-Transistor|pmos@1||-9|63|2|8|R||SIM_spice_model(D5G4;)SPMOS
 NP-Transistor|pmos@2||-27|36|2|8|R||SIM_spice_model(D5G4;)SPMOS
@@ -132,9 +133,17 @@ AMetal-1|net@115||6|IS900|contact@3||-17|-45|pin@39||-17|-72
 AMetal-1|net@118||6|S1800|pin@39||-17|-72|pin@40||13|-72
 AMetal-1|net@119||6|S1800|pin@40||13|-72|pin@41||19|-72
 AMetal-1|net@120||6|IS900|contact@20||13|-61|pin@40||13|-72
+APolysilicon-1|net@121|||S900|nmos@5|poly-left|2|-20|pin@42||2|-21
+APolysilicon-1|net@122|||S1800|pin@7||-3|-21|pin@42||2|-21
 EGND||D5G6;|pin@41||G
 EIBias_N||D5G6;|pin@4||I
 EIBias_p||D5G6;X-13;Y-1;|pin@24||I
 EVDD||D5G6;|pin@18||P
 EVin||D5G6;Y5;|contact@21||I
+X
+
+# Cell Allen-Ej-5-3-14-SIM;1{lay}
+CAllen-Ej-5-3-14-SIM;1{lay}||mocmos|1477368447011|1477368452673||DRC_last_good_drc_area_date()G1477368463137|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1477368463137
+IAllen-Ej-5-3-14;1{lay}|Allen-Ej@0||10|-5|||D5G4;
+Ngeneric:Facet-Center|art@0||0|0||||AV
 X
