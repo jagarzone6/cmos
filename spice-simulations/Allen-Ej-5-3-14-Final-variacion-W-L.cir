@@ -63,14 +63,16 @@ show all
 
 *Ganacia en AC barrido en frecuencia vout/vin AC
 ac dec 10 1 100ghz
+
 *Ganancia en decibeles
 plot db(mag(v(out))/mag(v(vgcommon11,vin)))
-*Fase de la señal de salida en grados
+
+*Fase de vin vs vout en grados
 plot ph(v(out)/v(vin,vgcommon11))*360/(2*pi)
+
 *Ganancia en magnitud V/V
 plot mag(v(out))/mag(v(vgcommon11,vin))
-*plot db(mag(v(outa))/mag(v(vgcommon11,vin)))
-*plot mag(v(outa))/mag(v(vgcommon11,vin))
+
 
 
 *Transitorio
@@ -81,7 +83,6 @@ plot i(vid2) i(vim5) i(vim4)
 
 *Voltajes de entrada vs voltaje de salida
 plot v(vgcommon11,vin) v(out)
-*plot v(vgcommon11,vin) v(outa)
 
 *Analisis de polos y ceros de la funcion de transferencia
 pz vin vgcommon11 out 0 vol pz
