@@ -1,0 +1,75 @@
+* Simulación Circuito Del ejercicio figura 5.3-14 Allen CMOS cascode design
+* Usando modelo de canal largo del baker
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+////////////------////////////////////
+
+*Fuente de alimentacion del circuito
+
+VDD VDD 0 DC 5 AC 0
+
+*Fuentes de corriente para polarizar el circuito con I=45 uA
+*Iref Espejo N de 45u Amps
+*Rref vdd gateM2 22k
+Iref vdd gateM2 DC 45u AC 0
+M5 gateM2 gateM2 isc 0 nmoslevel3 W=4u L=12u
+
+*Iref Espejo P de 45u Amps
+*Rref2 gateM3 isc2 22.5k
+Iref2 gateM3 isc2 DC 45u AC 0
+M4 gateM3 gateM3 VDD VDD pmoslevel3 W=5u L=5u
+
+*Fuentes de voltage de 0v para medir corriente en los tranisitores M5, M4 (Espejos)
+Vim5 isc 0 DC 0 AC 0
+Vim4 isc2 0 DC 0 AC 0
+
+M3 drainM2 gateM3 VDD VDD pmoslevel3 W=5u L=5u
+* Fuente dc 0 volts para medir la corriente ID en el transistor M2
+Vid2 drainM2 outa DC 0 AC 0
+M2 outa gateM2 sourceM2 0 nmoslevel3 W=9u L=12u
+M1 sourceM2 vin 0 0 nmoslevel3 W=9u L=3u
+
+* Voltaje DC para gateM1
+VGin VGcommon11 0 DC 1.37125 AC 0
+*Fuente AC - Pulso en el gateM1 despues de la fuente DC de polarizacion
+*VO vin VGcommon11 sin(0 0.002 1k) dc=0 ac=0.002
+VO vin VGcommon11 PULSE(0.002 0 0 0 0 0.005S 0.01S )
+
+*Capacitor para filtrar DC de la salida
+C2 outa out 5p
+Rlo out 0 92000000k
+Cl outa 0 5p
+
+
+.model nmoslevel3 nmos LEVEL=3
++ Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
++ DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=1E5 TPG=1 PB=1
+
+.model pmoslevel3 pmos LEVEL=3
++ Vto=-0.9 KP=40E-6 gamma=0.6 phi=0.7
++ DELTA=0.1 U0=250 ETA=0 KAPPA=1 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=5E4 TPG=1 PB=1
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+
+*Transitorio
+tran .0000001s .0002s
+
+*Voltajes de entrada (escalon) vs voltaje de salida para calcular el slew rate
+plot v(out)
+plot v(vgcommon11,vin)
+
+
+.endc
