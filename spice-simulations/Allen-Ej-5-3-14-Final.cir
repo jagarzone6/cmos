@@ -92,4 +92,5 @@ pz vin 0 out 0 vol pz
 *Analisis DC variando Vin DC
 dc vgin 0 5 0.01
 plot v(outa)
+plot i(vid2)
 .endc
