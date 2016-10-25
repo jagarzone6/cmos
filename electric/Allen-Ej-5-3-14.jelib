@@ -8,7 +8,7 @@ Vlayout|lay
 Tmocmos|ScaleFORmocmos()D500.0
 
 # Cell Allen-Ej-5-3-14;1{lay}
-CAllen-Ej-5-3-14;1{lay}||mocmos|1477348324305|1477368415552||DRC_last_good_drc_area_date()G1477368424640|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1477368424640
+CAllen-Ej-5-3-14;1{lay}||mocmos|1477348324305|1477369871562||DRC_last_good_drc_area_date()G1477369875579|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1477369875579
 Ngeneric:Facet-Center|art@0||0|0||||AV
 NMetal-1-N-Active-Con|contact@0||-17|-29|5||RR|
 NMetal-1-N-Active-Con|contact@1||-17|-13|5||RR|
@@ -30,13 +30,13 @@ NMetal-1-Polysilicon-1-Con|contact@18||-37|81||||
 NMetal-1-N-Active-Con|contact@19||13|-46|13|||
 NMetal-1-N-Active-Con|contact@20||13|-61|13|||
 NMetal-1-Polysilicon-1-Con|contact@21||35|-54||||
-NN-Transistor|nmos@0||-17|-37|5|6|RR||SIM_spice_model(D5G6;)SNMOS
-NN-Transistor|nmos@1||-17|-21|5|6|RR||SIM_spice_model(D5G6;)SNMOS
-NN-Transistor|nmos@2||-17|-5|5|6|RR||SIM_spice_model(D5G6;)SNMOS
-NN-Transistor|nmos@4||13|-5|15|6|||SIM_spice_model(D5G6;)SNMOS
-NN-Transistor|nmos@5||13|-21|15|6|||SIM_spice_model(D5G6;)SNMOS
-NN-Transistor|nmos@6||13|-38|15|6|||SIM_spice_model(D5G6;)SNMOS
-NN-Transistor|nmos@7||13|-54|15|4|||SIM_spice_model(D5G6;)SNMOS
+NN-Transistor|nmos@0||-17|-37|5|6|RR||SIM_spice_model(D5G6;)Snmoslevel3
+NN-Transistor|nmos@1||-17|-21|5|6|RR||SIM_spice_model(D5G6;)Snmoslevel3
+NN-Transistor|nmos@2||-17|-5|5|6|RR||SIM_spice_model(D5G6;)Snmoslevel3
+NN-Transistor|nmos@4||13|-5|15|6|||SIM_spice_model(D5G6;)Snmoslevel3
+NN-Transistor|nmos@5||13|-21|15|6|||SIM_spice_model(D5G6;)Snmoslevel3
+NN-Transistor|nmos@6||13|-38|15|6|||SIM_spice_model(D5G6;)Snmoslevel3
+NN-Transistor|nmos@7||13|-54|15|4|||SIM_spice_model(D5G6;)Snmoslevel3
 NMetal-1-Pin|pin@4||-46|4||||
 NPolysilicon-1-Pin|pin@5||-3|-5||||
 NPolysilicon-1-Pin|pin@6||-3|-37||||
@@ -63,10 +63,11 @@ NMetal-1-Pin|pin@39||-17|-72||||
 NMetal-1-Pin|pin@40||13|-72||||
 NMetal-1-Pin|pin@41||19|-72||||
 NPolysilicon-1-Pin|pin@42||2|-21||||
-NP-Transistor|pmos@0||-27|63|2|8|R||SIM_spice_model(D5G4;)SPMOS
-NP-Transistor|pmos@1||-9|63|2|8|R||SIM_spice_model(D5G4;)SPMOS
-NP-Transistor|pmos@2||-27|36|2|8|R||SIM_spice_model(D5G4;)SPMOS
-NP-Transistor|pmos@3||-9|36|2|8|R||SIM_spice_model(D5G4;)SPMOS
+NMetal-1-Pin|pin@43||25|51||||
+NP-Transistor|pmos@0||-27|63|2|8|R||SIM_spice_model(D5G4;)Spmoslevel3
+NP-Transistor|pmos@1||-9|63|2|8|R||SIM_spice_model(D5G4;)Spmoslevel3
+NP-Transistor|pmos@2||-27|36|2|8|R||SIM_spice_model(D5G4;)Spmoslevel3
+NP-Transistor|pmos@3||-9|36|2|8|R||SIM_spice_model(D5G4;)Spmoslevel3
 AN-Active|net@0|||S900|contact@0||-17|-29|nmos@0|diff-bottom|-17|-30
 AN-Active|net@1|||S2700|contact@0||-17|-29|nmos@1|diff-top|-17|-28
 AN-Active|net@2|||S2700|nmos@1|diff-bottom|-17|-14|contact@1||-17|-13
@@ -135,11 +136,13 @@ AMetal-1|net@119||6|S1800|pin@40||13|-72|pin@41||19|-72
 AMetal-1|net@120||6|IS900|contact@20||13|-61|pin@40||13|-72
 APolysilicon-1|net@121|||S900|nmos@5|poly-left|2|-20|pin@42||2|-21
 APolysilicon-1|net@122|||S1800|pin@7||-3|-21|pin@42||2|-21
+AMetal-1|net@123||1|S1800|contact@17||16|51|pin@43||25|51
 EGND||D5G6;|pin@41||G
 EIBias_N||D5G6;|pin@4||I
 EIBias_p||D5G6;X-13;Y-1;|pin@24||I
 EVDD||D5G6;|pin@18||P
 EVin||D5G6;Y5;|contact@21||I
+Evout||D5G6;Y5;|pin@43||O
 X
 
 # Cell Allen-Ej-5-3-14-SIM;1{lay}

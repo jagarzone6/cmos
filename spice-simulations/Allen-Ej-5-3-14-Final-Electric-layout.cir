@@ -1,0 +1,106 @@
+* Simulación Circuito Del ejercicio figura 5.3-14 Allen CMOS cascode design
+* Usando modelo de canal largo del baker
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+////////////------////////////////////
+
+*Fuente de alimentacion del circuito
+
+VDD VDD 0 DC 5 AC 0
+
+*.SUBCKT Allen-Ej-5-3-14__Allen-Ej-5-3-14 IBias_N IBias_p Vin vout
+
+Mnmos0 net0 gateM5 0 0 nmoslevel3 L=4u W=4u AS=22.375P AD=9.25P PS=20.5U PD=9U
+Mnmos1 net2 gateM5 net0 0 nmoslevel3 L=4u W=4u AS=9.25P AD=9.25P PS=9U PD=9U
+Mnmos2 gateM5 gateM5 net2 0 nmoslevel3 L=4u W=4u AS=9.25P AD=17.5P PS=9U PD=17.5U
+Mnmos4 net16 gateM5 outa 0 nmoslevel3 L=4u W=9u AS=15.167P AD=18P PS=15.833U PD=13U
+Mnmos5 net34 gateM5 net16 0 nmoslevel3 L=4u W=9u AS=18P AD=20.25P PS=13U PD=13.5U
+Mnmos6 net101 gateM5 net34 0 nmoslevel3 L=4u W=9u AS=20.25P AD=20.25P PS=13.5U PD=13.5U
+Mnmos7 DrainM1 vin net101 0 nmoslevel3 L=3u W=9u AS=20.25P AD=22.375P PS=13.5U PD=20.5U
+Mpmos0 vdd gateM4 gateM4 vdd pmoslevel3 L=5u W=2.5u AS=8.125P AD=5P PS=11.5U PD=6.5U
+Mpmos1 outa gateM4 vdd vdd pmoslevel3 L=5u W=2.5u AS=5P AD=15.167P PS=6.5U PD=15.833U
+Mpmos2 vdd gateM4 outa vdd pmoslevel3 L=5u W=2.5u AS=15.167P AD=5P PS=15.833U PD=6.5U
+Mpmos3 gateM4 gateM4 vdd vdd pmoslevel3 L=5u W=2.5u AS=5P AD=8.125P PS=6.5U PD=11.5U
+*.ENDS Allen-Ej-5-3-14__Allen-Ej-5-3-14
+
+*XAllen-Ej@0 gateM5 gateM4 vin outa Allen-Ej-5-3-14__Allen-Ej-5-3-14
+
+*Fuentes de corriente para polarizar el circuito con I=45 uA
+*Iref Espejo N de 45u Amps
+Iref vdd isc DC 45u AC 0
+
+*Iref Espejo P de 45u Amps
+Iref2 gateM4 isc2 DC 45u AC 0
+
+*Fuentes de voltage de 0v para medir corriente en los tranisitores M5, M4 (Espejos)
+Vim5 isc gateM5 DC 0 AC 0
+Vim4 isc2 0 DC 0 AC 0
+
+*M3 drainM2 gateM3 VDD VDD pmoslevel3 W=5u L=5u
+* Fuente dc 0 volts para medir la corriente ID en el transistor M1
+Vim1 DrainM1 0 DC 0 AC 0
+
+* Voltaje DC para gateM1
+VGin VGcommon11 0 DC 1.37125 AC 0
+*Fuente AC en el gateM1 despues de la fuente DC de polarizacion
+VO vin VGcommon11 sin(0 0.002 1k) dc=0 ac=0.002
+
+*Capacitor para filtrar DC de la salida
+C2 outa out 5p
+Rlo out 0 92000000k
+Cl outa 0 5p
+
+
+.model nmoslevel3 nmos LEVEL=3
++ Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
++ DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=1E5 TPG=1 PB=1
+
+.model pmoslevel3 pmos LEVEL=3
++ Vto=-0.9 KP=40E-6 gamma=0.6 phi=0.7
++ DELTA=0.1 U0=250 ETA=0 KAPPA=1 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=5E4 TPG=1 PB=1
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+
+*Ganacia en AC barrido en frecuencia vout/vin AC
+ac dec 10 1 100ghz
+*Ganancia en decibeles
+plot db(mag(v(out))/mag(v(vgcommon11,vin)))
+*plot ph(v(out)/v(vgcommon11,vin))*360/(2*pi)
+*Fase de la señal de salida en grados
+plot ph(v(out)/v(vin,vgcommon11))*360/(2*pi)
+*Ganancia en magnitud V/V
+plot mag(v(out))/mag(v(vgcommon11,vin))
+*plot db(mag(v(outa))/mag(v(vgcommon11,vin)))
+*plot mag(v(outa))/mag(v(vgcommon11,vin))
+
+
+*Transitorio
+tran .00001s .01s
+
+*Corrientes de polarizacion y en el drain de M2
+plot i(vim5) i(vim4) i(vim1)
+
+*Voltajes de entrada vs voltaje de salida
+plot v(vgcommon11,vin) v(out)
+*plot v(vgcommon11,vin) v(outa)
+
+*Analisis de polos y ceros de la funcion de transferencia
+pz vin 0 out 0 vol pz
+
+*Analisis DC variando Vin DC
+dc vgin 0 5 0.01
+plot v(outa)
+.endc

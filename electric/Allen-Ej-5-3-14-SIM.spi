@@ -1,0 +1,25 @@
+*** SPICE deck for cell Allen-Ej-5-3-14-SIM{lay} from library Allen-Ej-5-3-14
+*** Created on Mon Oct 24, 2016 23:07:27
+*** Last revised on Mon Oct 24, 2016 23:07:32
+*** Written on Mon Oct 24, 2016 23:31:29 by Electric VLSI Design System, version 9.06
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
+
+*** SUBCIRCUIT Allen-Ej-5-3-14__Allen-Ej-5-3-14 FROM CELL Allen-Ej-5-3-14{lay}
+.SUBCKT Allen-Ej-5-3-14__Allen-Ej-5-3-14 gnd IBias_N IBias_p vdd Vin vout
+Mnmos@0 net@0 IBias_N gnd gnd nmoslevel3 L=4U W=4U AS=22.375P AD=9.25P PS=20.5U PD=9U
+Mnmos@1 net@2 IBias_N net@0 gnd nmoslevel3 L=4U W=4U AS=9.25P AD=9.25P PS=9U PD=9U
+Mnmos@2 IBias_N IBias_N net@2 gnd nmoslevel3 L=4U W=4U AS=9.25P AD=17.5P PS=9U PD=17.5U
+Mnmos@4 net@16 IBias_N vout gnd nmoslevel3 L=4U W=9U AS=15.167P AD=18P PS=15.833U PD=13U
+Mnmos@5 net@34 IBias_N net@16 gnd nmoslevel3 L=4U W=9U AS=18P AD=20.25P PS=13U PD=13.5U
+Mnmos@6 net@101 IBias_N net@34 gnd nmoslevel3 L=4U W=9U AS=20.25P AD=20.25P PS=13.5U PD=13.5U
+Mnmos@7 gnd Vin net@101 gnd nmoslevel3 L=3U W=9U AS=20.25P AD=22.375P PS=13.5U PD=20.5U
+Mpmos@0 vdd IBias_p IBias_p vdd pmoslevel3 L=5U W=2.5U AS=8.125P AD=5P PS=11.5U PD=6.5U
+Mpmos@1 vout IBias_p vdd vdd pmoslevel3 L=5U W=2.5U AS=5P AD=15.167P PS=6.5U PD=15.833U
+Mpmos@2 vdd IBias_p vout vdd pmoslevel3 L=5U W=2.5U AS=15.167P AD=5P PS=15.833U PD=6.5U
+Mpmos@3 IBias_p IBias_p vdd vdd pmoslevel3 L=5U W=2.5U AS=5P AD=8.125P PS=6.5U PD=11.5U
+.ENDS Allen-Ej-5-3-14__Allen-Ej-5-3-14
+
+*** TOP LEVEL CELL: Allen-Ej-5-3-14-SIM{lay}
+XAllen-Ej@0 Allen-Ej@0_GND Allen-Ej@0_IBias_N Allen-Ej@0_IBias_p Allen-Ej@0_VDD Allen-Ej@0_Vin Allen-Ej@0_vout Allen-Ej-5-3-14__Allen-Ej-5-3-14
+.END
