@@ -71,5 +71,4 @@ tran .0000001s .0002s
 plot v(out)
 plot v(vgcommon11,vin)
 
-
 .endc
