@@ -57,7 +57,7 @@ show all
 *Ganacia en AC barrido en frecuencia vout/vin AC
 ac dec 10 1k 1000000ghz
 *Impedancia de salida del circuito usando la medida de vout de ambos circuitos, uno con RL y otro sin RL
-plot 100*(v(out)-V(out2))/V(out2)
-
+plot 100*(v(out)-v(out2))/v(out2)
+*la impedancia de salida del circuito da de 500 ohms, razon por la cual la salida es la mitad de la entrada cuando esta la carga rl de 500.
 
 .endc

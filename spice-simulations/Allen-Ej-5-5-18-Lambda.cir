@@ -91,7 +91,7 @@ plot i(vdd) i(vdd2)
 plot v(out) v(out2) v(vgcommon11,vin)
 
 *Curva relacion de voltage DC vin vs vout
-* Vin vs Vout DC, sin tener en cuenta lamba "outa2", modelo nivel 2 basico y teniendo en cuenta lambda "outa", modelo nivel 3 baker canal largo
+* Vin vs Vout DC, sin tener en cuenta lamba "out2", modelo nivel 2 basico y teniendo en cuenta lambda "out", modelo nivel 3 baker canal largo
 dc vgin 0 0.5 0.001
 plot v(out) v(out2)
 

@@ -79,10 +79,7 @@ show all
 *Transitorio
 tran .000000001s .000001s
 
-*Corrientes de polarizacion en el drain de M2 y M3, comparacion
+*Corrientes de polarizacion en el drain de M4 y M3, comparacion con corto circuito y sin corto circuito
 plot i(vid3) i(vid4)
-plot v(rpa,rpb) v(out)
-
 plot i(vid32) i(vid42)
-plot v(rpa2,rpb2) v(out2)
 .endc
