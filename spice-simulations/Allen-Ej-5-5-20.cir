@@ -23,7 +23,7 @@ Cl out 0 1n
 * Voltaje DC de vin
 VGin VGcommon11 0 DC 0 AC 0
 *Fuente AC en los gates despues de la fuente DC de polarizacion
-VO vin VGcommon11 sin(0 0.002 100k) dc=0 ac=0.002
+VO vin VGcommon11 sin(0 1 10k) dc=0 ac=1
 
 
 ////////////------////////////////////
@@ -69,7 +69,7 @@ op
 show all
 
 *Ganacia en AC barrido en frecuencia vout/vin AC
-ac dec 10 1k 1000000ghz
+ac dec 10 1 10ghz
 *Ganancia en decibeles
 plot db(mag(v(out))/mag(v(vgcommon11,vin))) db(mag(v(out2))/mag(v(vgcommon11,vin)))
 *Fase de vin vs vout en grados
@@ -78,14 +78,16 @@ plot ph(v(out)/v(vin,vgcommon11))*360/(2*pi) ph(v(out2)/v(vin,vgcommon11))*360/(
 plot mag(v(out))/mag(v(vgcommon11,vin)) mag(v(out2))/mag(v(vgcommon11,vin))
 
 *Transitorio
-tran .0000001s .0001s
+tran .000001s .001s
 
 *Corrientes de polarizacion DC del los transistor M2 y M22 en ambos circuitos
 plot i(vdd) i(vdd2)
 
 *Voltaje de entrada AC de ambos circuitos v(vgcommon112,vin2)
 *voltaje de salida AC para ambos circuitos v(out) v(out2)
-plot v(out) v(out2) v(vgcommon11,vin)
+plot v(out)
+plot v(out2)
+plot v(vgcommon11,vin)
 
 
 .endc
