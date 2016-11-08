@@ -12,8 +12,8 @@ Vss Vss 0 DC -1.5 AC 0
 VG1 gateM1 vin DC 0.7 AC 0
 VG2 gateM2 vin DC -0.7 AC 0
 
-M2 Vss gateM2 out VDD pmoslevel3simple W=100u L=1u
-M1 vdd gateM1 out Vss nmoslevel3simple W=50u L=1u
+M2 Vss gateM2 out VDD pmoslevel3 W=100u L=1u
+M1 vdd gateM1 out Vss nmoslevel3 W=50u L=1u
 
 *Resistor de salida
 Rl out 0 500
@@ -36,17 +36,27 @@ Vss2 Vss2 0 DC -1.5 AC 0
 VG12 gateM12 vin DC 0.7 AC 0
 VG22 gateM22 vin DC -0.7 AC 0
 
-M22 Vss2 gateM22 out2 out2 pmoslevel3simple W=100u L=1u
-M12 vdd2 gateM12 out2 out2 nmoslevel3simple W=50u L=1u
+M22 Vss2 gateM22 out2 out2 pmoslevel3 W=100u L=1u
+M12 vdd2 gateM12 out2 out2 nmoslevel3 W=50u L=1u
 
 *Resistor de salida
 Rl2 out2 0 500
 
-.model nmoslevel3simple nmos LEVEL=3
-+ Vto=0.5 KP=100E-6
+.model nmoslevel3 nmos LEVEL=3
++ Vto=0.5 KP=100E-6 gamma=0.5 phi=0.7
++ DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=1E5 TPG=1 PB=1
 
-.model pmoslevel3simple pmos LEVEL=3
-+ Vto=-0.5 KP=50E-6
+.model pmoslevel3 pmos LEVEL=3
++ Vto=-0.5 KP=50E-6 gamma=0.6 phi=0.7
++ DELTA=0.1 U0=250 ETA=0 KAPPA=1 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=5E4 TPG=1 PB=1
 
 .control
 set color0 =white
