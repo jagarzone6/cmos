@@ -1,0 +1,63 @@
+* Simulación Circuito Del ejercicio 5.5-18 Allen CMOS Amplifier Pull Push follower
+* Usando modelo de canal largo y modelo simple, con parametros del allen
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+////////////------////////////////////
+
+*Circuito A Bulks conectados a los potenciales mas bajos (NMOS) y altos(PMOS)
+*vout
+VDD VDD 0 DC 1.5 AC 0
+Vss Vss 0 DC -1.5 AC 0
+VG1 gateM1 vin DC 0.7 AC 0
+VG2 gateM2 vin DC -0.7 AC 0
+
+M2 Vss gateM2 out VDD pmoslevel3simple W=100u L=1u
+M1 vdd gateM1 out Vss nmoslevel3simple W=50u L=1u
+
+*Resistor de salida
+*Rl out 0 500
+
+
+
+*///Voltaje de entrada vin AC y DC para ambos circuitos/////
+* Voltaje DC de vin
+VGin VGcommon11 0 DC 0.0 AC 0
+*Fuente AC en los gates despues de la fuente DC de polarizacion
+VO vin VGcommon11 sin(0 0.002 1000k) dc=0 ac=0.002
+
+
+////////////------////////////////////
+*Circuito B Bulks conectados a los sources de los transitores
+*vout2
+
+VDD2 VDD2 0 DC 1.5 AC 0
+Vss2 Vss2 0 DC -1.5 AC 0
+VG12 gateM12 vin DC 0.7 AC 0
+VG22 gateM22 vin DC -0.7 AC 0
+
+M22 Vss2 gateM22 out2 out2 pmoslevel3simple W=100u L=1u
+M12 vdd2 gateM12 out2 out2 nmoslevel3simple W=50u L=1u
+
+*Resistor de salida
+Rl2 out2 0 100
+
+.model nmoslevel3simple nmos LEVEL=3
++ Vto=0.5 KP=100E-6
+
+.model pmoslevel3simple pmos LEVEL=3
++ Vto=-0.5 KP=50E-6
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+
+*Ganacia en AC barrido en frecuencia vout/vin AC
+ac dec 10 1k 1000000ghz
+*Impedancia de salida del circuito usando la medida de vout de ambos circuitos, uno con RL y otro sin RL
+plot 100*(v(out)-V(out2))/V(out2)
+
+
+.endc
