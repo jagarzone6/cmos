@@ -1,0 +1,88 @@
+* Simulación Circuito De las figura P5.5-14 Allen CMOS Pull Push amp
+* Usando modelo de canal largo
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+////////////------////////////////////
+
+*Circuito 1 amplificador pull push con proteccion de corto-circuito, en corto circuito
+
+VDD VDD 0 DC 5 AC 0
+Vbias gateM3 drainM1 DC 1 AC 0
+
+R1 vdd gateM3 100
+M3 rpa gateM3 VDD VDD pmoslevel3 W=2u L=1u
+RP rpa rpb 0.5
+
+* Fuente dc 0 volts para medir la corriente ID en el transistor M3 y la resistencia RP
+Vid3 rpb out DC 0 AC 0
+
+M2 out drainM1 0 0 nmoslevel3 W=2u L=1u
+M1 drainM1 vin 0 0 nmoslevel3 W=2u L=1u
+*voltaje de polarizacion de M1
+VGin vin 0 DC 1.7 AC 0
+
+* Transistor de proteccion de corto circuito
+M4 drainM4 rpa rpb 0 nmoslevel3 W=2u L=1u
+* Fuente dc 0 volts para medir la corriente ID en el transistor M4
+Vid4 vdd drainM4 DC 0 AC 0
+
+
+*Resistencia de carga RL en nodo out
+Rl out 0 0
+
+*Circuito 2 amplificador pull push con proteccion de corto-circuito, con carga normal(son estar en corto)
+
+VDD2 VDD2 0 DC 5 AC 0
+Vbias2 gateM32 drainM12 DC 2 AC 0
+
+R12 vdd2 gateM32 1k
+M32 rpa2 gateM32 VDD2 VDD2 pmoslevel3 W=2u L=1u
+RP2 rpa2 rpb2 0.5
+
+* Fuente dc 0 volts para medir la corriente ID en el transistor M3 y la resistencia RP
+Vid32 rpb2 out2 DC 0 AC 0
+
+M22 out2 drainM12 0 0 nmoslevel3 W=2u L=1u
+M12 drainM12 vin2 0 0 nmoslevel3 W=2u L=1u
+*voltaje de polarizacion de M1
+VGin2 vin2 0 DC 2.7 AC 0
+
+* Transistor de proteccion de corto circuito
+M42 drainM42 rpa2 rpb2 0 nmoslevel3 W=2u L=1u
+* Fuente dc 0 volts para medir la corriente ID en el transistor M4
+Vid42 vdd2 drainM42 DC 0 AC 0
+
+
+.model nmoslevel3 nmos LEVEL=3
++ Vto=0.8 KP=120E-6 gamma=0.5 phi=0.7
++ DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=1E5 TPG=1 PB=1
+
+.model pmoslevel3 pmos LEVEL=3
++ Vto=-0.9 KP=40E-6 gamma=0.6 phi=0.7
++ DELTA=0.1 U0=250 ETA=0 KAPPA=1 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=5E4 TPG=1 PB=1
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+
+*Transitorio
+tran .000000001s .000001s
+
+*Corrientes de polarizacion en el drain de M2 y M3, comparacion
+plot i(vid3) i(vid4)
+plot v(rpa,rpb) v(out)
+
+plot i(vid32) i(vid42)
+plot v(rpa2,rpb2) v(out2)
+.endc
