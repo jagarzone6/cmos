@@ -5,7 +5,7 @@
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 ////////////------////////////////////
 
-*Circuito A modelo que incluye lamba, nivel 3 baker canal largo
+*Circuito A modelo que incluye lamba, nivel 3 canal largo
 *vout
 VDD VDD 0 DC 2 AC 0
 Vss Vss 0 DC -2 AC 0
@@ -26,20 +26,6 @@ VGin VGcommon11 0 DC 0 AC 0
 VO vin VGcommon11 sin(0 1 10k) dc=0 ac=1
 
 
-////////////------////////////////////
-*Circuito B con la modelo simple nivel 3 sin parametros para que el modelo no incluya lambda
-*vout2
-VDD2 VDD2 0 DC 2 AC 0
-Vss2 Vss2 0 DC -2 AC 0
-Vgg22 gateM22 0 DC 0 AC 0
-
-M22 out2 gateM22 vdd2 VDD2 pmoslevel3simple W=13609u L=1u
-M12 out2 vin vss2 Vss2 nmoslevel3simple W=5971u L=1u
-
-*Resistor de carga y capacitor de carga
-Rl2 out2 0 100
-Cl2 out2 0 1n
-
 .model nmoslevel3 nmos LEVEL=3
 + Vto=0.5 KP=100E-6 gamma=0.5 phi=0.7
 + DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
@@ -56,11 +42,6 @@ Cl2 out2 0 1n
 + cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
 + RSH=0 VMAX=5E4 TPG=1 PB=1
 
-.model nmoslevel3simple nmos LEVEL=3
-+ Vto=0.5 KP=100E-6
-
-.model pmoslevel3simple pmos LEVEL=3
-+ Vto=-0.5 KP=50E-6
 
 .control
 set color0 =white
@@ -71,23 +52,21 @@ show all
 *Ganacia en AC barrido en frecuencia vout/vin AC
 ac dec 10 1 10ghz
 *Ganancia en decibeles
-plot db(mag(v(out))/mag(v(vgcommon11,vin))) db(mag(v(out2))/mag(v(vgcommon11,vin)))
-*Fase de vin vs vout en grados
-plot ph(v(out)/v(vin,vgcommon11))*360/(2*pi) ph(v(out2)/v(vin,vgcommon11))*360/(2*pi)
+plot db(mag(v(out))/mag(v(vgcommon11,vin)))
 *Ganancia en magnitud V/V
-plot mag(v(out))/mag(v(vgcommon11,vin)) mag(v(out2))/mag(v(vgcommon11,vin))
+plot mag(v(out))/mag(v(vgcommon11,vin))
 
 *Transitorio
 tran .000001s .001s
 
-*Corrientes de polarizacion DC del los transistor M2 y M22 en ambos circuitos
-plot i(vdd) i(vdd2)
+*Corrientes de polarizacion DC del transistor M2
+plot i(vdd)
 
-*Voltaje de entrada AC de ambos circuitos v(vgcommon112,vin2)
-*voltaje de salida AC para ambos circuitos v(out) v(out2)
-plot v(out)
-plot v(out2)
+*Voltaje de entrada AC v(vgcommon112,vin2)
 plot v(vgcommon11,vin)
+*voltaje de salida AC v(out)
+plot v(out)
+
 
 
 .endc
