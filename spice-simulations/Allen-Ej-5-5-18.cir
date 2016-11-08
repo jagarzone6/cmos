@@ -1,0 +1,77 @@
+* Simulación Circuito Del ejercicio 5.5-18 Allen CMOS Amplifier Pull Push follower
+* Usando modelo de canal largo y modelo simple
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+////////////------////////////////////
+
+*Circuito A modelo que incluye lamba, nivel 3 baker canal largo
+
+VDD VDD 0 DC 1.5 AC 0
+Vss Vss 0 DC -1.5 AC 0
+VG1 gateM1 vin DC 0.7 AC 0
+VG2 gateM2 vin DC -0.7 AC 0
+
+M2 Vss gateM2 out VDD pmoslevel3 W=100u L=1u
+M1 vdd gateM1 out Vss nmoslevel3 W=50u L=1u
+
+*Resistor de salida
+Rl out 0 500
+
+* Voltaje DC de vin
+VGin VGcommon11 0 DC 0.5 AC 0
+*Fuente AC en los gates despues de la fuente DC de polarizacion
+VO vin VGcommon11 sin(0 0.002 1k) dc=0 ac=0.002
+
+
+////////////------////////////////////
+*Circuito B con la modelo simple nivel 3 sin parametros para que el modelo no incluya lambda
+
+
+
+
+.model nmoslevel3 nmos LEVEL=3
++ Vto=0.5 KP=100E-6 gamma=0.5 phi=0.7
++ DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=1E5 TPG=1 PB=1
+
+.model pmoslevel3 pmos LEVEL=3
++ Vto=-0.5 KP=50E-6 gamma=0.6 phi=0.7
++ DELTA=0.1 U0=250 ETA=0 KAPPA=1 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=5E4 TPG=1 PB=1
+
+.model nmoslevel3simple nmos LEVEL=3
++ Vto=0.5 KP=100E-6
+
+.model pmoslevel3simple pmos LEVEL=3
++ Vto=-0.5 KP=50E-6
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+
+
+*Transitorio
+tran .00001s .01s
+
+*Corrientes de polarizacion DC en el drain de M2 y M22, comparacion
+plot i(vdd)
+
+*Voltaje de entrada AC de ambos circuitos v(vgcommon112,vin2)
+*voltaje de salida AC para ambos circuitos v(out) v(out2)
+plot v(out)
+
+*Curva de voltage vin vs vout
+* Vin vs Vout DC, sin tener en cuenta lamba "outa2", modelo nivel 2 basico y teniendo en cuenta lambda "outa", modelo nivel 3 baker canal largo
+dc vgin 0 0.5 0.001
+plot v(out)
+
+.endc
