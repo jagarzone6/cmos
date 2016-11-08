@@ -1,0 +1,91 @@
+* Simulación Circuito Del ejercicio 5.5-20 Allen CMOS Amplifier Class A
+* Usando modelo de canal largo y modelo simple, con parametros del allen
+* Universidad Nacional de Colombia 2016
+* CMOS Analógico
+* Grupo Jorge Garzón, Esteban Iafrancesco A
+////////////------////////////////////
+
+*Circuito A modelo que incluye lamba, nivel 3 baker canal largo
+*vout
+VDD VDD 0 DC 2 AC 0
+Vss Vss 0 DC -2 AC 0
+Vgg2 gateM2 0 DC 0 AC 0
+
+M2 out gateM2 vdd VDD pmoslevel3 W=13609u L=1u
+M1 out vin vss Vss nmoslevel3 W=5971u L=1u
+
+*Resistor de carga y capacitor de carga
+Rl out 0 100
+Cl out 0 1n
+
+
+*///Voltaje de entrada vin AC y DC para ambos circuitos/////
+* Voltaje DC de vin
+VGin VGcommon11 0 DC 0 AC 0
+*Fuente AC en los gates despues de la fuente DC de polarizacion
+VO vin VGcommon11 sin(0 0.002 100k) dc=0 ac=0.002
+
+
+////////////------////////////////////
+*Circuito B con la modelo simple nivel 3 sin parametros para que el modelo no incluya lambda
+*vout2
+VDD2 VDD2 0 DC 2 AC 0
+Vss2 Vss2 0 DC -2 AC 0
+Vgg22 gateM22 0 DC 0 AC 0
+
+M22 out2 gateM22 vdd2 VDD2 pmoslevel3simple W=13609u L=1u
+M12 out2 vin vss2 Vss2 nmoslevel3simple W=5971u L=1u
+
+*Resistor de carga y capacitor de carga
+Rl2 out2 0 100
+Cl2 out2 0 1n
+
+.model nmoslevel3 nmos LEVEL=3
++ Vto=0.5 KP=100E-6 gamma=0.5 phi=0.7
++ DELTA=3.0 U0=650 ETA=3E-6 KAPPA=0.3 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=1E5 TPG=1 PB=1
+
+.model pmoslevel3 pmos LEVEL=3
++ Vto=-0.5 KP=50E-6 gamma=0.6 phi=0.7
++ DELTA=0.1 U0=250 ETA=0 KAPPA=1 THETA=0.1
++ TOX=200E-10 NSUB=1E17 XJ=500E-9 LD=100E-9 NFS=1E12
++ cgso=200E-12 cgdo=200E-12 cgbo=1E-10
++ cj=400E-6 cjsw=300E-12 mj=0.5 mjsw=0.5
++ RSH=0 VMAX=5E4 TPG=1 PB=1
+
+.model nmoslevel3simple nmos LEVEL=3
++ Vto=0.5 KP=100E-6
+
+.model pmoslevel3simple pmos LEVEL=3
++ Vto=-0.5 KP=50E-6
+
+.control
+set color0 =white
+set color1=black
+op
+show all
+
+*Ganacia en AC barrido en frecuencia vout/vin AC
+ac dec 10 1k 1000000ghz
+*Ganancia en decibeles
+plot db(mag(v(out))/mag(v(vgcommon11,vin))) db(mag(v(out2))/mag(v(vgcommon11,vin)))
+*Fase de vin vs vout en grados
+plot ph(v(out)/v(vin,vgcommon11))*360/(2*pi) ph(v(out2)/v(vin,vgcommon11))*360/(2*pi)
+*Ganancia en magnitud V/V
+plot mag(v(out))/mag(v(vgcommon11,vin)) mag(v(out2))/mag(v(vgcommon11,vin))
+
+*Transitorio
+tran .0000001s .0001s
+
+*Corrientes de polarizacion DC del los transistor M2 y M22 en ambos circuitos
+plot i(vdd) i(vdd2)
+
+*Voltaje de entrada AC de ambos circuitos v(vgcommon112,vin2)
+*voltaje de salida AC para ambos circuitos v(out) v(out2)
+plot v(out) v(out2) v(vgcommon11,vin)
+
+
+.endc
