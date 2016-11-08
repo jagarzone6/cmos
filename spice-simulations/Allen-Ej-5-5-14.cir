@@ -31,7 +31,7 @@ Vid4 vdd drainM4 DC 0 AC 0
 *Resistencia de carga RL en nodo out
 Rl out 0 0
 
-*Circuito 2 amplificador pull push con proteccion de corto-circuito, con carga normal(son estar en corto)
+*Circuito 2 amplificador pull push con proteccion de corto-circuito, con carga normal(sin estar en corto)
 
 VDD2 VDD2 0 DC 5 AC 0
 Vbias2 gateM32 drainM12 DC 2 AC 0
