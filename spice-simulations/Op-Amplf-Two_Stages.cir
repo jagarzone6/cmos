@@ -6,58 +6,83 @@
 Vdd_1 Vdd_1 0 DC 2.5 AC 0
 Vss_1 Vss_1 0 DC -2.5 AC 0
 
+*Vin1_1 vinM1_1 0 DC 0 AC 0
+Vin2_1 vinM2_1 0 DC 0 AC 0
+
 ////////////------////////////////////
 *Circuito del amplificador operacional de dos etapas
 
-M1_1 drainM1_1 vinM1_1 sourceM1_1 Vss_1 nmoslevel3 W=8u L=1.6u
-M2_1 drainM2_1 vinM2_1 sourceM1_1 Vss_1 nmoslevel3 W=8u L=1.6u
+M1_1 drainM1_1 vinM1_1 sourceM1_1 Vss_1 nmoslevel3 W=9.6e-06 L=1.6u
+M2_1 drainM2_1 vinM2_1 sourceM1_1 Vss_1 nmoslevel3 W=9.6e-06 L=1.6u
 
-M3_1 drainM1_1 drainM1_1 Vdd_1 Vdd_1 pmoslevel3 W=12u L=1.6u
-M4_1 drainM2_1 drainM1_1 Vdd_1 Vdd_1 pmoslevel3 W=12u L=1.6u
+M3_1 drainM1_1 drainM1_1 Vdd_1 Vdd_1 pmoslevel3 W=1.76e-05 L=1.6u
+M4_1 drainM2_1 drainM1_1 Vdd_1 Vdd_1 pmoslevel3 W=1.76e-05 L=1.6u
 
-M5_1 sourceM1_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=1.6u L=1.6u
+M5_1 sourceM1_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=3.52e-06 L=1.6u
 
-M6_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmoslevel3 W=152u L=1.6u
+M6_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmoslevel3 W=0.00015999999999999999 L=1.6u
 
-M7_1 vout_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=9.6u L=1.6u
+M7_1 vout_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=2.0799999999999997e-05 L=1.6u
 
 Cl_1 vout_1 0 10p
-Cc_1 vout_1 drainM2_1 3p
+Cc_1 vout_1 drainM2_1 4.4p
 
 ////////////------////////////////////
 *Circuito del multiplicador beta
 
+*M1_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=8u L=1.6u
+*M2_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmoslevel3 W=8u L=1.6u
 
+*RBref_1 RBref_1 Vss_1 6500
 
-VRLref sourceM2 RLo DC 0 AC 0
-VM1ref Vm1 0 DC 0 AC 0
+*M3_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmoslevel3 W=12u L=1.6u
+*M4_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmoslevel3 W=12u L=1.6u
+
+////////////------////////////////////
+*Circuito espejo ideal
+*Iref Espejo N de 50u Amps
+Iref_1 0 vbiasM5_1 DC 23.1u AC 0
+M8_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=3.52e-06 L=1.6u
+
+*Fuente AC en vinM1_1
+Vinac_1 vinM1_1 0 sin(0 0.002 1k) dc=0 ac=0.002
 
 * Modelos para tecnología 0.8u < L < 200u 10u < W < 10000u  Vdd=2.5V (Allen)
 * lambda cambia de acuerdo con la longitud del canal
 * nMOS: lambda=0.04 para L=1u y lambda=0.01 para L=2u
 * pMOS: lambda=0.05 para L=1u y lambda=0.01 para L=2u
 
-.model nmoslevel2 nmos level=2
+.model nmoslevel3 nmos level=2
 + vto = 0.7	kp = 110e-6	gamma = 0.4	phi = 0.7
 + tox = 14e-9	cj = 770e-6	cjsw = 380e-12	mj = 0.5	mjsw = 0.38
 + cgso = 220e-12	cgdo = 220e-12	cgbo = 700e-12
 + lambda = 0.04
 
-.model pmoslevel2 pmos level=2
+.model pmoslevel3 pmos level=2
 + vto = -0.7	kp = 50e-6	gamma = 0.57	phi = 0.8
 + tox = 14e-9	cj = 560e-6	cjsw = 350e-12	mj = 0.5	mjsw = 0.35
 + cgso = 220e-12	cgdo = 220e-12	cgbo = 700e-12
 + lambda = 0.05
 
-.tran .1ms 1m uic
-.ic v(gatem1)=0 v(drainm2)=0
+
 .control
+*Punto de operacion de los transistores
 set color0 =white
 set color1=black
 op
 show all
-dc vdd 0 10 0.01
-plot i(vrlref) i(vm1ref)
-run
-plot i(vrlref)
+
+*Ganacia en AC barrido en frecuencia vout/vin AC
+ac dec 10 1 10ghz
+
+*Ganancia en decibeles
+plot db(mag(v(vout_1))/mag(v(vinM1_1)))
+*Ganancia en magnitud V/V
+plot mag(v(vout_1))/mag(v(vinM1_1))
+*phase
+plot ph(v(vout_1)/v(vinM1_1))*360/(2*pi)
+
+*Transitorio
+tran .000001s .001s
+
 .endc
