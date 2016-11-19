@@ -4,14 +4,14 @@
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 
 VDD VDD 0 DC 5 AC 0
-M1 gateM1 gateM1 Vm1 0 nmoslevel3 W=10u L=2u
-M3 gateM1 drainM2 VDD VDD pmoslevel3 W=30u L=2u
-M2 drainM2 gateM1 sourceM2 0 nmoslevel3 W=40u L=2u
-M4 drainM2 drainM2 VDD VDD pmoslevel3 W=30u L=2u
+M1 gateM1 gateM1 Vm1 0 nmoslevel3 W=2u L=8u
+M3 gateM1 drainM2 VDD VDD pmoslevel3 W=6u L=8u
+M2 drainM2 gateM1 sourceM2 0 nmoslevel3 W=8u L=8u
+M4 drainM2 drainM2 VDD VDD pmoslevel3 W=6u L=8u
 MSU1 gateMSU3 gateM1 0 0 nmoslevel3 W=10u L=2u
 MSU2 gateMSU3 gateMSU3 VDD VDD pmoslevel3 W=10u L=100u
 MSU3 drainM2 gateMSU3 gateM1 0 nmoslevel3 W=10u L=1u
-RL RLo 0 6500
+RL RLo 0 51640
 VRLref sourceM2 RLo DC 0 AC 0
 VM1ref Vm1 0 DC 0 AC 0
 
@@ -20,19 +20,19 @@ VM1ref Vm1 0 DC 0 AC 0
 * nMOS: lambda=0.04 para L=1u y lambda=0.01 para L=2u
 * pMOS: lambda=0.05 para L=1u y lambda=0.01 para L=2u
 
-.model nmosG nmos level=2
+.model nmoslevel3 nmos level=2
 + vto = 0.7	kp = 110e-6	gamma = 0.4	phi = 0.7
 + tox = 14e-9	cj = 770e-6	cjsw = 380e-12	mj = 0.5	mjsw = 0.38
 + cgso = 220e-12	cgdo = 220e-12	cgbo = 700e-12
 + lambda = 0.04
 
-.model pmosG pmos level=2
+.model pmoslevel3 pmos level=2
 + vto = -0.7	kp = 50e-6	gamma = 0.57	phi = 0.8
 + tox = 14e-9	cj = 560e-6	cjsw = 350e-12	mj = 0.5	mjsw = 0.35
 + cgso = 220e-12	cgdo = 220e-12	cgbo = 700e-12
 + lambda = 0.05
 
-.tran .001ns 1n uic
+.tran .1ms 1m uic
 .ic v(gatem1)=0 v(drainm2)=0
 .control
 set color0 =white
