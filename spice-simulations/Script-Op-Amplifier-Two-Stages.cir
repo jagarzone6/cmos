@@ -9,17 +9,17 @@ Vss_1 Vss_1 0 DC -2.5 AC 0
 Vin2_1 vinM2_1 0 DC 0 AC 0
 ////////////------////////////////////
 *Circuito del amplificador operacional de dos etapas
-M1_1 drainM1_1 vinM1_1 sourceM1_1 sourceM1_1 nmoslevel3 W=1.92e-05 L=3.2e-06
-M2_1 drainM2_1 vinM2_1 sourceM1_1 sourceM1_1 nmoslevel3 W=1.92e-05 L=3.2e-06
+M1_1 drainM1_1 vinM1_1 sourceM1_1 sourceM1_1 nmoslevel3 W=9.6e-06 L=1.6e-06
+M2_1 drainM2_1 vinM2_1 sourceM1_1 sourceM1_1 nmoslevel3 W=9.6e-06 L=1.6e-06
 
-M3_1 drainM1_1 drainM1_1 Vdd_1 Vdd_1 pmoslevel3 W=3.52e-05 L=3.2e-06
-M4_1 drainM2_1 drainM1_1 Vdd_1 Vdd_1 pmoslevel3 W=3.52e-05 L=3.2e-06
+M3_1 drainM1_1 drainM1_1 Vdd_1 Vdd_1 pmoslevel3 W=1.76e-05 L=1.6e-06
+M4_1 drainM2_1 drainM1_1 Vdd_1 Vdd_1 pmoslevel3 W=1.76e-05 L=1.6e-06
 
-M5_1 sourceM1_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=6.4e-06 L=3.2e-06
+M5_1 sourceM1_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=3.2e-06 L=1.6e-06
 
-M6_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmoslevel3 W=0.00031999999999999997 L=3.2e-06
+M6_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmoslevel3 W=0.00015999999999999999 L=1.6e-06
 
-M7_1 vout_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=3.84e-05 L=3.2e-06
+M7_1 vout_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=1.92e-05 L=1.6e-06
 
 Cl_1 vout_1 0 10p
 Cc_1 vout_1 drainM2_1 3.85e-12
@@ -35,7 +35,7 @@ Cc_1 vout_1 drainM2_1 3.85e-12
 *Circuito espejo ideal
 *Iref Espejo N de 2.31e-05 Amps
 Iref_1 0 vbiasM5_1 DC 2.31e-05 AC 0
-M8_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=6.4e-06 L=3.2e-06
+M8_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=3.2e-06 L=1.6e-06
 
 *Fuente AC en vinM1_1
 Vinac_1 vinM1_1 0 sin(0 0.00005 1k) dc=0 ac=0.00005
@@ -46,13 +46,13 @@ Vinac_1 vinM1_1 0 sin(0 0.00005 1k) dc=0 ac=0.00005
 * pMOS: lambda=0.05 para L=1u y lambda=0.01 para L=2u
 
 .model nmoslevel3 nmos level=2
-+ vto = 0.7 kp = 120e-6 gamma = 0.4 phi = 0.7
++ vto = 0.7 kp = 110e-6 gamma = 0.4 phi = 0.7
 + tox = 14e-9 cj = 770e-6 cjsw = 380e-12 mj = 0.5 mjsw = 0.38
 + cgso = 220e-12 cgdo = 220e-12 cgbo = 700e-12
 + lambda = 0.04
 
 .model pmoslevel3 pmos level=2
-+ vto = -0.7 kp = 40e-6 gamma = 0.57 phi = 0.8
++ vto = -0.7 kp = 50e-6 gamma = 0.57 phi = 0.8
 + tox = 14e-9 cj = 560e-6 cjsw = 350e-12 mj = 0.5 mjsw = 0.35
 + cgso = 220e-12 cgdo = 220e-12 cgbo = 700e-12
 + lambda = 0.05
