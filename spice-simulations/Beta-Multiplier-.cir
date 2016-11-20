@@ -3,17 +3,23 @@
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 
-VDD VDD 0 DC 5 AC 0
-M1 gateM1 gateM1 Vm1 0 nmoslevel3 W=2u L=8u
-M3 gateM1 drainM2 VDD VDD pmoslevel3 W=6u L=8u
-M2 drainM2 gateM1 sourceM2 0 nmoslevel3 W=8u L=8u
-M4 drainM2 drainM2 VDD VDD pmoslevel3 W=6u L=8u
-MSU1 gateMSU3 gateM1 0 0 nmoslevel3 W=10u L=2u
-MSU2 gateMSU3 gateMSU3 VDD VDD pmoslevel3 W=10u L=100u
-MSU3 drainM2 gateMSU3 gateM1 0 nmoslevel3 W=10u L=1u
-RL RLo 0 51640
-VRLref sourceM2 RLo DC 0 AC 0
-VM1ref Vm1 0 DC 0 AC 0
+Vdd_1 Vdd_1 0 DC 2.5 AC 0
+Vss_1 Vss_1 0 DC -2.5 AC 0
+
+
+////////////------////////////////////
+*Circuito del multiplicador beta
+
+M1_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=8e-06 L=1.6e-06
+M2_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmoslevel3 W=32e-06 L=1.6e-06
+
+RBref_1 RBref_1 RBref2_1 6579.5169
+
+M3_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmoslevel3 W=24e-06 L=1.6e-06
+M4_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmoslevel3 W=24e-06 L=1.6e-06
+
+
+VRLref_1 RBref2_1 Vss_1 DC 0 AC 0
 
 * Modelos para tecnología 0.8u < L < 200u 10u < W < 10000u  Vdd=2.5V (Allen)
 * lambda cambia de acuerdo con la longitud del canal
@@ -32,15 +38,13 @@ VM1ref Vm1 0 DC 0 AC 0
 + cgso = 220e-12	cgdo = 220e-12	cgbo = 700e-12
 + lambda = 0.05
 
-.tran .1ms 1m uic
-.ic v(gatem1)=0 v(drainm2)=0
+.tran .1ms 1m
 .control
 set color0 =white
 set color1=black
 op
 show all
-dc vdd 0 10 0.01
-plot i(vrlref) i(vm1ref)
-run
-plot i(vrlref)
+dc Vdd_1 0 5 0.01
+plot i(VRLref_1)
+
 .endc
