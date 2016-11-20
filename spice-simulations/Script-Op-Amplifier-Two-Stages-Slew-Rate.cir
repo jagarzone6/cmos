@@ -6,11 +6,11 @@
 Vdd_1 Vdd_1 0 DC 2.5 AC 0
 Vss_1 Vss_1 0 DC -2.5 AC 0
 
-Vin2_1 vinM2_1 0 DC 0 AC 0
+*Vin2_1 vinM2_1 0 DC 0 AC 0
 ////////////------////////////////////
 *Circuito del amplificador operacional de dos etapas
-M1_1 drainM1_1 vinM1_1 sourceM1_1 sourceM1_1 nmosG W=8e-06 L=1.6e-06
-M2_1 drainM2_1 vinM2_1 sourceM1_1 sourceM1_1 nmosG W=8e-06 L=1.6e-06
+M1_1 drainM1_1 vout_1 sourceM1_1 sourceM1_1 nmosG W=8e-06 L=1.6e-06
+M2_1 drainM2_1 vinM1_1 sourceM1_1 sourceM1_1 nmosG W=8e-06 L=1.6e-06
 
 M3_1 drainM1_1 drainM1_1 Vdd_1 Vdd_1 pmosG W=1.76e-05 L=1.6e-06
 M4_1 drainM2_1 drainM1_1 Vdd_1 Vdd_1 pmosG W=1.76e-05 L=1.6e-06
@@ -39,7 +39,7 @@ VRLref_1 RBref2_1 Vss_1 DC 0 AC 0
 *M8_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=3.2e-06 L=1.6e-06
 
 *Fuente AC en vinM1_1
-Vinac_1 vinM1_1 0 sin(0 0.00005 1k) dc=0 ac=0.00005
+Vinac_1 vinM1_1 0 PULSE(-1 2 0 1ns 1ns 0.5s 1s)
 
 * Modelos para tecnología 0.8u < L < 200u 10u < W < 10000u  Vdd=2.5V (Allen)
 * lambda cambia de acuerdo con la longitud del canal
@@ -75,7 +75,6 @@ plot mag(v(vout_1))/mag(v(vinm1_1))
 plot ph(v(vout_1)/v(vinm1_1))*360/(2*pi)
 
 *Transitorio
-tran .00001s .01s
-plot v(vout_1)
-plot v(vinm1_1)
+tran .00000001s .000000065s
+plot v(vout_1) v(vinm1_1)
 .endc
