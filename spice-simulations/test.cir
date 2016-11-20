@@ -89,3 +89,9 @@ plot v(vgcommon11,vin) v(out)
 *Analizis de polos y ceros de la funcion de transferencia
 pz vin 0 out 0 vol pz
 .endc
+
+
+"*Circuito espejo ideal"+"\n"+\
+"*Iref Espejo N de "+str(I5)+" Amps"+"\n"+\
+"*Iref_1 0 vbiasM5_1 DC "+str(I5)+" AC 0"+"\n"+\
+"*M8_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W="+str(W5)+" L="+str(L)+"\n"+\

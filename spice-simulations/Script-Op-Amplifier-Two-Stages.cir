@@ -22,7 +22,7 @@ M6_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG W=0.00015999999999999999 L=1.6e-06
 M7_1 vout_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=1.92e-05 L=1.6e-06
 
 Cl_1 vout_1 0 10p
-Cc_1 vout_1 drainM2_1 3.52e-15
+Cc_1 vout_1 drainM2_1 3.344e-12
 ////////////------////////////////////
 *Circuito del multiplicador beta
 MB1_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=8u L=1.6u
@@ -33,13 +33,9 @@ MB4_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG W=24u L=1.6u
 
 VRLref_1 RBref2_1 Vss_1 DC 0 AC 0
 ////////////------////////////////////
-*Circuito espejo ideal
-*Iref Espejo N de 2.112e-05 Amps
-*Iref_1 0 vbiasM5_1 DC 2.112e-05 AC 0
-*M8_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=3.2e-06 L=1.6e-06
 
 *Fuente AC en vinM1_1
-Vinac_1 vinM1_1 0 sin(0 0.00005 1k) dc=0 ac=0.00005
+Vinac_1 vinM1_1 0 sin(0 0.0001 1k) dc=0 ac=0.0001
 
 * Modelos para tecnología 0.8u < L < 200u 10u < W < 10000u  Vdd=2.5V (Allen)
 * lambda cambia de acuerdo con la longitud del canal
@@ -70,12 +66,14 @@ ac dec 10 1 10ghz
 *Ganancia en decibeles
 plot db(mag(v(vout_1))/mag(v(vinm1_1)))
 *Ganancia en magnitud V/V
-plot mag(v(vout_1))/mag(v(vinm1_1))
+*plot mag(v(vout_1))/mag(v(vinm1_1))
 *phase plot vout_1/vin
 plot ph(v(vout_1)/v(vinm1_1))*360/(2*pi)
 
 *Transitorio
 tran .00001s .01s
-plot v(vout_1)
-plot v(vinm1_1)
+*Vout vs Vin
+plot v(vout_1) v(vinm1_1)
+*Potencia discipada en W (Vdd_1-Vss_1)*Itotal
+plot v(Vdd_1,Vss_1)*vss_1#branch
 .endc
