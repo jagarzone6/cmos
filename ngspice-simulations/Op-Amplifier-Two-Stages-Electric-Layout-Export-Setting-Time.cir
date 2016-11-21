@@ -25,17 +25,28 @@ Cl_1 vout_1 0 10p
 Cc_1 vout_1 drainM2_1 5.28e-13
 ////////////------////////////////////
 *Circuito del multiplicador beta
-MB1_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=8u L=1.6u
-MB2_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG W=32u L=1.6u
+MMB1_A_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4U AS=32.267P AD=20.8P PS=20.8U PD=18.4U
+MMB1_B_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4U AS=20.8P AD=32.267P PS=18.4U PD=20.8U
+MMB2_A_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=25.6P AD=41.8P PS=14.4U PD=26.2U
+MMB2_B_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=41.8P AD=25.6P PS=26.2U PD=14.4U
+MMB2_C_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=25.6P AD=41.8P PS=14.4U PD=26.2U
+MMB2_D_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=41.8P AD=25.6P PS=26.2U PD=14.4U
+MMB3_A_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=32.267P PS=14.8U PD=20.8U
+MMB3_B_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=32.267P AD=26.4P PS=20.8U PD=14.8U
+MMB3_C_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=32.267P PS=14.8U PD=20.8U
+MMB3_D_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=32.267P AD=26.4P PS=20.8U PD=14.8U
+MMB4_A_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=41.8P AD=26.4P PS=26.2U PD=14.8U
+MMB4_B_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=41.8P PS=14.8U PD=26.2U
+MMB4_C_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=41.8P AD=26.4P PS=26.2U PD=14.8U
+MMB4_D_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=41.8P PS=14.8U PD=26.2U
 RBref_1 RBref_1 RBref2_1 4639.185118907534
-MB3_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG W=24u L=1.6u
-MB4_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG W=24u L=1.6u
+
 
 VRBref_1 RBref2_1 Vss_1 DC 0 AC 0
 ////////////------////////////////////
 
 *Fuente AC en vinM1_1
-Vinac_1 vinM1_1 0 PULSE(-1.8 2.4 0 1ns 1ns 0.5s 1s)
+Vinac_1 vinM1_1 0 PULSE(0 20m 0 1ns 1ns 0.5s 1s)
 
 * Modelos para tecnología 0.8u < L < 200u 10u < W < 10000u  Vdd=2.5V (Allen)
 * lambda cambia de acuerdo con la longitud del canal
