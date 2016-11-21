@@ -8,9 +8,11 @@ Vlayout|lay
 Tmocmos|ScaleFORmocmos()D800.0
 
 # Cell Beta-multiplier;1{lay}
-CBeta-multiplier;1{lay}||mocmos|1479741442971|1479754518577||DRC_last_good_drc_area_date()G1479754526403|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1479754526403
+CBeta-multiplier;1{lay}||mocmos|1479741442971|1479754796841||DRC_last_good_drc_area_date()G1479754800555|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1479754800555
 NN-Transistor|MB1_A_1|D5G3;X4;Y-1;|-26|-24|2||XR||SIM_spice_model(D5G3;X-4;Y-1;)SnmosG
 NN-Transistor|MB1_B_1|D5G3;X4;Y5;|-16|-24|2||XR||SIM_spice_model(D5G3;X-5;Y5;)SnmosG
+NN-Transistor|MB2_A_1|D5G3;X2;|26|-25|7||XR||SIM_spice_model(D5G3;X-3;Y1;)SnmosG
+NN-Transistor|MB2_B_1|D5G3;X3;Y1;|36|-25|7||XR||SIM_spice_model(D5G3;X-1;)SnmosG
 NP-Transistor|MB3_A_1|D5G3;X2;Y-1;|-19|47|4.5||R||SIM_spice_model(D5G3;X-2;)SpmosG
 NP-Transistor|MB3_B_1|D5G3;X2;|-32|21|4.5||R||SIM_spice_model(D5G3;X-2;)SpmosG
 NP-Transistor|MB3_C_1|D5G3;X2;Y-1;|22|47|4.5||XR||SIM_spice_model(D5G3;X-2;)SpmosG
@@ -41,6 +43,9 @@ NMetal-1-N-Active-Con|contact@26||-31|-24|||XRRR|
 NMetal-1-N-Active-Con|contact@27||-21|-24|||XRRR|
 NMetal-1-N-Active-Con|contact@28||-11|-24|||XRRR|
 NMetal-1-Polysilicon-1-Con|contact@29||-21|-6|||R|
+NMetal-1-N-Active-Con|contact@30||31|-25|5||XRRR|
+NMetal-1-N-Active-Con|contact@31||21|-25|5||XRRR|
+NMetal-1-N-Active-Con|contact@32||41|-25|5||XRRR|
 NPolysilicon-1-Pin|pin@0||-32|31||||
 NPolysilicon-1-Pin|pin@1||-19|31||||
 NPolysilicon-1-Pin|pin@2||-6|31||||
@@ -171,6 +176,10 @@ AMetal-1|net@161||1|S0|contact@29||-21|-6|contact@25||-33|-6
 AMetal-1|net@162||1|S0|pin@74||-11|-35|pin@77||-21|-35
 AMetal-1|net@163||1|S0|pin@77||-21|-35|pin@72||-31|-35
 AMetal-1|net@164||1|S900|pin@77||-21|-35|pin@78||-21|-43
+AN-Active|net@165|||S0|contact@30||31|-26|MB2_A_1|diff-top|29.75|-26
+AN-Active|net@166|||S1800|contact@31||21|-25|MB2_A_1|diff-bottom|22.25|-25
+AN-Active|net@167|||S0|MB2_B_1|diff-bottom|32.25|-25|contact@30||31|-25
+AN-Active|net@168|||S0|contact@32||41|-25|MB2_B_1|diff-top|39.75|-25
 EVdd_1||D5G3;Y5;|pin@62||P
 EVss_1||D5G3;|pin@78||P
 EdrainMB2_1||D5G3;X-9;|contact@24||B
