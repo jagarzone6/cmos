@@ -35,7 +35,7 @@ VRLref_1 RBref2_1 Vss_1 DC 0 AC 0
 ////////////------////////////////////
 
 *Fuente AC en vinM1_1
-Vinac_1 vinM1_1 0 PULSE(0 20m 0 1ns 1ns 0.5s 1s)
+Vinac_1 vinM1_1 0 PULSE(-1 2 0 1ns 1ns 0.5s 1s)
 
 * Modelos para tecnología 0.8u < L < 200u 10u < W < 10000u  Vdd=2.5V (Allen)
 * lambda cambia de acuerdo con la longitud del canal
@@ -59,16 +59,6 @@ set color0 =white
 set color1=black
 op
 show all
-
-*Ganacia en AC barrido en frecuencia vout/vin AC
-ac dec 10 1 10ghz
-
-*Ganancia en decibeles
-plot db(mag(v(vout_1))/mag(v(vinm1_1)))
-*Ganancia en magnitud V/V
-plot mag(v(vout_1))/mag(v(vinm1_1))
-*phase plot vout_1/vin
-plot ph(v(vout_1)/v(vinm1_1))*360/(2*pi)
 
 *Transitorio
 tran .0000001s .00000065s
