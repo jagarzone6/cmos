@@ -8,7 +8,7 @@ Vlayout|lay
 Tmocmos|ScaleFORmocmos()D800.0
 
 # Cell Beta-multiplier;1{lay}
-CBeta-multiplier;1{lay}||mocmos|1479741442971|1479758894366||DRC_last_good_drc_area_date()G1479758907290|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1479758907290
+CBeta-multiplier;1{lay}||mocmos|1479741442971|1479759625046||DRC_last_good_drc_area_date()G1479759629049|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1479759629049
 NN-Transistor|MB1_A_1|D5G3;X4;Y-1;|-26|-24|2||XR||SIM_spice_model(D5G3;X-4;Y-1;)SnmosG
 NN-Transistor|MB1_B_1|D5G3;X4;Y5;|-16|-24|2||XR||SIM_spice_model(D5G3;X-5;Y5;)SnmosG
 NN-Transistor|MB2_A_1|D5G3;X2;|26|-25|7||XR||SIM_spice_model(D5G3;X-3;Y1;)SnmosG
@@ -102,6 +102,7 @@ NPolysilicon-1-Pin|pin@85||36|-37||||
 NMetal-1-Pin|pin@86||31|-73||||
 NPolysilicon-1-Pin|pin@87||5|-37||||
 NPolysilicon-1-Pin|pin@88||5|-15||||
+Ngeneric:Invisible-Pin|pin@89||-78|21|||||SIM_spice_card(D5G3;)S[Vdd_1 Vdd_1 0 2.5,Vss_1 Vss_1 0 -2.5]
 AP-Active|net@0|||S0|contact@0||-26|47|MB4_A_1|diff-bottom|-28.25|47
 AP-Active|net@1|||S1800|contact@0||-26|47|MB3_A_1|diff-top|-22.75|47
 AP-Active|net@2|||S0|contact@1||-26|21|MB3_B_1|diff-bottom|-28.25|21
@@ -219,7 +220,7 @@ APolysilicon-1|net@192|||S2700|pin@87||5|-37|pin@88||5|-15
 APolysilicon-1|net@193|||S0|pin@88||5|-15|pin@71||-16|-15
 ERBref_1||D5G3;|pin@86||O
 EVdd_1||D5G3;Y5;|pin@62||P
-EVss_1||D5G3;X-7;|pin@78||P
+EVss_1||D5G3;X-7;|pin@78||G
 EdrainMB2_1||D5G3;X-9;|contact@24||B
 EvbiasM5_1||D5G3;Y4;|contact@25||B
 X
