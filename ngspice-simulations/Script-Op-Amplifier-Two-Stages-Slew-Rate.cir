@@ -61,6 +61,6 @@ op
 show all
 
 *Transitorio
-tran .0000001s .000001s
+tran .000000001s .0000005s
 plot v(vout_1) v(vinm1_1)
 .endc
