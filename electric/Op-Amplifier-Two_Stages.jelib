@@ -1,5 +1,13 @@
 # header information:
 HOp-Amplifier-Two_Stages|9.06
 
+# Views:
+Vlayout|lay
+
 # Technologies:
 Tmocmos|ScaleFORmocmos()D800.0
+
+# Cell Op-Amp-Tow-Stages;1{lay}
+COp-Amp-Tow-Stages;1{lay}||mocmos|1479741242281|1479741242284|
+Ngeneric:Facet-Center|art@0||0|0||||AV
+X
