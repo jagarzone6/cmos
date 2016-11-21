@@ -6,19 +6,19 @@
 *** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 
 *** TOP LEVEL CELL: Op-Amplifier-Two_Stages:Beta-multiplier{lay}
-MMB1_A_1 Vss_1 vbiasM5_1 vbiasM5_1 Vss_1 nmosG L=1.6U W=4U AS=32.267P AD=20.8P PS=20.8U PD=18.4U
+MMB1_A_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4U AS=32.267P AD=20.8P PS=20.8U PD=18.4U
 MMB1_B_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4U AS=20.8P AD=32.267P PS=18.4U PD=20.8U
 MMB2_A_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=25.6P AD=41.8P PS=14.4U PD=26.2U
-MMB2_B_1 RBref_1 vbiasM5_1 drainMB2_1 Vss_1 nmosG L=1.6U W=8U AS=41.8P AD=25.6P PS=26.2U PD=14.4U
+MMB2_B_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=41.8P AD=25.6P PS=26.2U PD=14.4U
 MMB2_C_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=25.6P AD=41.8P PS=14.4U PD=26.2U
-MMB2_D_1 RBref_1 vbiasM5_1 drainMB2_1 Vss_1 nmosG L=1.6U W=8U AS=41.8P AD=25.6P PS=26.2U PD=14.4U
+MMB2_D_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=41.8P AD=25.6P PS=26.2U PD=14.4U
 MMB3_A_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=32.267P PS=14.8U PD=20.8U
-MMB3_B_1 Vdd_1 drainMB2_1 vbiasM5_1 Vdd_1 pmosG L=1.6U W=6U AS=32.267P AD=26.4P PS=20.8U PD=14.8U
+MMB3_B_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=32.267P AD=26.4P PS=20.8U PD=14.8U
 MMB3_C_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=32.267P PS=14.8U PD=20.8U
-MMB3_D_1 Vdd_1 drainMB2_1 vbiasM5_1 Vdd_1 pmosG L=1.6U W=6U AS=32.267P AD=26.4P PS=20.8U PD=14.8U
-MMB4_A_1 Vdd_1 drainMB2_1 drainMB2_1 Vdd_1 pmosG L=1.6U W=6U AS=41.8P AD=26.4P PS=26.2U PD=14.8U
+MMB3_D_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=32.267P AD=26.4P PS=20.8U PD=14.8U
+MMB4_A_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=41.8P AD=26.4P PS=26.2U PD=14.8U
 MMB4_B_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=41.8P PS=14.8U PD=26.2U
-MMB4_C_1 Vdd_1 drainMB2_1 drainMB2_1 Vdd_1 pmosG L=1.6U W=6U AS=41.8P AD=26.4P PS=26.2U PD=14.8U
+MMB4_C_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=41.8P AD=26.4P PS=26.2U PD=14.8U
 MMB4_D_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=41.8P PS=14.8U PD=26.2U
 
 * Spice Code nodes in cell cell 'Op-Amplifier-Two_Stages:Beta-multiplier{lay}'
