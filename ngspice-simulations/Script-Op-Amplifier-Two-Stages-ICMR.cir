@@ -31,7 +31,7 @@ RBref_1 RBref_1 RBref2_1 4639.185118907534
 MB3_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG W=24u L=1.6u
 MB4_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG W=24u L=1.6u
 
-VRLref_1 RBref2_1 Vss_1 DC 0 AC 0
+VRBref_1 RBref2_1 Vss_1 DC 0 AC 0
 ////////////------////////////////////
 
 *Fuente DC en vinM1_1
@@ -55,6 +55,8 @@ Vindc_1 vinM1_1 0 DC 0 AC 0
 + lambda = 0.05
 
 .control
+set temp = 0
+set tnom = 0
 set color0 =white
 set color1=black
 op
@@ -63,5 +65,5 @@ show all
 *Simulacion en DC vin vs vout y I(vdd_1) vs vin, para observar la rampa de operacion del amplificador
 dc vindc_1 -4 4 0.0001
 plot v(vout_1)
-plot i(Vdd_1)
+plot i(vss_1)
 .endc

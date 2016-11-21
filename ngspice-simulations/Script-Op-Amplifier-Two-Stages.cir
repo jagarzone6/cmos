@@ -31,7 +31,7 @@ RBref_1 RBref_1 RBref2_1 4639.185118907534
 MB3_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG W=24u L=1.6u
 MB4_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG W=24u L=1.6u
 
-VRLref_1 RBref2_1 Vss_1 DC 0 AC 0
+VRBref_1 RBref2_1 Vss_1 DC 0 AC 0
 ////////////------////////////////////
 
 *Fuente AC en vinM1_1
@@ -55,6 +55,8 @@ Vinac_1 vinM1_1 0 sin(0 0.0001 1k) dc=0 ac=0.0001
 + lambda = 0.05
 
 .control
+set temp = 0
+set tnom = 0
 set color0 =white
 set color1=black
 op
@@ -75,5 +77,5 @@ tran .00001s .01s
 *Vout vs Vin
 *plot v(vout_1) v(vinm1_1)
 *Potencia discipada en el circuito (Vdd_1-Vss_1)*Itotal
-plot v(Vdd_1,Vss_1)*vss_1#branch
+plot v(vdd_1,vss_1)*vss_1#branch
 .endc
