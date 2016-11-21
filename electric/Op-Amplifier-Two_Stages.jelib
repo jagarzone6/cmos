@@ -8,7 +8,9 @@ Vlayout|lay
 Tmocmos|ScaleFORmocmos()D800.0
 
 # Cell Beta-multiplier;1{lay}
-CBeta-multiplier;1{lay}||mocmos|1479741442971|1479753364073||DRC_last_good_drc_area_date()G1479753366275|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1479753366275
+CBeta-multiplier;1{lay}||mocmos|1479741442971|1479754518577||DRC_last_good_drc_area_date()G1479754526403|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1479754526403
+NN-Transistor|MB1_A_1|D5G3;X4;Y-1;|-26|-24|2||XR||SIM_spice_model(D5G3;X-4;Y-1;)SnmosG
+NN-Transistor|MB1_B_1|D5G3;X4;Y5;|-16|-24|2||XR||SIM_spice_model(D5G3;X-5;Y5;)SnmosG
 NP-Transistor|MB3_A_1|D5G3;X2;Y-1;|-19|47|4.5||R||SIM_spice_model(D5G3;X-2;)SpmosG
 NP-Transistor|MB3_B_1|D5G3;X2;|-32|21|4.5||R||SIM_spice_model(D5G3;X-2;)SpmosG
 NP-Transistor|MB3_C_1|D5G3;X2;Y-1;|22|47|4.5||XR||SIM_spice_model(D5G3;X-2;)SpmosG
@@ -35,6 +37,10 @@ NMetal-1-P-Active-Con|contact@21||16|21|2.5|2.5|X|
 NMetal-1-Metal-2-Con|contact@22||41|37|||X|
 NMetal-1-Polysilicon-1-Con|contact@24||48|-4||||
 NMetal-1-Metal-2-Con|contact@25||-33|-6||||
+NMetal-1-N-Active-Con|contact@26||-31|-24|||XRRR|
+NMetal-1-N-Active-Con|contact@27||-21|-24|||XRRR|
+NMetal-1-N-Active-Con|contact@28||-11|-24|||XRRR|
+NMetal-1-Polysilicon-1-Con|contact@29||-21|-6|||R|
 NPolysilicon-1-Pin|pin@0||-32|31||||
 NPolysilicon-1-Pin|pin@1||-19|31||||
 NPolysilicon-1-Pin|pin@2||-6|31||||
@@ -70,6 +76,13 @@ NMetal-1-Pin|pin@65||36|-4||||
 NMetal-1-Pin|pin@66||36|5||||
 NMetal-2-Pin|pin@67||-33|37||||
 NMetal-2-Pin|pin@68||-33|-6||||
+NPolysilicon-1-Pin|pin@69||-26|-15|||XRRR|
+NPolysilicon-1-Pin|pin@71||-16|-15|||XRRR|
+NMetal-1-Pin|pin@72||-31|-35|||XRRR|
+NMetal-1-Pin|pin@74||-11|-35|||XRRR|
+NPolysilicon-1-Pin|pin@76||-21|-15|||R|
+NMetal-1-Pin|pin@77||-21|-35||||
+NMetal-1-Pin|pin@78||-21|-43||||
 AP-Active|net@0|||S0|contact@0||-26|47|MB4_A_1|diff-bottom|-28.25|47
 AP-Active|net@1|||S1800|contact@0||-26|47|MB3_A_1|diff-top|-22.75|47
 AP-Active|net@2|||S0|contact@1||-26|21|MB3_B_1|diff-bottom|-28.25|21
@@ -142,9 +155,26 @@ AMetal-2|net@138||1|S1800|contact@6||-38|37|pin@67||-33|37
 AMetal-2|net@139||1|S1800|pin@67||-33|37|contact@7||3|37
 AMetal-2|net@140||1|S900|pin@67||-33|37|pin@68||-33|-6
 AMetal-2|net@141||1|S900|contact@25||-33|-5|pin@68||-33|-6
+AN-Active|net@143|||S0|contact@27||-21|-24|MB1_A_1|diff-top|-22.25|-24
+AN-Active|net@145|||S0|MB1_B_1|diff-bottom|-19.75|-24|contact@27||-21|-24
+AN-Active|net@146|||S1800|contact@26||-31|-24|MB1_A_1|diff-bottom|-29.75|-24
+APolysilicon-1|net@147|||S2700|MB1_A_1|poly-right|-26|-19.5|pin@69||-26|-15
+APolysilicon-1|net@150|||S900|pin@71||-16|-15|MB1_B_1|poly-right|-16|-19.5
+AN-Active|net@151|||S0|contact@28||-11|-24|MB1_B_1|diff-top|-12.25|-24
+AMetal-1|net@152||1|S900|contact@26||-31|-24|pin@72||-31|-35
+AMetal-1|net@154||1|S900|contact@28||-11|-24|pin@74||-11|-35
+APolysilicon-1|net@157|||S1800|pin@69||-26|-15|pin@76||-21|-15
+APolysilicon-1|net@158|||S1800|pin@76||-21|-15|pin@71||-16|-15
+APolysilicon-1|net@159|||S2700|pin@76||-21|-15|contact@29||-21|-6
+AMetal-1|net@160||1|S2700|contact@27||-21|-24|contact@29||-21|-6
+AMetal-1|net@161||1|S0|contact@29||-21|-6|contact@25||-33|-6
+AMetal-1|net@162||1|S0|pin@74||-11|-35|pin@77||-21|-35
+AMetal-1|net@163||1|S0|pin@77||-21|-35|pin@72||-31|-35
+AMetal-1|net@164||1|S900|pin@77||-21|-35|pin@78||-21|-43
 EVdd_1||D5G3;Y5;|pin@62||P
+EVss_1||D5G3;|pin@78||P
 EdrainMB2_1||D5G3;X-9;|contact@24||B
-EvbiasM5_1||D5G3;|contact@25||B
+EvbiasM5_1||D5G3;Y4;|contact@25||B
 X
 
 # Cell Op-Amp-Tow-Stages;1{lay}
