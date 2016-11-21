@@ -35,7 +35,7 @@ VRBref_1 RBref2_1 Vss_1 DC 0 AC 0
 ////////////------////////////////////
 
 *Fuente AC en vinM1_1 con 6 voltios pico pico
-Vinac_1 vinM1_1 0 sin(0 3 1000k) dc=0 ac=1
+Vinac_1 vinM1_1 0 sin(0 3 100k) dc=0 ac=1
 
 * Modelos para tecnología 0.8u < L < 200u 10u < W < 10000u  Vdd=2.5V (Allen)
 * lambda cambia de acuerdo con la longitud del canal
@@ -63,6 +63,6 @@ op
 show all
 
 **Transitorio vin vs vout
-tran .0000001s .000001s
+tran .000001s .00001s
 plot v(vout_1) v(vinm1_1)
 .endc
