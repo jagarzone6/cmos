@@ -1,14 +1,11 @@
-* Simulación Circuito Amplificador Operacional de dos etapas
-* Universidad Nacional de Colombia 2016
-* CMOS Analógico
-* Grupo Jorge Garzón, Esteban Iafrancesco A
+*** SPICE deck for cell Op-Amp-Tow-Stages{lay} from library Op-Amplifier-Two_Stages
+*** Created on Mon Nov 21, 2016 10:14:02
+*** Last revised on Mon Nov 21, 2016 17:26:43
+*** Written on Mon Nov 21, 2016 17:29:01 by Electric VLSI Design System, version 9.06
+*** Layout tech: mocmos, foundry MOSIS
+*** UC SPICE *** , MIN_RESIST 4.0, MIN_CAPAC 0.1FF
 
-Vdd_1 Vdd_1 0 DC 2.5 AC 0
-Vss_1 Vss_1 0 DC -2.5 AC 0
-
-Vin2_1 vinM2_1 0 DC 0 AC 0
-////////////------////////////////////
-*Circuito del amplificador operacional de dos etapas
+*** TOP LEVEL CELL: Op-Amp-Tow-Stages{lay}
 MM1_A_1 sourceM1_1 vinM1_1 drainM1_1 Vss_1 nmosG L=1.6U W=4U AS=22.773P AD=14.72P PS=19.2U PD=12.32U
 MM1_B_1 drainM1_1 vinM1_1 sourceM1_1 Vss_1 nmosG L=1.6U W=4U AS=14.72P AD=22.773P PS=12.32U PD=19.2U
 MM2_A_1 drainM2_1 vinM2_1 sourceM1_1 Vss_1 nmosG L=1.6U W=4U AS=14.72P AD=23.947P PS=12.32U PD=19.733U
@@ -47,73 +44,7 @@ MM7_B_1 Vss_1 vbiasM5_1 vout_1 Vss_1 nmosG L=1.6U W=4.8U AS=28.48P AD=18.304P PS
 MM7_C_1 Vss_1 vbiasM5_1 vout_1 Vss_1 nmosG L=1.6U W=4.8U AS=28.48P AD=18.304P PS=17.467U PD=13.6U
 MM7_D_1 vout_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4.8U AS=18.304P AD=28.48P PS=13.6U PD=17.467U
 
-Cl_1 vout_1 0 10p
-Cc_1 vout_1 drainM2_1 5.28e-13
-////////////------////////////////////
-*Circuito del multiplicador beta
-
-MMB1_A_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4U AS=32.267P AD=20.8P PS=20.8U PD=18.4U
-MMB1_B_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4U AS=20.8P AD=32.267P PS=18.4U PD=20.8U
-MMB2_A_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=25.6P AD=41.8P PS=14.4U PD=26.2U
-MMB2_B_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=41.8P AD=25.6P PS=26.2U PD=14.4U
-MMB2_C_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=25.6P AD=41.8P PS=14.4U PD=26.2U
-MMB2_D_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=41.8P AD=25.6P PS=26.2U PD=14.4U
-MMB3_A_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=32.267P PS=14.8U PD=20.8U
-MMB3_B_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=32.267P AD=26.4P PS=20.8U PD=14.8U
-MMB3_C_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=32.267P PS=14.8U PD=20.8U
-MMB3_D_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=32.267P AD=26.4P PS=20.8U PD=14.8U
-MMB4_A_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=41.8P AD=26.4P PS=26.2U PD=14.8U
-MMB4_B_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=41.8P PS=14.8U PD=26.2U
-MMB4_C_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=41.8P AD=26.4P PS=26.2U PD=14.8U
-MMB4_D_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=41.8P PS=14.8U PD=26.2U
-RBref_1 RBref_1 RBref2_1 4639.185118907534
-
-
-VRBref_1 RBref2_1 Vss_1 DC 0 AC 0
-////////////------////////////////////
-
-*Fuente AC en vinM1_1
-Vinac_1 vinM1_1 0 sin(0 0.0001 1k) dc=0 ac=0.0001
-
-* Modelos para tecnología 0.8u < L < 200u 10u < W < 10000u  Vdd=2.5V (Allen)
-* lambda cambia de acuerdo con la longitud del canal
-* nMOS: lambda=0.04 para L=1u y lambda=0.01 para L=2u
-* pMOS: lambda=0.05 para L=1u y lambda=0.01 para L=2u
-
-.model nmosG nmos level=2
-+ vto = 0.7 kp = 110e-6 gamma = 0.4 phi = 0.7
-+ tox = 14e-9 cj = 770e-6 cjsw = 380e-12 mj = 0.5 mjsw = 0.38
-+ cgso = 220e-12 cgdo = 220e-12 cgbo = 700e-12
-+ lambda = 0.04
-
-.model pmosG pmos level=2
-+ vto = -0.7 kp = 50e-6 gamma = 0.57 phi = 0.8
-+ tox = 14e-9 cj = 560e-6 cjsw = 350e-12 mj = 0.5 mjsw = 0.35
-+ cgso = 220e-12 cgdo = 220e-12 cgbo = 700e-12
-+ lambda = 0.05
-
-.control
-set temp = 27
-set tnom = 27
-set color0 =white
-set color1=black
-op
-show all
-
-*Ganacia en AC barrido en frecuencia vout/vin AC
-ac dec 10 1 10ghz
-
-*Ganancia en decibeles
-plot db(mag(v(vout_1))/mag(v(vinm1_1)))
-*Ganancia en magnitud V/V
-*plot mag(v(vout_1))/mag(v(vinm1_1))
-*phase plot vout_1/vin
-plot ph(v(vout_1)/v(vinm1_1))*360/(2*pi)
-
-*Transitorio
-tran .00001s .01s
-*Vout vs Vin
-*plot v(vout_1) v(vinm1_1)
-*Potencia discipada en el circuito (Vdd_1-Vss_1)*Itotal
-plot v(vdd_1,vss_1)*vss_1#branch
-.endc
+* Spice Code nodes in cell cell 'Op-Amp-Tow-Stages{lay}'
+Vdd_1 Vdd_1 0 2.5
+Vss_1 Vss_1 0 -2.5
+.END
