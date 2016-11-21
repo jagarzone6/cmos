@@ -6,7 +6,7 @@ Vlayout|lay
 Vschematic|sch
 
 # Technologies:
-Tmocmos|ScaleFORmocmos()D500.0
+Tmocmos|ScaleFORmocmos()D800.0
 
 # Cell Differential_amplifier;1{lay}
 CDifferential_amplifier;1{lay}||mocmos|1476792574969|1476827274148||DRC_last_good_drc_area_date()G1476827276640|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1476827276640
