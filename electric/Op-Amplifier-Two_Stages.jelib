@@ -7,6 +7,11 @@ Vlayout|lay
 # Technologies:
 Tmocmos|ScaleFORmocmos()D800.0
 
+# Cell Beta-multiplier;1{lay}
+CBeta-multiplier;1{lay}||mocmos|1479741442971|1479741442971|
+Ngeneric:Facet-Center|art@0||0|0||||AV
+X
+
 # Cell Op-Amp-Tow-Stages;1{lay}
 COp-Amp-Tow-Stages;1{lay}||mocmos|1479741242281|1479741242284|
 Ngeneric:Facet-Center|art@0||0|0||||AV
