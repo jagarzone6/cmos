@@ -9,17 +9,44 @@ Vss_1 Vss_1 0 DC -2.5 AC 0
 *Vin2_1 vinM2_1 0 DC 0 AC 0
 ////////////------////////////////////
 *Circuito del amplificador operacional de dos etapas
-M1_1 drainM1_1 vout_1 sourceM1_1 Vss_1 nmosG W=8e-06 L=1.6e-06
-M2_1 drainM2_1 vinM1_1 sourceM1_1 Vss_1 nmosG W=8e-06 L=1.6e-06
 
-M3_1 drainM1_1 drainM1_1 Vdd_1 Vdd_1 pmosG W=1.76e-05 L=1.6e-06
-M4_1 drainM2_1 drainM1_1 Vdd_1 Vdd_1 pmosG W=1.76e-05 L=1.6e-06
-
-M5_1 sourceM1_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=3.2e-06 L=1.6e-06
-
-M6_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG W=0.00015999999999999999 L=1.6e-06
-
-M7_1 vout_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=1.92e-05 L=1.6e-06
+MM1_A_1 sourceM1_1 vout_1 drainM1_1 Vss_1 nmosG L=1.6U W=4U AS=22.773P AD=14.72P PS=19.2U PD=12.32U
+MM1_B_1 drainM1_1 vout_1 sourceM1_1 Vss_1 nmosG L=1.6U W=4U AS=14.72P AD=22.773P PS=12.32U PD=19.2U
+MM2_A_1 drainM2_1 vinM1_1 sourceM1_1 Vss_1 nmosG L=1.6U W=4U AS=14.72P AD=23.947P PS=12.32U PD=19.733U
+MM2_B_1 sourceM1_1 vinM1_1 drainM2_1 Vss_1 nmosG L=1.6U W=4U AS=23.947P AD=14.72P PS=19.733U PD=12.32U
+MM3_A_1 Vdd_1 drainM1_1 drainM1_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.773P AD=22.937P PS=19.2U PD=13.657U
+MM3_B_1 drainM1_1 drainM1_1 Vdd_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.937P AD=22.773P PS=13.657U PD=19.2U
+MM3_C_1 Vdd_1 drainM1_1 drainM1_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.773P AD=22.937P PS=19.2U PD=13.657U
+MM3_D_1 drainM1_1 drainM1_1 Vdd_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.937P AD=22.773P PS=13.657U PD=19.2U
+MM4_A_1 drainM2_1 drainM1_1 Vdd_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.937P AD=23.947P PS=13.657U PD=19.733U
+MM4_B_1 Vdd_1 drainM1_1 drainM2_1 Vdd_1 pmosG L=1.6U W=4.4U AS=23.947P AD=22.937P PS=19.733U PD=13.657U
+MM4_C_1 drainM2_1 drainM1_1 Vdd_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.937P AD=23.947P PS=13.657U PD=19.733U
+MM4_D_1 Vdd_1 drainM1_1 drainM2_1 Vdd_1 pmosG L=1.6U W=4.4U AS=23.947P AD=22.937P PS=19.733U PD=13.657U
+MM5_1 Vss_1 vbiasM5_1 sourceM1_1 Vss_1 nmosG L=1.6U W=3.2U AS=14.72P AD=18.304P PS=12.32U PD=13.6U
+MM6_1_1 Vdd_1 drainM2_1 vout_1 Vdd_1 pmosG L=1.6U W=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+MM6_2_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+MM6_3_1 Vdd_1 drainM2_1 vout_1 Vdd_1 pmosG L=1.6U W=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+MM6_4_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+MM6_5_1 Vdd_1 drainM2_1 vout_1 Vdd_1 pmosG L=1.6U W=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+MM6_6_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+MM6_7_1 Vdd_1 drainM2_1 vout_1 Vdd_1 pmosG L=1.6U W=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+MM6_8_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+MM6_9_1 Vdd_1 drainM2_1 vout_1 Vdd_1 pmosG L=1.6U W=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+MM6_10_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+MM6_11_1 Vdd_1 drainM2_1 vout_1 Vdd_1 pmosG L=1.6U W=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+MM6_12_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+MM6_13_1 Vdd_1 drainM2_1 vout_1 Vdd_1 pmosG L=1.6U W=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+MM6_14_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+MM6_15_1 Vdd_1 drainM2_1 vout_1 Vdd_1 pmosG L=1.6U W=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+MM6_16_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+MM6_17_1 Vdd_1 drainM2_1 vout_1 Vdd_1 pmosG L=1.6U W=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+MM6_18_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+MM6_19_1 Vdd_1 drainM2_1 vout_1 Vdd_1 pmosG L=1.6U W=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+MM6_20_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+MM7_A_1 vout_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4.8U AS=18.304P AD=28.48P PS=13.6U PD=17.467U
+MM7_B_1 Vss_1 vbiasM5_1 vout_1 Vss_1 nmosG L=1.6U W=4.8U AS=28.48P AD=18.304P PS=17.467U PD=13.6U
+MM7_C_1 Vss_1 vbiasM5_1 vout_1 Vss_1 nmosG L=1.6U W=4.8U AS=28.48P AD=18.304P PS=17.467U PD=13.6U
+MM7_D_1 vout_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4.8U AS=18.304P AD=28.48P PS=13.6U PD=17.467U
 
 Cl_1 vout_1 0 10p
 Cc_1 vout_1 drainM2_1 5.28e-13
