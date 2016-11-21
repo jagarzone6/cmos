@@ -9,10 +9,10 @@ Vss_1 Vss_1 0 DC -2.5 AC 0
 Vin2_1 vinM2_1 0 DC 0 AC 0
 ////////////------////////////////////
 *Circuito del amplificador operacional de dos etapas
-MM1_A_1 sourceM1_1 vinM1_1 drainM1_1 Vss_1 nmosG L=1.6U W=4U AS=22.773P AD=14.72P PS=19.2U PD=12.32U
-MM1_B_1 drainM1_1 vinM1_1 sourceM1_1 Vss_1 nmosG L=1.6U W=4U AS=14.72P AD=22.773P PS=12.32U PD=19.2U
-MM2_A_1 drainM2_1 vinM2_1 sourceM1_1 Vss_1 nmosG L=1.6U W=4U AS=14.72P AD=23.947P PS=12.32U PD=19.733U
-MM2_B_1 sourceM1_1 vinM2_1 drainM2_1 Vss_1 nmosG L=1.6U W=4U AS=23.947P AD=14.72P PS=19.733U PD=12.32U
+MM1_A_1 sourceM1_1 vinM2_1 drainM1_1 Vss_1 nmosG L=1.6U W=4U AS=22.773P AD=14.72P PS=19.2U PD=12.32U
+MM1_B_1 drainM1_1 vinM2_1 sourceM1_1 Vss_1 nmosG L=1.6U W=4U AS=14.72P AD=22.773P PS=12.32U PD=19.2U
+MM2_A_1 drainM2_1 vinM1_1 sourceM1_1 Vss_1 nmosG L=1.6U W=4U AS=14.72P AD=23.947P PS=12.32U PD=19.733U
+MM2_B_1 sourceM1_1 vinM1_1 drainM2_1 Vss_1 nmosG L=1.6U W=4U AS=23.947P AD=14.72P PS=19.733U PD=12.32U
 MM3_A_1 Vdd_1 drainM1_1 drainM1_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.773P AD=22.937P PS=19.2U PD=13.657U
 MM3_B_1 drainM1_1 drainM1_1 Vdd_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.937P AD=22.773P PS=13.657U PD=19.2U
 MM3_C_1 Vdd_1 drainM1_1 drainM1_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.773P AD=22.937P PS=19.2U PD=13.657U
@@ -112,8 +112,6 @@ plot ph(v(vout_1)/v(vinm1_1))*360/(2*pi)
 
 *Transitorio
 tran .00001s .01s
-*Vout vs Vin
-*plot v(vout_1) v(vinm1_1)
 *Potencia discipada en el circuito (Vdd_1-Vss_1)*Itotal
 plot v(vdd_1,vss_1)*vss_1#branch
 .endc
