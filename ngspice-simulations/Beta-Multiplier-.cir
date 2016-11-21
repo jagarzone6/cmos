@@ -13,7 +13,7 @@ Vss_1 Vss_1 0 DC -2.5 AC 0
 M1_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmoslevel3 W=8e-06 L=1.6e-06
 M2_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmoslevel3 W=32e-06 L=1.6e-06
 
-RBref_1 RBref_1 RBref2_1 6579.5169
+RBref_1 RBref_1 RBref2_1 1579.5169
 
 M3_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmoslevel3 W=24e-06 L=1.6e-06
 M4_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmoslevel3 W=24e-06 L=1.6e-06
@@ -44,7 +44,7 @@ set color0 =white
 set color1=black
 op
 show all
-dc Vdd_1 0 5 0.01
+dc Vdd_1 0 5 0.001
 plot i(VRLref_1)
 
 .endc
