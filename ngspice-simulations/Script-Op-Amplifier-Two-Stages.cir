@@ -3,8 +3,8 @@
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 
-Vdd_1 Vdd_1 0 DC 2.5 AC 0
-Vss_1 Vss_1 0 DC -2.5 AC 0
+Vdd_1 Vdd_1 0 DC 2.25 AC 0
+Vss_1 Vss_1 0 DC -2.25 AC 0
 
 Vin2_1 vinM2_1 0 DC 0 AC 0
 ////////////------////////////////////
@@ -62,13 +62,26 @@ show all
 
 *Ganacia en AC barrido en frecuencia vout/vin AC
 ac dec 10 1 10ghz
-
+let av = v(vout_1)/v(vinm1_1)
 *Ganancia en decibeles
-plot db(mag(v(vout_1))/mag(v(vinm1_1)))
+plot db(av)
 *Ganancia en magnitud V/V
-*plot mag(v(vout_1))/mag(v(vinm1_1))
-*phase plot vout_1/vin
-plot ph(v(vout_1)/v(vinm1_1))*360/(2*pi)
+*plot mag(av)
+*phase plot
+plot ph(av)*360/(2*pi)
+
+*Phase margin
+meas ac freqzerodbs when vdb(av)=0 fall=LAST
+print freqzerodbs
+meas ac pmb find vp(av) when vdb(av)=0
+let phasemargin = 180+pmb*360/(2*pi)
+print phasemargin
+
+*Band width
+meas ac Gain MAX vdb(av) from=1 to=10ghz
+let gain3dbs = Gain-3
+print gain3dbs
+meas ac Bw when vdb(av)=gain3dbs fall=LAST
 
 *Transitorio
 tran .00001s .01s
