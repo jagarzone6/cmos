@@ -3,8 +3,8 @@
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 
-Vdd_1 Vdd_1 0 DC 2.75 AC 0
-Vss_1 Vss_1 0 DC -2.75 AC 0
+Vdd_1 Vdd_1 0 DC 2.5 AC 0
+Vss_1 Vss_1 0 DC -2.5 AC 0
 
 Vin2_1 vinM1_1 0 DC 0 AC 0
 ////////////------////////////////////
@@ -48,28 +48,15 @@ MM7_C_1 Vss_1 vbiasM5_1 vout_1 Vss_1 nmosG L=1.6U W=4.8U AS=28.48P AD=18.304P PS
 MM7_D_1 vout_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4.8U AS=18.304P AD=28.48P PS=13.6U PD=17.467U
 
 Cl_1 vout_1 0 10p
-Cc_1 vout_1 drainM2_1 5.28e-13
+Cc_1 vout_1 drainM2_1 4.2239999999999995e-13
 ////////////------////////////////////
-*Circuito del multiplicador beta
-
-MMB1_A_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4U AS=32.267P AD=20.8P PS=20.8U PD=18.4U
-MMB1_B_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG L=1.6U W=4U AS=20.8P AD=32.267P PS=18.4U PD=20.8U
-MMB2_A_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=25.6P AD=41.8P PS=14.4U PD=26.2U
-MMB2_B_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=41.8P AD=25.6P PS=26.2U PD=14.4U
-MMB2_C_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=25.6P AD=41.8P PS=14.4U PD=26.2U
-MMB2_D_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG L=1.6U W=8U AS=41.8P AD=25.6P PS=26.2U PD=14.4U
-MMB3_A_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=32.267P PS=14.8U PD=20.8U
-MMB3_B_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=32.267P AD=26.4P PS=20.8U PD=14.8U
-MMB3_C_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=32.267P PS=14.8U PD=20.8U
-MMB3_D_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=32.267P AD=26.4P PS=20.8U PD=14.8U
-MMB4_A_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=41.8P AD=26.4P PS=26.2U PD=14.8U
-MMB4_B_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=41.8P PS=14.8U PD=26.2U
-MMB4_C_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=41.8P AD=26.4P PS=26.2U PD=14.8U
-MMB4_D_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG L=1.6U W=6U AS=26.4P AD=41.8P PS=14.8U PD=26.2U
-RBref_1 RBref_1 RBref2_1 4639.185118907534
+////////////------////////////////////
+*Circuito espejo ideal
+*Iref Espejo N de 0.00023231999999999997 Amps
+Iref_1 0 vbiasM5_1 DC 0.00023231999999999997 AC 0
+M8_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=3.2e-06 L=1.6e-06
 
 
-VRBref_1 RBref2_1 Vss_1 DC 0 AC 0
 ////////////------////////////////////
 
 *Fuente AC en vinM1_1
@@ -102,13 +89,26 @@ show all
 
 *Ganacia en AC barrido en frecuencia vout/vin AC
 ac dec 10 1 10ghz
-
+let av = v(vout_1)/v(vinm2_1)
 *Ganancia en decibeles
-plot db(mag(v(vout_1))/mag(v(vinm2_1)))
+plot db(av)
 *Ganancia en magnitud V/V
-*plot mag(v(vout_1))/mag(v(vinm2_1))
-*phase plot vout_1/vin
-plot ph(v(vout_1)/v(vinm2_1))*360/(2*pi)
+*plot mag(av)
+*phase plot
+plot ph(av)*360/(2*pi)
+
+*Phase margin
+meas ac freqzerodbs when vdb(av)=0 fall=LAST
+print freqzerodbs
+meas ac pmb find vp(av) when vdb(av)=0
+let phasemargin = 180+pmb*360/(2*pi)
+print phasemargin
+
+*Band width
+meas ac Gain MAX vdb(av) from=1 to=10ghz
+let gain3dbs = Gain-3
+print gain3dbs
+meas ac Bw when vdb(av)=gain3dbs fall=LAST
 
 *Transitorio
 tran .00001s .01s

@@ -9,7 +9,7 @@ Vss_1 Vss_1 0 DC -2.5 AC 0
 *Vin2_1 vinM2_1 0 DC 0 AC 0
 ////////////------////////////////////
 *Circuito del amplificador operacional de dos etapas
-M1_1 drainM1_1 vout_1 sourceM1_1 Vss_1 nmosG W=8e-06 L=1.6e-06
+M1_1 drainM1_1 vinM1_1 sourceM1_1 Vss_1 nmosG W=8e-06 L=1.6e-06
 M2_1 drainM2_1 vinM1_1 sourceM1_1 Vss_1 nmosG W=8e-06 L=1.6e-06
 
 M3_1 drainM1_1 drainM1_1 Vdd_1 Vdd_1 pmosG W=1.76e-05 L=1.6e-06
@@ -60,6 +60,6 @@ show all
 
 *Simulacion en DC vin vs vout y I(vdd_1) vs vin, para observar la rampa de operacion del amplificador
 dc vindc_1 -4 4 0.0001
-plot v(vout_1)
-plot i(vss_1)
+plot v(sourceM1_1)-v(vbiasM5_1)+0.7 v(vout_1)-v(vbiasM5_1)+0.7
+
 .endc

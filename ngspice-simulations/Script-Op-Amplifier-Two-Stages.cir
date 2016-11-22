@@ -29,7 +29,7 @@ Cc_1 vout_1 drainM2_1 4.2239999999999995e-13
 Iref_1 0 vbiasM5_1 DC 0.00023231999999999997 AC 0
 M8_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=3.2e-06 L=1.6e-06
 
-VRBref_1 RBref2_1 Vss_1 DC 0 AC 0
+
 ////////////------////////////////////
 
 *Fuente AC en vinM1_1
@@ -53,8 +53,8 @@ Vinac_1 vinM1_1 0 sin(0 0.0001 1k) dc=0 ac=0.0001
 + lambda = 0.05
 
 .control
-set temp = 0
-set tnom = 0
+set temp = 27
+set tnom = 27
 set color0 =white
 set color1=black
 op
