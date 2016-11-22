@@ -11,8 +11,8 @@ Vss_1 Vss_1 0 DC -2.5 AC 0
 *Circuito del amplificador operacional de dos etapas
 MM1_A_1 sourceM1_1 vout_1 drainM1_1 Vss_1 nmosG L=1.6U W=4U AS=22.773P AD=14.72P PS=19.2U PD=12.32U
 MM1_B_1 drainM1_1 vout_1 sourceM1_1 Vss_1 nmosG L=1.6U W=4U AS=14.72P AD=22.773P PS=12.32U PD=19.2U
-MM2_A_1 drainM2_1 vinM1_1 sourceM1_1 Vss_1 nmosG L=1.6U W=4U AS=14.72P AD=23.947P PS=12.32U PD=19.733U
-MM2_B_1 sourceM1_1 vinM1_1 drainM2_1 Vss_1 nmosG L=1.6U W=4U AS=23.947P AD=14.72P PS=19.733U PD=12.32U
+MM2_A_1 drainM2_1 vinM2_1 sourceM1_1 Vss_1 nmosG L=1.6U W=4U AS=14.72P AD=23.947P PS=12.32U PD=19.733U
+MM2_B_1 sourceM1_1 vinM2_1 drainM2_1 Vss_1 nmosG L=1.6U W=4U AS=23.947P AD=14.72P PS=19.733U PD=12.32U
 MM3_A_1 Vdd_1 drainM1_1 drainM1_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.773P AD=22.937P PS=19.2U PD=13.657U
 MM3_B_1 drainM1_1 drainM1_1 Vdd_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.937P AD=22.773P PS=13.657U PD=19.2U
 MM3_C_1 Vdd_1 drainM1_1 drainM1_1 Vdd_1 pmosG L=1.6U W=4.4U AS=22.773P AD=22.937P PS=19.2U PD=13.657U
@@ -72,7 +72,7 @@ VRBref_1 RBref2_1 Vss_1 DC 0 AC 0
 ////////////------////////////////////
 
 *Fuente AC en vinM1_1
-Vinac_1 vinM1_1 0 PULSE(0 20m 0 1ns 1ns 0.5s 1s)
+Vinac_1 vinM2_1 0 PULSE(0 20m 0 1ns 1ns 0.5s 1s)
 
 * Modelos para tecnología 0.8u < L < 200u 10u < W < 10000u  Vdd=2.5V (Allen)
 * lambda cambia de acuerdo con la longitud del canal
@@ -101,5 +101,5 @@ show all
 
 *Transitorio
 tran .000000001s .0000005s
-plot v(vout_1) v(vinm1_1)
+plot v(vout_1) v(vinm2_1)
 .endc
