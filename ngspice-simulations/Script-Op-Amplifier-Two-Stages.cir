@@ -3,8 +3,8 @@
 * CMOS Analógico
 * Grupo Jorge Garzón, Esteban Iafrancesco A
 
-Vdd_1 Vdd_1 0 DC 2.25 AC 0
-Vss_1 Vss_1 0 DC -2.25 AC 0
+Vdd_1 Vdd_1 0 DC 2.5 AC 0
+Vss_1 Vss_1 0 DC -2.5 AC 0
 
 Vin2_1 vinM2_1 0 DC 0 AC 0
 ////////////------////////////////////
