@@ -92,8 +92,8 @@ Vinac_1 vinM1_1 0 PULSE(0 20m 0 1ns 1ns 0.5s 1s)
 + lambda = 0.05
 
 .control
-set temp = 0
-set tnom = 0
+set temp = 27
+set tnom = 27
 set color0 =white
 set color1=black
 op

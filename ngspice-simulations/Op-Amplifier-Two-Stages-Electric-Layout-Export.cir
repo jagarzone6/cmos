@@ -93,8 +93,8 @@ Vinac_1 vinM1_1 0 sin(0 0.0001 1k) dc=0 ac=0.0001
 + lambda = 0.05
 
 .control
-set temp = 270
-set tnom = 270
+set temp = 27
+set tnom = 27
 set color0 =white
 set color1=black
 op

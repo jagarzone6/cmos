@@ -93,8 +93,8 @@ Vindc_1 vinM1_1 0 DC 0 AC 0
 + lambda = 0.05
 
 .control
-set temp = 0
-set tnom = 0
+set temp = 27
+set tnom = 27
 set color0 =white
 set color1=black
 op
