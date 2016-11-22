@@ -225,6 +225,18 @@ EdrainMB2_1||D5G3;X-9;|contact@24||B
 EvbiasM5_1||D5G3;Y4;|contact@25||B
 X
 
+# Cell Final-Op-Amplifier-Two-Stages-with-Beta-multiplier;1{lay}
+CFinal-Op-Amplifier-Two-Stages-with-Beta-multiplier;1{lay}||mocmos|1479783572487|1479783698167||DRC_last_good_drc_area_date()G1479783726856|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1479783726856
+IBeta-multiplier;1{lay}|Beta-mul@0||-60|0|||D5G4;
+IOp-Amp-Tow-Stages;1{lay}|Op-Amp-T@0||135|-20|||D5G4;
+Ngeneric:Facet-Center|art@0||0|0||||AV
+NMetal-1-Metal-2-Con|contact@0||74|-80||||
+NMetal-2-Pin|pin@0||-93|-80||||
+AMetal-2|net@0||1|S900|Beta-mul@0|vbiasM5_1|-93|-5|pin@0||-93|-80
+AMetal-2|net@1||1|S1800|pin@0||-93|-80|contact@0||74|-80
+AMetal-1|net@2||1|S900|Op-Amp-T@0|vbiasM5_1|74|-71|contact@0||74|-80
+X
+
 # Cell Op-Amp-Tow-Stages;1{lay}
 COp-Amp-Tow-Stages;1{lay}||mocmos|1479741242281|1479767203127||DRC_last_good_drc_area_date()G1479767210678|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1479767210678
 NN-Transistor|M1_A_1|D5G3;|-82|4|2||R||SIM_spice_model(D5G3;X3;Y-1;)SnmosG
