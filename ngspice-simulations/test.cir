@@ -91,7 +91,16 @@ pz vin 0 out 0 vol pz
 .endc
 
 
-"*Circuito espejo ideal"+"\n"+\
-"*Iref Espejo N de "+str(I5)+" Amps"+"\n"+\
-"*Iref_1 0 vbiasM5_1 DC "+str(I5)+" AC 0"+"\n"+\
-"*M8_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W="+str(W5)+" L="+str(L)+"\n"+\
+    "*Circuito espejo ideal"+"\n"+\
+    "*Iref Espejo N de "+str(I5)+" Amps"+"\n"+\
+    "*Iref_1 0 vbiasM5_1 DC "+str(I5)+" AC 0"+"\n"+\
+    "*M8_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W="+str(W5)+" L="+str(L)+"\n"+\
+
+    "*Circuito del multiplicador beta"+"\n"+\
+    "MB1_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=8u L=1.6u"+"\n"+\
+    "MB2_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG W=32u L=1.6u"+"\n"+\
+    "RBref_1 RBref_1 RBref2_1 "+str(Rbias)+"\n"+\
+    "MB3_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG W=24u L=1.6u"+"\n"+\
+    "MB4_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG W=24u L=1.6u"+"\n"+\
+    "\n"+\
+    "VRBref_1 RBref2_1 Vss_1 DC 0 AC 0"+"\n"+\

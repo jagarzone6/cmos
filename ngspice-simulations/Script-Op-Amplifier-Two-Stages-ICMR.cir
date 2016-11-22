@@ -22,16 +22,12 @@ M6_1 vout_1 drainM2_1 Vdd_1 Vdd_1 pmosG W=0.00015999999999999999 L=1.6e-06
 M7_1 vout_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=1.92e-05 L=1.6e-06
 
 Cl_1 vout_1 0 10p
-Cc_1 vout_1 drainM2_1 5.28e-13
+Cc_1 vout_1 drainM2_1 8.095999999999999e-13
 ////////////------////////////////////
-*Circuito del multiplicador beta
-MB1_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=8u L=1.6u
-MB2_1 drainMB2_1 vbiasM5_1 RBref_1 Vss_1 nmosG W=32u L=1.6u
-RBref_1 RBref_1 RBref2_1 4639.185118907534
-MB3_1 vbiasM5_1 drainMB2_1 Vdd_1 Vdd_1 pmosG W=24u L=1.6u
-MB4_1 drainMB2_1 drainMB2_1 Vdd_1 Vdd_1 pmosG W=24u L=1.6u
-
-VRBref_1 RBref2_1 Vss_1 DC 0 AC 0
+*Circuito espejo ideal
+*Iref Espejo N de 4.857599999999999e-05 Amps
+Iref_1 0 vbiasM5_1 DC 4.857599999999999e-05 AC 0
+M8_1 vbiasM5_1 vbiasM5_1 Vss_1 Vss_1 nmosG W=3.2e-06 L=1.6e-06
 ////////////------////////////////////
 
 *Fuente DC en vinM1_1
