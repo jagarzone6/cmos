@@ -57,3 +57,59 @@ m6_20_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=22.937P AD=28.48P PS=13.657U
 * condensadores
 Cc_1 vod_1 vo_1 4.2239999999999995e-13
 Cl_1 vo_1 0 10p
+
+
+
+* modelos para tecnología 0.8u < l < 200u 10u < w < 10000u  Vdd=2.5V (Allen)
+* lambda cambia de acuerdo con la longitud del canal
+* nmOS: lambda=0.04 para l=1u y lambda=0.01 para l=2u
+* pmOS: lambda=0.05 para l=1u y lambda=0.01 para l=2u
+
+.model nmosg nmos level=2
++ vto = 0.7 kp = 110e-6 gamma = 0.4 phi = 0.7
++ tox = 14e-9 cj = 770e-6 cjsw = 380e-12 mj = 0.5 mjsw = 0.38
++ cgso = 220e-12 cgdo = 220e-12 cgbo = 700e-12
++ lambda = 0.04
+
+.model pmosg pmos level=2
++ vto = -0.7 kp = 50e-6 gamma = 0.57 phi = 0.8
++ tox = 14e-9 cj = 560e-6 cjsw = 350e-12 mj = 0.5 mjsw = 0.35
++ cgso = 220e-12 cgdo = 220e-12 cgbo = 700e-12
++ lambda = 0.05
+
+.control
+set temp = 27
+set tnom = 27
+set color0 =white
+set color1=black
+op
+show all
+
+*Ganacia en AC barrido en frecuencia vout/vin AC
+ac dec 10 1 10ghz
+let av = v(vo_1)/v(vin_1)
+*Ganancia en decibeles
+plot db(av)
+*Ganancia en magnitud V/V
+*plot mag(av)
+*phase plot
+plot ph(av)*360/(2*pi)-180
+
+*Phase margin
+meas ac freqzerodbs when vdb(av)=0 fall=lAST
+print freqzerodbs
+meas ac pmb find vp(av) when vdb(av)=0
+let phasemargin = pmb*360/(2*pi)
+print phasemargin
+
+*Band width
+meas ac Gain mAX vdb(av) from=1 to=10ghz
+let gain3dbs = Gain-3
+print gain3dbs
+meas ac Bw when vdb(av)=gain3dbs fall=lAST
+
+*Transitorio
+tran .00001s .01s
+*Potencia discipada en el circuito (vdd_1-vss_1)*Itotal
+plot v(vdd_1,vss_1)*vss_1#branch
+.endc
