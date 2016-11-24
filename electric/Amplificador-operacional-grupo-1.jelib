@@ -1,5 +1,5 @@
 # header information:
-HOp-Amplifier-Two_Stages-Final|9.06
+HAmplificador-operacional-grupo-1|9.06
 
 # Views:
 Vlayout|lay
@@ -7,14 +7,8 @@ Vlayout|lay
 # Technologies:
 Tmocmos|ScaleFORmocmos()D800.0
 
-# Cell Final-Op-Amplifier-Two-Stages-with-Beta-multiplier;1{lay}
-CFinal-Op-Amplifier-Two-Stages-with-Beta-multiplier;1{lay}||mocmos|1479783572487|1479854612327||DRC_last_good_drc_area_date()G1479783726856|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1479783726856
-IOp-Amp-Tow-Stages;1{lay}|Op-Amp-T@0||135|-20|||D5G4;
-Ngeneric:Facet-Center|art@0||0|0||||AV
-X
-
 # Cell Op-Amp-Tow-Stages;1{lay}
-COp-Amp-Tow-Stages;1{lay}||mocmos|1479741242281|1479857269729||DRC_last_good_drc_area_date()G1479857272153|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1479857272153
+COp-Amp-Tow-Stages;1{lay}||mocmos|1479741242281|1479954041493||DRC_last_good_drc_area_date()G1479857272153|DRC_last_good_drc_bit()I18|DRC_last_good_drc_date()G1479857272153
 NN-Transistor|M1_A_1|D5G3;|-91|28|2||R||SIM_spice_model(D5G3;X3;Y-1;)SnmosG
 NN-Transistor|M1_B_1|D5G3;|-81|2|2||R||SIM_spice_model(D5G3;X3;Y-1;)SnmosG
 NN-Transistor|M2_A_1|D5G3;|-81|28|2||R||SIM_spice_model(D5G3;X3;Y-1;)SnmosG
@@ -146,7 +140,6 @@ NMetal-1-Pin|pin@43||-116|39|||X|
 NMetal-1-Pin|pin@44||-87|39|||X|
 NMetal-1-Pin|pin@45||-113|39|||X|
 NMetal-2-Pin|pin@46||-64|69||||
-Ngeneric:Invisible-Pin|pin@47||-157|82|||||SIM_spice_card(D5G3;)S[Vdd_1 Vdd_1 0 2.5,Vss_1 Vss_1 0 -2.5]
 NPolysilicon-1-Pin|pin@48||-91|38||||
 NPolysilicon-1-Pin|pin@49||-104|38||||
 NPolysilicon-1-Pin|pin@50||-104|-7||||
