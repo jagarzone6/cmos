@@ -1,0 +1,102 @@
+** OpAmp_1: P, Av, f3dB, GB y PM
+** Potencia disipada, ganancia, f3dB, GB y PM
+
+********* Pegar el circuito y borrar las fuentes de señal
+* Fuentes de alimentación
+
+vdd_1	vdd_1	0	dc	2.5
+vss_1	vss_1	0	dc	-2.5
+i1_1	vdd_1	vg8_1	dc 0.00023231999999999997
+
+* Fuentes de corriente
+m8_1 vg8_1 vg8_1 vss_1 vss_1 nmosg w=3.2e-06 l=1.6e-06
+m5_1 vs_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=3.2U AS=14.72P AD=18.304P PS=12.32U PD=13.6U
+m7_A_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=4.8U AS=18.304P AD=28.48P PS=13.6U PD=17.467U
+m7_B_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=4.8U AS=28.48P AD=18.304P PS=17.467U PD=13.6U
+m7_C_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=4.8U AS=28.48P AD=18.304P PS=17.467U PD=13.6U
+m7_D_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=4.8U AS=18.304P AD=28.48P PS=13.6U PD=17.467U
+
+* Par diferencial
+m3_A_1 vg3_1 vg3_1 vdd_1 vdd_1 pmosg l=1.6U w=4.4U AS=22.773P AD=22.937P PS=19.2U PD=13.657U
+m3_B_1 vg3_1 vg3_1 vdd_1 vdd_1 pmosg l=1.6U w=4.4U AS=22.937P AD=22.773P PS=13.657U PD=19.2U
+m3_C_1 vg3_1 vg3_1 vdd_1 vdd_1 pmosg l=1.6U w=4.4U AS=22.773P AD=22.937P PS=19.2U PD=13.657U
+m3_D_1 vg3_1 vg3_1 vdd_1 vdd_1 pmosg l=1.6U w=4.4U AS=22.937P AD=22.773P PS=13.657U PD=19.2U
+m4_A_1 vod_1 vg3_1 vdd_1 vdd_1 pmosg l=1.6U w=4.4U AS=22.937P AD=23.947P PS=13.657U PD=19.733U
+m4_B_1 vod_1 vg3_1 vdd_1 vdd_1 pmosg l=1.6U w=4.4U AS=23.947P AD=22.937P PS=19.733U PD=13.657U
+m4_C_1 vod_1 vg3_1 vdd_1 vdd_1 pmosg l=1.6U w=4.4U AS=22.937P AD=23.947P PS=13.657U PD=19.733U
+m4_D_1 vod_1 vg3_1 vdd_1 vdd_1 pmosg l=1.6U w=4.4U AS=23.947P AD=22.937P PS=19.733U PD=13.657U
+m1_A_1 vg3_1 vin_1 vs_1 vss_1 nmosg l=1.6U w=4U AS=22.773P AD=14.72P PS=19.2U PD=12.32U
+m1_B_1 vg3_1 vin_1 vs_1 vss_1 nmosg l=1.6U w=4U AS=14.72P AD=22.773P PS=12.32U PD=19.2U
+m2_A_1 vod_1 vip_1 vs_1 vss_1 nmosg l=1.6U w=4U AS=14.72P AD=23.947P PS=12.32U PD=19.733U
+m2_B_1 vod_1 vip_1 vs_1 vss_1 nmosg l=1.6U w=4U AS=23.947P AD=14.72P PS=19.733U PD=12.32U
+
+* Etapa de salida
+m6_1_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+m6_2_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+m6_3_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+m6_4_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+m6_5_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+m6_6_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+m6_7_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+m6_8_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+m6_9_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+m6_10_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+m6_11_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+m6_12_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+m6_13_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+m6_14_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+m6_15_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+m6_16_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+m6_17_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+m6_18_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+m6_19_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=28.48P AD=22.937P PS=17.467U PD=13.657U
+m6_20_1 vo_1 vod_1 vdd_1 vdd_1 pmosg l=1.6U w=8U AS=22.937P AD=28.48P PS=13.657U PD=17.467U
+
+* condensadores
+Cc_1 vod_1 vo_1 4.2239999999999995e-13
+Cl_1 vo_1 0 10p
+
+*********
+
+* Fuentes de señal - open loop
+vip_1	vip_1	0	dc	0	ac	0.5	180 sin(-14.55u 67.27u 1k)
+vin_1	vin_1	0	dc	0	ac	0.5	
+
+
+.model nmosg nmos level=2
++ vto = 0.7	kp = 110e-6	gamma = 0.4	phi = 0.7
++ tox = 14e-9	cj = 770e-6	cjsw = 380e-12	mj = 0.5	mjsw = 0.38
++ cgso = 220e-12	cgdo = 220e-12	cgbo = 700e-12
++ lambda = 0.01
+
+.model pmosg pmos level=2
++ vto = -0.7	kp = 50e-6	gamma = 0.57	phi = 0.8
++ tox = 14e-9	cj = 560e-6	cjsw = 350e-12	mj = 0.5	mjsw = 0.35
++ cgso = 220e-12	cgdo = 220e-12	cgbo = 700e-12
++ lambda = 0.01
+
+.control
+echo "***********************************************************"
+echo "******** Aquí comienza respuesta medidas 1 grupo 1 ********"
+echo "***********************************************************"
+set color0=white
+set color1=black
+op
+print vo_1
+show m1_a_1 m2_a_1
+show m3_a_1 m4_a_1
+show m6_1_1 m7_a_1
+let p_total_1 = abs(v(vdd_1)*i(vdd_1))+abs(v(vss_1)*i(vss_1))
+print p_total_1
+ac dec 100 1 100g
+let vsalida_1 = db(v(vo_1))
+let phi_salida_1 = ph(v(vo_1))*180/3.14159
+plot vsalida_1
+plot phi_salida_1
+meas ac av_1 find vsalida_1 at=1
+let av_3db_1 = av_1 -3
+meas ac f3db_1 when vsalida_1=av_3db_1
+meas ac gb_1 when vsalida_1=0
+meas ac pm_1 find phi_salida_1 at=gb_1
+
+.endc
