@@ -7,8 +7,9 @@ vss_1	vss_1	0	dc	-2.5
 i1_1	vdd_1	vg8_1	dc 0.00023231999999999997
 
 * Fuentes de señal - open loop
-vip_1	vip_1	0	dc	0	ac	0.5	180
-vin_1	vin_1	0	dc	0	ac	0.5
+
+vip_1	vip_1	0	PULSE(-1.8 2 0 1ns 1ns 0.5s 1s)
+*vin_1	vin_1	0	dc	0	ac	0.5
 
 * Fuentes de corriente
 m8_1 vg8_1 vg8_1 vss_1 vss_1 nmosg w=3.2e-06 l=1.6e-06
@@ -27,8 +28,8 @@ m4_A_1 vod_1 vg3_1 vdd_1 vdd_1 pmosg l=1.6U w=4.4U AS=22.937P AD=23.947P PS=13.6
 m4_B_1 vdd_1 vg3_1 vod_1 vdd_1 pmosg l=1.6U w=4.4U AS=23.947P AD=22.937P PS=19.733U PD=13.657U
 m4_C_1 vod_1 vg3_1 vdd_1 vdd_1 pmosg l=1.6U w=4.4U AS=22.937P AD=23.947P PS=13.657U PD=19.733U
 m4_D_1 vdd_1 vg3_1 vod_1 vdd_1 pmosg l=1.6U w=4.4U AS=23.947P AD=22.937P PS=19.733U PD=13.657U
-m1_A_1 vs_1 vin_1 vg3_1 vss_1 nmosg l=1.6U w=4U AS=22.773P AD=14.72P PS=19.2U PD=12.32U
-m1_B_1 vg3_1 vin_1 vs_1 vss_1 nmosg l=1.6U w=4U AS=14.72P AD=22.773P PS=12.32U PD=19.2U
+m1_A_1 vs_1 vo_1 vg3_1 vss_1 nmosg l=1.6U w=4U AS=22.773P AD=14.72P PS=19.2U PD=12.32U
+m1_B_1 vg3_1 vo_1 vs_1 vss_1 nmosg l=1.6U w=4U AS=14.72P AD=22.773P PS=12.32U PD=19.2U
 m2_A_1 vod_1 vip_1 vs_1 vss_1 nmosg l=1.6U w=4U AS=14.72P AD=23.947P PS=12.32U PD=19.733U
 m2_B_1 vs_1 vip_1 vod_1 vss_1 nmosg l=1.6U w=4U AS=23.947P AD=14.72P PS=19.733U PD=12.32U
 
@@ -85,31 +86,7 @@ set color1=black
 op
 show all
 
-*Ganacia en AC barrido en frecuencia vout/vin AC
-ac dec 10 1 10ghz
-let av = v(vo_1)/v(vin_1)
-*Ganancia en decibeles
-plot db(av)
-*Ganancia en magnitud V/V
-*plot mag(av)
-*phase plot
-plot ph(av)*360/(2*pi)
-
-*Phase margin
-meas ac freqzerodbs when vdb(av)=0 fall=lAST
-print freqzerodbs
-meas ac pmb find vp(av) when vdb(av)=0
-let phasemargin = pmb*360/(2*pi)
-print phasemargin
-
-*Band width
-meas ac Gain mAX vdb(av) from=1 to=10ghz
-let gain3dbs = Gain-3
-print gain3dbs
-meas ac Bw when vdb(av)=gain3dbs fall=lAST
-
 *Transitorio
-tran .00001s .01s
-*Potencia discipada en el circuito (vdd_1-vss_1)*Itotal
-plot v(vdd_1,vss_1)*vss_1#branch
+tran .000000001s .0000005s
+plot v(vo_1) v(vip_1)
 .endc
