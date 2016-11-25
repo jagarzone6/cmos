@@ -11,10 +11,10 @@ i1_1	vdd_1	vg8_1	dc 0.00023231999999999997
 * Fuentes de corriente
 m8_1 vg8_1 vg8_1 vss_1 vss_1 nmosg w=3.2e-06 l=1.6e-06
 m5_1 vs_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=3.2U AS=14.72P AD=18.304P PS=12.32U PD=13.6U
-m7_A_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=3.38U AS=18.304P AD=28.48P PS=13.6U PD=17.467U
-m7_B_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=3.38U AS=28.48P AD=18.304P PS=17.467U PD=13.6U
-m7_C_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=3.38U AS=28.48P AD=18.304P PS=17.467U PD=13.6U
-m7_D_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=3.38U AS=18.304P AD=28.48P PS=13.6U PD=17.467U
+m7_A_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=3.35U AS=18.304P AD=28.48P PS=13.6U PD=17.467U
+m7_B_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=3.35U AS=28.48P AD=18.304P PS=17.467U PD=13.6U
+m7_C_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=3.35U AS=28.48P AD=18.304P PS=17.467U PD=13.6U
+m7_D_1 vo_1 vg8_1 vss_1 vss_1 nmosg l=1.6U w=3.35U AS=18.304P AD=28.48P PS=13.6U PD=17.467U
 
 * Par diferencial
 m3_A_1 vg3_1 vg3_1 vdd_1 vdd_1 pmosg l=1.6U w=4.4U AS=22.773P AD=22.937P PS=19.2U PD=13.657U
