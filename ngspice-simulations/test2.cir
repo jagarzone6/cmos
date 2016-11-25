@@ -62,20 +62,20 @@ Cl_1 vo_1 0 10p
 
 * modelos para tecnología 0.8u < l < 200u 10u < w < 10000u  Vdd=2.5V (Allen)
 * lambda cambia de acuerdo con la longitud del canal
-* nmOS: lambda=0.01 para l=1u y lambda=0.01 para l=2u
-* pmOS: lambda=0.01 para l=1u y lambda=0.01 para l=2u
+* nmOS: lambda=0.04 para l=1u y lambda=0.01 para l=2u
+* pmOS: lambda=0.05 para l=1u y lambda=0.01 para l=2u
 
 .model nmosg nmos level=2
 + vto = 0.7 kp = 110e-6 gamma = 0.4 phi = 0.7
 + tox = 14e-9 cj = 770e-6 cjsw = 380e-12 mj = 0.5 mjsw = 0.38
 + cgso = 220e-12 cgdo = 220e-12 cgbo = 700e-12
-+ lambda = 0.04
++ lambda = 0.01
 
 .model pmosg pmos level=2
 + vto = -0.7 kp = 50e-6 gamma = 0.57 phi = 0.8
 + tox = 14e-9 cj = 560e-6 cjsw = 350e-12 mj = 0.5 mjsw = 0.35
 + cgso = 220e-12 cgdo = 220e-12 cgbo = 700e-12
-+ lambda = 0.05
++ lambda = 0.01
 
 .control
 set temp = 27
@@ -93,7 +93,7 @@ plot db(av)
 *Ganancia en magnitud V/V
 *plot mag(av)
 *phase plot
-plot ph(av)*360/(2*pi)-180
+plot ph(av)*360/(2*pi)
 
 *Phase margin
 meas ac freqzerodbs when vdb(av)=0 fall=lAST
