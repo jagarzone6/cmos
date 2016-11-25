@@ -101,7 +101,7 @@ plot ph(av)*360/(2*pi)
 meas ac freqzerodbs when vdb(av)=0 fall=LAST
 print freqzerodbs
 meas ac pmb find vp(av) when vdb(av)=0
-let phasemargin = 180+pmb*360/(2*pi)
+let phasemargin = pmb*360/(2*pi)
 print phasemargin
 
 *Band width
