@@ -62,8 +62,8 @@ Cl_1 vo_1 0 10p
 
 * modelos para tecnología 0.8u < l < 200u 10u < w < 10000u  Vdd=2.5V (Allen)
 * lambda cambia de acuerdo con la longitud del canal
-* nmOS: lambda=0.04 para l=1u y lambda=0.01 para l=2u
-* pmOS: lambda=0.05 para l=1u y lambda=0.01 para l=2u
+* nmOS: lambda=0.01 para l=1u y lambda=0.01 para l=2u
+* pmOS: lambda=0.01 para l=1u y lambda=0.01 para l=2u
 
 .model nmosg nmos level=2
 + vto = 0.7 kp = 110e-6 gamma = 0.4 phi = 0.7
